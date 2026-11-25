@@ -376,6 +376,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#modos-de-importacion-y-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modos de importación y diagnóstico
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -900,6 +911,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#modos-de-importacion-y-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modos de importación y diagnóstico
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -961,6 +983,91 @@ python<span class="w"> </span>-m<span class="w"> </span>pytest
 <div class="highlight"><pre><span></span><code> <span class="n">decub</span> <span class="n">import</span> <span class="n">hulc</span> <span class="p">-</span><span class="o">-file</span> <span class="s2">"data/hulc/example.xlsm"</span> <span class="p">-</span><span class="n">-study-area</span> <span class="n">area-demo</span> <span class="p">-</span><span class="n">-urban-block</span> <span class="nb">block-demo</span> <span class="p">-</span><span class="n">-building</span> <span class="n">building-demo</span> <span class="p">-</span><span class="n">-construction-aliases</span> <span class="s2">"data/hulc/construction_aliases.json"</span> <span class="p">-</span><span class="n">-dry-run</span>
 </code></pre></div>
 <p>Las claves y destinos se normalizan igual que los nombres del libro. Se rechazan claves desconocidas, destinos inexistentes, claves duplicadas tras normalización y sustituciones de coincidencias directas. El informe muestra las equivalencias aplicadas, el número de elementos afectados y las construcciones aún pendientes. Una equivalencia representa una decisión explícita del operador, no una comprobación de equivalencia física realizada por el programa. Revisar las composiciones y sus fuentes antes de confirmar <code>--apply</code> con la misma configuración. Los nombres originales, registros fuente y configuraciones se conservan. Las equivalencias se aplican exclusivamente a cerramientos opacos, no a ventanas. Una configuración distinta de equivalencias efectivas genera una versión de modelo distinta, sin cambiar la identidad del edificio ni de la serie; repetir una configuración ya importada no duplica el modelo. Mantener los JSON reales en el directorio privado <code>data/</code>.</p>
+<h2 id="modos-de-importacion-y-diagnostico">Modos de importación y diagnóstico</h2>
+<p>Los adaptadores <code>decub import catalog</code> y <code>decub import hulc</code> requieren exactamente uno de estos modos:</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Lee y valida el libro</th>
+<th>Consulta PostgreSQL</th>
+<th>Persiste cambios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--validate-only</code></td>
+<td>Sí</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Sí</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>--apply</code></td>
+<td>Sí</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<p>La validación local revisa el formato admitido, las mediciones, los identificadores y las equivalencias aplicables. Devuelve <code>status: validated</code>, <code>database_checked: false</code> y recuentos del contenido del libro; no son previsiones de inserciones. No puede detectar conflictos con identidades almacenadas, importaciones anteriores, restricciones dependientes de la base ni permisos. En el catálogo, <code>missing_materials</code> y <code>conflicts</code> son <code>null</code> en este modo porque no se han consultado. Las hipótesis constructivas siguen requiriendo confirmación científica.</p>
+<div class="highlight"><pre><span></span><code><span class="n">decub</span> <span class="n">import</span> <span class="n">catalog</span> <span class="p">-</span><span class="o">-file</span> <span class="s2">"data/reference/catalog.xlsx"</span> <span class="p">-</span><span class="n">-validate-only</span>
+<span class="n">decub</span> <span class="n">import</span> <span class="n">hulc</span> <span class="p">-</span><span class="o">-file</span> <span class="s2">"data/hulc/example.xlsm"</span> <span class="p">-</span><span class="n">-study-area</span> <span class="n">area-demo</span> <span class="p">-</span><span class="n">-urban-block</span> <span class="nb">block-demo</span> <span class="p">-</span><span class="n">-building</span> <span class="n">building-demo</span> <span class="p">-</span><span class="n">-validate-only</span>
+</code></pre></div>
+<p>El modo <code>--dry-run</code> requiere conexión y ejecuta una transacción de solo lectura. Si reconoce una configuración ya importada, devuelve <code>already_imported</code>; no valida nuevamente todas las restricciones de una inserción nueva. El modo <code>--apply</code> conserva la atomicidad: todas las escrituras, registros de procedencia y marca de importación completada pertenecen a una única transacción. No hay commits parciales por lote.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Libro y configuración local] --&gt; B[Lectura y normalización]
+    B --&gt; C{Modo}
+    C --&gt;|validate-only| D[Informe local]
+    C --&gt;|dry-run| E[Consulta de identidades y versiones]
+    C --&gt;|apply| F[Bloqueo transaccional y consulta]
+    E --&gt; G[Informe de simulación]
+    F --&gt; H[Inserciones por lotes ordenados]
+    H --&gt; I{Restricciones y commit}
+    I --&gt;|Correcto| J[Informe aplicado]
+    I --&gt;|Error| K[Rollback]</code></pre>
+<p>El diagrama representa dependencias lógicas; los modos con PostgreSQL comprueban la conexión antes de leer el libro. Los mensajes de progreso se envían a stderr y se vacían inmediatamente; los intervalos de filas indican el lote que se está procesando, todavía sin confirmar. Los tiempos son observaciones de la ejecución local, no mediciones científicas. Stdout conserva exclusivamente el informe JSON al finalizar correctamente.</p>
+<table>
+<thead>
+<tr>
+<th>Opción común</th>
+<th style="text-align: right;">Valor predeterminado</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--batch-size</code></td>
+<td style="text-align: right;">250</td>
+<td>Filas por lote, entre 1 y 1000. No altera la identidad ni el hash del modelo.</td>
+</tr>
+<tr>
+<td><code>--connect-timeout</code></td>
+<td style="text-align: right;">15 s</td>
+<td>Límite de conexión libpq por destino, 0 sin límite explícito; sustituye el valor de conexión para esta importación.</td>
+</tr>
+<tr>
+<td><code>--lock-timeout</code></td>
+<td style="text-align: right;">60 s</td>
+<td>Límite de espera por cada adquisición de bloqueo, de 0 a 3600 s; 0 lo desactiva. Solo en la transacción de importación.</td>
+</tr>
+<tr>
+<td><code>--quiet</code></td>
+<td style="text-align: right;">No</td>
+<td>Suprime progreso, no errores ni informe JSON.</td>
+</tr>
+</tbody>
+</table>
+<p>Los límites de conexión y bloqueo no son un límite total de ejecución. El tiempo de las consultas puede depender del servidor, los triggers, el volumen y la latencia. Los errores identifican la fase, validaciones controladas o categoría SQLSTATE sin mostrar SQL, parámetros ni excepciones arbitrarias del driver. Ante un error de conexión durante el commit, comprobar el estado de la importación antes de reintentar: no se puede garantizar desde el cliente que el servidor no haya confirmado.</p>
+<div class="highlight"><pre><span></span><code><span class="n">decub</span> <span class="n">import</span> <span class="n">catalog</span> <span class="p">-</span><span class="o">-file</span> <span class="s2">"data/reference/catalog.xlsx"</span> <span class="p">-</span><span class="n">-dry-run</span> <span class="p">-</span><span class="n">-connect-timeout</span> <span class="n">30</span>
+<span class="n">decub</span> <span class="n">import</span> <span class="n">hulc</span> <span class="p">-</span><span class="o">-file</span> <span class="s2">"data/hulc/example.xlsm"</span> <span class="p">-</span><span class="n">-study-area</span> <span class="n">area-demo</span> <span class="p">-</span><span class="n">-urban-block</span> <span class="nb">block-demo</span> <span class="p">-</span><span class="n">-building</span> <span class="n">building-demo</span> <span class="p">-</span><span class="n">-apply</span> <span class="p">-</span><span class="n">-batch-size</span> <span class="n">250</span> <span class="p">-</span><span class="n">-lock-timeout</span> <span class="n">120</span>
+</code></pre></div>
+<p>No se modifica la base por cambiar el tamaño de lote. No reimportar un modelo ya existente para medir el rendimiento: la ruta idempotente omite las escrituras. Utilizar una base de pruebas aislada con datos sintéticos para medir cargas nuevas.</p>
 
 
 

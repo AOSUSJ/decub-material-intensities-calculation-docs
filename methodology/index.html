@@ -1010,7 +1010,8 @@ building inventories, derived intensity tables or calculation hypotheses.</p>
     E --&gt; F[Source records]
     E --&gt; G[Versioned catalog]</code></pre>
 <p>Run from the repository root with a configured database connection:</p>
-<div class="highlight"><pre><span></span><code>decub<span class="w"> </span>import<span class="w"> </span>catalog<span class="w"> </span>--file<span class="w"> </span><span class="s2">"data/reference/catalog.xlsx"</span><span class="w"> </span>--dry-run
+<div class="highlight"><pre><span></span><code>decub<span class="w"> </span>import<span class="w"> </span>catalog<span class="w"> </span>--file<span class="w"> </span><span class="s2">"data/reference/catalog.xlsx"</span><span class="w"> </span>--validate-only
+decub<span class="w"> </span>import<span class="w"> </span>catalog<span class="w"> </span>--file<span class="w"> </span><span class="s2">"data/reference/catalog.xlsx"</span><span class="w"> </span>--dry-run
 decub<span class="w"> </span>import<span class="w"> </span>catalog<span class="w"> </span>--file<span class="w"> </span><span class="s2">"data/reference/catalog.xlsx"</span><span class="w"> </span>--apply
 </code></pre></div>
 <p>A preview reads the target database but makes no writes. Review warnings,
@@ -1043,6 +1044,7 @@ summary (kg/m3); nonnumeric densities are rejected. Missing densities are not ze
 The initial adapter supports the observed fixed worksheet layout (including the
 category list and typology grid); changed layouts require review and adaptation.
 The preview is advisory, and apply recalculates the comparison in its transaction.</p>
+<p>La opción <code>--validate-only</code> comprueba el libro y las equivalencias locales sin conexión; no sustituye a la comparación contra las identidades almacenadas mediante <code>--dry-run</code>. El tamaño de lote y las opciones de progreso no forman parte de las decisiones científicas ni de la versión del catálogo.</p>
 
 
 

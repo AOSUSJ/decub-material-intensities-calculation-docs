@@ -726,6 +726,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Integración PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacion-del-rendimiento-de-importacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validación del rendimiento de importación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -796,6 +813,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Integración PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacion-del-rendimiento-de-importacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validación del rendimiento de importación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -842,6 +876,8 @@ zensical<span class="w"> </span>build<span class="w"> </span>--clean<span class=
 <h2 id="integracion-postgresql">Integración PostgreSQL</h2>
 <p>CI ejecuta una matriz de PostgreSQL 14 y 16 con Python 3.12. Cada versión dispone de su propio servicio desechable y ejecuta las mismas comprobaciones, incluidas las migraciones, las pruebas de integración y el ciclo de reversión/reaplicación. Ambos trabajos deben superar las pruebas antes del despliegue. Una versión fallida no cancela la comprobación de la otra. La matriz no utiliza credenciales ni conexiones de producción. Las imágenes oficiales siguen las actualizaciones menores de cada versión mayor.</p>
 <p>Las pruebas <code>tests/test_postgres_integrity.py</code> se omiten por defecto. Para ejecutarlas se requiere una instancia aislada con base <code>decub_test</code>, migraciones aplicadas y <code>DECUB_TEST_DATABASE_URL</code> configurada explícitamente. Cada prueba realiza rollback de sus registros sintéticos; las secuencias pueden avanzar. La comprobación CI ejecuta además <code>alembic downgrade base</code> y reaplica las revisiones sobre su servicio desechable. Nunca ejecutar esa reversión contra un servidor de producción. Los triggers se prueban mediante inserciones y actualizaciones, no solo por introspección de metadatos.</p>
+<h3 id="validacion-del-rendimiento-de-importacion">Validación del rendimiento de importación</h3>
+<p>Las pruebas de integración comparan cargas sintéticas equivalentes con tamaños de lote 1 y 10 sobre la misma base aislada, usando un savepoint para deshacer la primera carga. Se cuenta el número de ejecuciones SQL observadas por SQLAlchemy/DBAPI, no se impone un umbral de tiempo dependiente del equipo. También se comprueba la correspondencia entre registros fuente e identificadores, la ausencia de duplicación y el rollback tras una infracción de integridad en un lote posterior. La mejora de tiempo en una conexión remota debe medirse aparte.</p>
 
 
 

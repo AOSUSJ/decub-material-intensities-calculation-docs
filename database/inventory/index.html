@@ -769,6 +769,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Adaptador de inventario categorizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-por-lotes-y-trazabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escritura por lotes y trazabilidad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1317,6 +1334,23 @@
       </span>
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Adaptador de inventario categorizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-por-lotes-y-trazabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Escritura por lotes y trazabilidad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2648,6 +2682,9 @@
 <p>Los códigos de categoría originales se conservan en <code>elements.metadata.source_category</code>, sin asumir una equivalencia con los sistemas de clasificación del catálogo. Se vinculan únicamente construcciones opacas con coincidencia exacta de nombre normalizado. Las ventanas conservan sus propiedades, sin asignación automática de composiciones ni geometrías de marco o vidrio. Las partes se registran como <code>source_part</code> hasta interpretar su función. No se infieren plantas, superficies de referencia de edificio ni relaciones de contención.</p>
 <p>Las mediciones agregadas de cada parte se mantienen separadas de las superficies individuales. Los volúmenes cacheados de fórmulas con entradas ausentes se registran como desconocidos (<code>NULL</code>); los valores originales permanecen en <code>sources.source_records</code>. No sumar mediciones agregadas y cantidades individuales sin resolver solapamientos. Un volumen cacheado no equivale necesariamente a volumen sólido material. El informe de importación identifica construcciones sin correspondencia física de nombre y fórmulas con entradas ausentes.</p>
 <p>El importador permite resolver nombres de construcciones opacas sin coincidencia directa mediante equivalencias explícitas, confirmadas por el operador. La asociación se registra en <code>element_constructions</code>; el nombre original sigue en <code>opaque_properties.construction_name</code> y en el registro fuente. La configuración normalizada se conserva en <code>sources.imports.configuration</code> y forma parte de la identidad de la instantánea cuando contiene equivalencias. No se cambia la identidad del edificio ni se sustituyen coincidencias directas. Las ventanas y las correspondencias entre partes y materiales quedan fuera de esta operación. Véase <a href="../../getting-started/installation/#importacion-del-inventario-hulc">importación del inventario <abbr title="Herramienta Unificada LIDER-CALENER">HULC</abbr></a>.</p>
+<h3 id="escritura-por-lotes-y-trazabilidad">Escritura por lotes y trazabilidad</h3>
+<p>El importador agrupa registros fuente, versiones y partes constructivas, elementos, mediciones, subtipos y asociaciones según sus dependencias. Las claves existentes de composiciones y sus últimas versiones se consultan por grupos. Para las entidades que generan identificadores se solicita <code>RETURNING</code> con correlación explícita del orden de parámetros; no se infiere la correspondencia a partir de la continuidad de secuencias. Las relaciones dependientes se escriben después de recuperar los identificadores correspondientes.</p>
+<p>Las restricciones, triggers y bloqueo asesor transaccional se conservan. Los datos desconocidos, los nombres originales, la huella física y la configuración científica no cambian por elegir otro tamaño de lote. Toda la carga se confirma conjuntamente. La simulación sigue sin escribir registros.</p>
 
 
 

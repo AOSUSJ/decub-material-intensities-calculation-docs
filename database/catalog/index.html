@@ -551,6 +551,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#importacion-por-lotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Importación por lotes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -928,6 +939,17 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         <code>catalog.material_properties</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importacion-por-lotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Importación por lotes
       </span>
     </span>
   </a>
@@ -1421,6 +1443,9 @@
 - <code>uq_material_properties_id</code>: UNIQUE (id, material_id, property_type_id)</p>
 <p>La revisión <code>0005_results</code> añade la clave única de soporte (<code>id</code>, <code>material_id</code>) a <code>material_properties</code> para que <a href="../results/">resultados</a> compruebe que la propiedad referenciada pertenece al material cuantificado.</p>
 <p>La revisión <code>0006_integrity</code> añade controles de no NaN a <code>value</code>, <code>min_value</code>, <code>max_value</code> de <code>material_properties</code>, positividad cuando el tipo es <code>density</code>, dominio no vacío de sistemas de clasificación y compatibilidad de dominios en las asignaciones. Impide cambios de identidad semántica del dominio, sistema de versión, versión de nodo, código/unidad de tipo y tipo de propiedad. Comprueba ciclos en nodos, materiales y sucesiones de propiedades. Véase <a href="../integrity/">integridad</a>.</p>
+<h2 id="importacion-por-lotes">Importación por lotes</h2>
+<p>El adaptador de referencia agrupa los registros de origen y resuelve claves de referencias, materiales, alias y clasificaciones mediante consultas acotadas a las identidades relevantes. Las clasificaciones se resuelven por niveles: cada padre debe existir antes de crear sus hijos. Para densidades, se consulta la última propiedad del adaptador por material; las propiedades ajenas se mantienen intactas. Los cambios se escriben por lotes sin alterar las reglas de identidad o versionado.</p>
+<p>Los identificadores devueltos por las inserciones se correlacionan con las filas de entrada mediante <code>RETURNING</code> ordenado; no se presupone que sean consecutivos. Se conserva la procedencia de cada relación y la primera ocurrencia de claves repetidas. Se mantienen los controles de integridad y una sola transacción por importación.</p>
 
 
 
