@@ -1,0 +1,2305 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Building inventory methodology and infrastructure">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/database/results/">
+      
+      
+      
+      
+        <link rel="prev" href="../methodology/">
+      
+      
+        <link rel="next" href="../integrity/">
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Results - DECUB · Material inventory</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DECUB · Material inventory" class="md-header__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Material inventory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Results
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DECUB · Material inventory" class="md-nav__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Material inventory
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting started
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data imports
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Data imports
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reference catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HULC inventory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes and diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Database
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Database
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  General design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Physical inventory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Methodology
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Results
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Results
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grain-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grain and scope
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Data dictionary
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indicator_definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_definitions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_runs</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>run_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_values</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_quantities</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_totals</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_issues</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-schema-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cross-schema consistency
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statuses-and-unknown-quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Statuses and unknown quantities
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicators-and-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Indicators and coverage
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducibility-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibility and persistence
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribution-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contribution resolution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-and-result-sealing-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input and result sealing (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Integrity and versioning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scientific methodology
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualization
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  References
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grain-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Grain and scope
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Data dictionary
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indicator_definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_definitions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_runs</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>run_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_values</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_quantities</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_totals</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_issues</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-schema-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cross-schema consistency
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statuses-and-unknown-quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Statuses and unknown quantities
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicators-and-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Indicators and coverage
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducibility-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibility and persistence
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribution-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Contribution resolution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-and-result-sealing-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Input and result sealing (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="results-relational-model">Results — relational model</h1>
+<p>Revision <code>0005_results</code> implements seven tables for optional result persistence. The Python calculation engine and writing services are not yet implemented. PostgreSQL stores provenance and quantities; it does not execute scientific formulas.</p>
+<pre class="mermaid"><code>erDiagram
+    PROFILE_VERSIONS ||--o{ CALCULATION_RUNS : configures
+    MAPPING_VERSIONS o|--o{ CALCULATION_RUNS : interprets
+    CALCULATION_RUNS ||--o{ RUN_MODELS : scope
+    BUILDING_MODELS ||--o{ RUN_MODELS : included
+    RUN_MODELS ||--o{ MATERIAL_QUANTITIES : produces
+    RUN_MODELS ||--o{ MATERIAL_TOTALS : aggregates
+    RUN_MODELS ||--o{ INDICATOR_VALUES : computes
+    CALCULATION_RUNS ||--o{ CALCULATION_ISSUES : reports
+    INDICATOR_DEFINITIONS ||--o{ INDICATOR_VALUES : defines</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    E[Element and model] --&gt; Q[Material contribution]
+    C[Assembly and part] --&gt; Q
+    M[Mapping and assignment] --&gt; Q
+    D[Density and method] --&gt; Q
+    Q --&gt; T[Totals by model]
+    T --&gt; I[Indicators]
+    B[Building measurement] --&gt; I</code></pre>
+<h2 id="grain-and-scope">Grain and scope</h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Grain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calculation_runs</td>
+<td>One scientific run</td>
+</tr>
+<tr>
+<td>run_models</td>
+<td>One included model per run</td>
+</tr>
+<tr>
+<td>material_quantities</td>
+<td>One material contribution per run, according to its resolution</td>
+</tr>
+<tr>
+<td>material_totals</td>
+<td>One model and dimension combination per run</td>
+</tr>
+<tr>
+<td>indicator_definitions</td>
+<td>One versioned ratio indicator definition</td>
+</tr>
+<tr>
+<td>indicator_values</td>
+<td>One model, versioned indicator and dimension combination per run</td>
+</tr>
+<tr>
+<td>calculation_issues</td>
+<td>One run issue, with optional context</td>
+</tr>
+</tbody>
+</table>
+<p>Persisted totals and indicators are initially limited to a model. Aggregates for buildings with several models, blocks and areas will be calculated in Python, selecting nonoverlapping representations. Different versions of a building will not be added as if they were different buildings. Each total may refer to a material, a material category or all materials; optionally it is disaggregated by component. Classification nodes already identify a version. Groups at different levels are not additive: do not mix overall totals with breakdowns. Domains are validated in PostgreSQL since <code>0006_integrity</code>; consistent version selection belongs to the service.</p>
+<h2 id="data-dictionary">Data dictionary</h2>
+<p>IDs are BIGINT identity and <abbr title="Primary Key">PK</abbr>. FKs use restricted deletion. Physical values use NUMERIC(24,10); <code>NULL</code> means unknown. <abbr title="PostgreSQL binary JSON format">JSONB</abbr> objects do not contain executable code. Composite keys are listed explicitly below each table.</p>
+<h3 id="indicator_definitions"><code>indicator_definitions</code></h3>
+<p>Versioned definitions of ratio indicators and units.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>numerator_unit</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>denominator_unit</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li>Uniqueness: <code>code</code>, <code>version</code>.</li>
+<li>Indexes: <code>ix_indicator_definitions_method_version_id</code>.</li>
+</ul>
+<h3 id="calculation_runs"><code>calculation_runs</code></h3>
+<p>Run record, versions, effective configuration and input fingerprint.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>profile_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.profile_versions.id</code></td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.mapping_versions.id</code></td>
+</tr>
+<tr>
+<td><code>run_type</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>started_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>No</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>finished_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td><code>running</code></td>
+</tr>
+<tr>
+<td><code>code_version</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>git_commit</code></td>
+<td>TEXT</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>input_fingerprint</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>— (computed when sealed)</td>
+</tr>
+<tr>
+<td><code>input_manifest</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>Yes</td>
+<td>Sealed snapshot of effective inputs</td>
+</tr>
+<tr>
+<td><code>configuration_snapshot</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>statistics</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li><code>jsonb_typeof(configuration_snapshot) = 'object'</code>.</li>
+<li><code>input_fingerprint ~ '^[0-9a-f]{64}$'</code>.</li>
+<li><code>(status = 'running') = (finished_at IS NULL)</code>.</li>
+<li><code>jsonb_typeof(statistics) = 'object'</code>.</li>
+<li><code>status IN ('running','completed','failed','cancelled')</code>.</li>
+<li><code>finished_at &gt;= started_at</code>.</li>
+<li>Uniqueness: <code>id</code>, <code>mapping_version_id</code>.</li>
+<li>Indexes: <code>ix_calculation_runs_mapping_version_id</code>, <code>ix_calculation_runs_profile_version_id</code>.</li>
+</ul>
+<h3 id="run_models"><code>run_models</code></h3>
+<p>Models included in a run.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li>Uniqueness: <code>run_id</code>, <code>building_model_id</code>.</li>
+<li>Indexes: <code>ix_run_models_building_model_id</code>, <code>ix_run_models_run_id</code>.</li>
+</ul>
+<h3 id="indicator_values"><code>indicator_values</code></h3>
+<p>Numerator, denominator, result, reference measurement and coverage.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.building_measurements.building_model_id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>indicator_definition_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.indicator_definitions.id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.materials.id</code></td>
+</tr>
+<tr>
+<td><code>material_category_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>component_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>denominator_measurement_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.building_measurements.id</code></td>
+</tr>
+<tr>
+<td><code>numerator</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>denominator</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_basis</code></td>
+<td>TEXT</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_details</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>calculation_details</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li><code>jsonb_typeof(calculation_details) = 'object'</code>.</li>
+<li><code>coverage_basis IS NOT NULL OR (mass_coverage IS NULL AND volume_coverage IS NULL)</code>.</li>
+<li><code>jsonb_typeof(coverage_details) = 'object'</code>.</li>
+<li><code>denominator &gt; 0 AND denominator &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>denominator IS NULL OR denominator_measurement_id IS NOT NULL</code>.</li>
+<li><code>mass_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>material_id IS NULL OR material_category_id IS NULL</code>.</li>
+<li><code>numerator &gt;= 0 AND numerator &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>value IS NULL OR (numerator IS NOT NULL AND denominator IS NOT NULL)</code>.</li>
+<li><code>value &gt;= 0 AND value &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>volume_coverage BETWEEN 0 AND 1</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(denominator_measurement_id, building_model_id)</code> → <code>inventory.building_measurements (id, building_model_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Indexes: <code>ix_indicator_values_building_model_id</code>, <code>ix_indicator_values_component_id</code>, <code>ix_indicator_values_denominator_measurement_id</code>, <code>ix_indicator_values_indicator_definition_id</code>, <code>ix_indicator_values_material_category_id</code>, <code>ix_indicator_values_material_id</code>, <code>ix_indicator_values_run_id</code>, <code>uq_iv_scope</code>.</li>
+<li>Unique index: <code>CREATE UNIQUE INDEX uq_iv_scope ON results.indicator_values (run_id, building_model_id, indicator_definition_id, coalesce(material_id, 0), coalesce(material_category_id, 0), coalesce(component_id, 0))</code>.</li>
+</ul>
+<h3 id="material_quantities"><code>material_quantities</code></h3>
+<p>Physical contributions from material assignments with relational provenance and effective density.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.elements.building_model_id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.element_constructions.element_id</code>, <abbr title="Foreign Key">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>element_construction_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.element_constructions.id</code></td>
+</tr>
+<tr>
+<td><code>construction_version_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.construction_parts.construction_version_id</code>, <abbr title="Foreign Key">FK</abbr> <code>inventory.element_constructions.construction_version_id</code></td>
+</tr>
+<tr>
+<td><code>construction_part_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.construction_parts.id</code>, <abbr title="Foreign Key">FK</abbr> <code>methodology.part_mappings.construction_part_id</code></td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.part_mappings.mapping_version_id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.mapping_version_id</code></td>
+</tr>
+<tr>
+<td><code>part_mapping_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.material_assignments.part_mapping_id</code>, <abbr title="Foreign Key">FK</abbr> <code>methodology.part_mappings.id</code></td>
+</tr>
+<tr>
+<td><code>material_assignment_id</code></td>
+<td>BIGINT</td>
+<td>Yes, depending on resolution</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.material_assignments.id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.material_properties.material_id</code>, <abbr title="Foreign Key">FK</abbr> <code>catalog.materials.id</code>, <abbr title="Foreign Key">FK</abbr> <code>methodology.material_assignments.material_id</code></td>
+</tr>
+<tr>
+<td><code>density_property_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.material_properties.id</code></td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+<tr>
+<td><code>density_kg_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_kg</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quantity_status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quality_status</code></td>
+<td>TEXT</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>calculation_details</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p>| <code>resolution</code> | TEXT | No | <code>element</code> by default; <code>part_measurement</code> or <code>component</code> |
+| <code>coverage_key</code> | TEXT | Yes, depending on resolution | Stable identifier of the aggregated physical scope |
+| <code>part_measurement_id</code> | BIGINT | Yes | Composite <abbr title="Foreign Key">FK</abbr> with part and model |
+| <code>building_measurement_id</code> | BIGINT | Yes | Composite <abbr title="Foreign Key">FK</abbr> with model |
+| <code>component_id</code> | BIGINT | Yes | <abbr title="Foreign Key">FK</abbr> <code>catalog.classification_nodes.id</code>; dominio <code>component</code> |
+| <code>source_record_id</code> | BIGINT | Yes | <abbr title="Foreign Key">FK</abbr> <code>sources.source_records.id</code> |</p>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li><code>0007_resolution</code> requires exactly one of the three scope contracts described below.</li>
+<li><abbr title="Foreign Key">FK</abbr> <code>(part_measurement_id, construction_part_id, building_model_id)</code> → <code>inventory.part_measurements (id, part_id, building_model_id)</code>.</li>
+<li><abbr title="Foreign Key">FK</abbr> <code>(building_measurement_id, building_model_id)</code> → <code>inventory.building_measurements (id, building_model_id)</code>.</li>
+<li>Partial uniqueness <code>uq_mq_part_coverage</code>: run, model, part, assignment and coverage scope.</li>
+<li>Partial uniqueness <code>uq_mq_component_coverage</code>: run, model, component, material and coverage scope.</li>
+<li>
+<p>Indexes for the four new FKs, in addition to existing ones.</p>
+</li>
+<li>
+<p><code>quantity_status &lt;&gt; 'confirmed_absent' OR (volume_m3 IS NOT NULL AND mass_kg IS NOT NULL AND volume_m3 = 0 AND mass_kg = 0)</code>.</p>
+</li>
+<li><code>jsonb_typeof(calculation_details) = 'object'</code>.</li>
+<li><code>quantity_status NOT IN ('calculated','estimated') OR (volume_m3 IS NOT NULL AND mass_kg IS NOT NULL)</code>.</li>
+<li><code>density_kg_m3 &gt; 0 AND density_kg_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>density_property_id IS NULL OR density_kg_m3 IS NOT NULL</code>.</li>
+<li><code>mass_kg &gt;= 0 AND mass_kg &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>quantity_status &lt;&gt; 'partial' OR (volume_m3 IS NOT NULL OR mass_kg IS NOT NULL)</code>.</li>
+<li><code>quantity_status IN ('calculated','estimated','partial','pending','excluded','confirmed_absent')</code>.</li>
+<li><code>quantity_status NOT IN ('pending','excluded') OR (volume_m3 IS NULL AND mass_kg IS NULL)</code>.</li>
+<li><code>volume_m3 &gt;= 0 AND volume_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(material_assignment_id, part_mapping_id, material_id)</code> → <code>methodology.material_assignments (id, part_mapping_id, material_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(density_property_id, material_id)</code> → <code>catalog.material_properties (id, material_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(element_construction_id, element_id, construction_version_id)</code> → <code>inventory.element_constructions (id, element_id, construction_version_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(element_id, building_model_id)</code> → <code>inventory.elements (id, building_model_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(part_mapping_id, mapping_version_id, construction_part_id)</code> → <code>methodology.part_mappings (id, mapping_version_id, construction_part_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(construction_part_id, construction_version_id)</code> → <code>inventory.construction_parts (id, construction_version_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(run_id, mapping_version_id)</code> → <code>results.calculation_runs (id, mapping_version_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Uniqueness: <code>run_id</code>, <code>element_construction_id</code>, <code>material_assignment_id</code>.</li>
+<li>Uniqueness: <code>id</code>, <code>run_id</code>.</li>
+<li>Indexes: <code>ix_material_quantities_building_model_id</code>, <code>ix_material_quantities_construction_part_id</code>, <code>ix_material_quantities_construction_version_id</code>, <code>ix_material_quantities_density_property_id</code>, <code>ix_material_quantities_element_construction_id</code>, <code>ix_material_quantities_element_id</code>, <code>ix_material_quantities_mapping_version_id</code>, <code>ix_material_quantities_material_assignment_id</code>, <code>ix_material_quantities_material_id</code>, <code>ix_material_quantities_method_version_id</code>, <code>ix_material_quantities_part_mapping_id</code>, <code>ix_material_quantities_run_id</code>.</li>
+</ul>
+<h3 id="material_totals"><code>material_totals</code></h3>
+<p>Quantities aggregated by model and dimensions, with separate coverage.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.materials.id</code></td>
+</tr>
+<tr>
+<td><code>material_category_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>component_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>mass_kg</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_basis</code></td>
+<td>TEXT</td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_details</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li><code>coverage_basis IS NOT NULL OR (mass_coverage IS NULL AND volume_coverage IS NULL)</code>.</li>
+<li><code>jsonb_typeof(coverage_details) = 'object'</code>.</li>
+<li><code>mass_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>mass_kg &gt;= 0 AND mass_kg &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>material_id IS NULL OR material_category_id IS NULL</code>.</li>
+<li><code>volume_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>volume_m3 &gt;= 0 AND volume_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Indexes: <code>ix_material_totals_building_model_id</code>, <code>ix_material_totals_component_id</code>, <code>ix_material_totals_material_category_id</code>, <code>ix_material_totals_material_id</code>, <code>ix_material_totals_run_id</code>, <code>uq_mt_scope</code>.</li>
+<li>Unique index: <code>CREATE UNIQUE INDEX uq_mt_scope ON results.material_totals (run_id, building_model_id, coalesce(material_id, 0), coalesce(material_category_id, 0), coalesce(component_id, 0))</code>.</li>
+</ul>
+<h3 id="calculation_issues"><code>calculation_issues</code></h3>
+<p>Run issues and optional context; also parts without material assignment.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>PostgreSQL type</th>
+<th>NULL</th>
+<th>Reference / default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.material_quantities.run_id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.elements.building_model_id</code>, <abbr title="Foreign Key">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>construction_part_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>inventory.construction_parts.id</code></td>
+</tr>
+<tr>
+<td><code>material_quantity_id</code></td>
+<td>BIGINT</td>
+<td>Yes</td>
+<td><abbr title="Foreign Key">FK</abbr> <code>results.material_quantities.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td><abbr title="PostgreSQL binary JSON format">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints and indexes:</strong></p>
+<ul>
+<li><code>jsonb_typeof(details) = 'object'</code>.</li>
+<li><code>element_id IS NULL OR building_model_id IS NOT NULL</code>.</li>
+<li><code>severity IN ('info','warning','error')</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(element_id, building_model_id)</code> → <code>inventory.elements (id, building_model_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(material_quantity_id, run_id)</code> → <code>results.material_quantities (id, run_id)</code>.</li>
+<li>Composite <abbr title="Foreign Key">FK</abbr>: <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Indexes: <code>ix_calculation_issues_building_model_id</code>, <code>ix_calculation_issues_construction_part_id</code>, <code>ix_calculation_issues_element_id</code>, <code>ix_calculation_issues_material_quantity_id</code>, <code>ix_calculation_issues_run_id</code>.</li>
+</ul>
+<h2 id="cross-schema-consistency">Cross-schema consistency</h2>
+<p>The revision adds five UNIQUE constraints to existing tables so that composite result FKs can check identifiers and their scopes together. It does not change earlier revisions.</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Supporting unique key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inventory.element_constructions</code></td>
+<td><code>uq_ec_result_scope</code>: id, element_id, construction_version_id</td>
+</tr>
+<tr>
+<td><code>inventory.building_measurements</code></td>
+<td><code>uq_bm_result_scope</code>: id, building_model_id</td>
+</tr>
+<tr>
+<td><code>methodology.part_mappings</code></td>
+<td><code>uq_pm_result_scope</code>: id, mapping_version_id, construction_part_id</td>
+</tr>
+<tr>
+<td><code>methodology.material_assignments</code></td>
+<td><code>uq_ma_result_scope</code>: id, part_mapping_id, material_id</td>
+</tr>
+<tr>
+<td><code>catalog.material_properties</code></td>
+<td><code>uq_mp_result_material</code>: id, material_id</td>
+</tr>
+</tbody>
+</table>
+<p>The material quantity must belong to the model included in the run. At <code>element</code> resolution, it must belong to the element assembly; the part must belong to the correct assembly version, and the assignment must belong to the mapping of that part and the set selected by the run. The density property, if referenced, must correspond to the same material. Effective density is retained numerically; revision <code>0006_integrity</code> requires the referenced property to be of type <code>density</code> in <code>kg/m3</code>, with positive finite values. Selection of the effective value and its physical basis belongs to the engine. PostgreSQL requires a fixed profile mapping to match the run mapping; review statuses and scientific method selection will be validated in Python. A valid reference is not assumed to be scientifically appropriate.</p>
+<h2 id="statuses-and-unknown-quantities">Statuses and unknown quantities</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Volume and mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>calculated</code></td>
+<td>Both reported</td>
+</tr>
+<tr>
+<td><code>estimated</code></td>
+<td>Both reported, traceable assumption</td>
+</tr>
+<tr>
+<td><code>partial</code></td>
+<td>At least one quantity reported; may be known subtotals</td>
+</tr>
+<tr>
+<td><code>pending</code></td>
+<td>Both NULL</td>
+</tr>
+<tr>
+<td><code>excluded</code></td>
+<td>Both NULL</td>
+</tr>
+<tr>
+<td><code>confirmed_absent</code></td>
+<td>Both zero, justified absence</td>
+</tr>
+</tbody>
+</table>
+<p>Parts not yet associated with a material will be recorded as issues, not artificial materials. A <code>completed</code> run status indicates that it has finished, not that its inventory is complete. Services must validate justifications, mapping statuses and completeness. Partial quantities must not be confused with complete totals. Aggregate unique indexes treat NULL dimensions as the same absence (using <code>coalesce</code> to 0); generated identifiers are positive.</p>
+<h2 id="indicators-and-coverage">Indicators and coverage</h2>
+<p>Initial indicators are nonnegative ratios with a positive denominator from a measurement of the same model. An absent measurement may leave the denominator and indicator NULL. The engine must validate units, measurement type, ratio calculation and denominators; the database does not recalculate formulas. Indicator definitions are versioned so that changes in units or meaning do not replace historical values.</p>
+<p>Mass and volume coverage are independent, optional and between zero and one. If coverage is known, its basis is recorded; details can retain numerator, denominator and coverage scope. A universal coverage formula is not yet defined. The engine must check that coverage is interpretable, not estimate it merely from row count. Actual results remain in authorized private storage.</p>
+<div class="admonition example">
+<p class="admonition-title">Synthetic example</p>
+<p>A contribution with known volume and unknown density has NULL mass and <code>partial</code> status. Another contribution with known mass can be aggregated, but the total must declare that it is partial. Unknown mass is not converted to zero, nor is the percentage of complete contributions interpreted as the percentage of known mass.</p>
+</div>
+<h2 id="reproducibility-and-persistence">Reproducibility and persistence</h2>
+<p>Each run retains profile, mappings, code version, configuration and SHA-256 fingerprint. Revision <code>0008_reproducibility</code> adds a selected-input manifest and protects finalized results. The engine must identify all effective dependencies and consume sealed inputs; fingerprint format alone does not guarantee scientific reproducibility. The commit is optional. Writer, aggregator, indicator calculation and automatic retention policy do not yet exist. Detailed persistence is optional.</p>
+<p><code>0006_integrity</code> adds unique keys (<code>id</code>, <code>building_model_id</code>), (<code>id</code>, <code>element_id</code>) and (<code>id</code>, <code>construction_part_id</code>) in <code>material_quantities</code>, and corresponding composite FKs in <code>calculation_issues</code>. If a quantity is reported, every non-null dimension of the issue must match it; an omitted dimension can be derived from the quantity. See <a href="../integrity/">integrity</a>.</p>
+<h2 id="contribution-resolution">Contribution resolution</h2>
+<p>Revision <code>0007_resolution</code> retains the seven schema tables. No fictitious elements are created to store estimates or aggregate measurements.</p>
+<pre class="mermaid"><code>flowchart TD
+    E[Element and assembly] --&gt; Q[Material contribution]
+    P[Part measurement and model] --&gt; Q
+    B[Building measurement or source record] --&gt; Q
+    Q --&gt; V[Selection of nonoverlapping scopes in Python]
+    V --&gt; T[Totals and indicators]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Resolution</th>
+<th>Additional mandatory references</th>
+<th>Prohibited references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>element</code></td>
+<td>Element, element-assembly association, version, part and mapping chain</td>
+<td>Aggregate fields</td>
+</tr>
+<tr>
+<td><code>part_measurement</code></td>
+<td>Version, part, mapping chain, part measurement, component, coverage key</td>
+<td>Element, element-assembly association, building measurement</td>
+</tr>
+<tr>
+<td><code>component</code></td>
+<td>Component, coverage key and at least one building measurement or original record</td>
+<td>Element, assembly, part, part measurement and mapping chain</td>
+</tr>
+</tbody>
+</table>
+<p>Run, model, material and method are mandatory in every case. A component result may come from an external measurement or direct estimate without layer-level mapping; the method and calculation details must explain its interpretation. A reference to an original record alone does not establish that it belongs to the model: the importer or service must check this. Partial quantities can be retained, e.g. mass without volume. Measurements may be pending; sufficiency and units will be validated in Python.</p>
+<p><code>coverage_key</code> identifies a stable physical scope within the model. It must be reused for alternative measurements of the same scope; it is not a file fingerprint or geometry identity. Partial indexes prevent exact duplicates by scope and contribution but do not establish that two different scopes do not overlap. Do not automatically add rows of different resolution: first select a nonoverlapping representation for each physical component. A part result and a component result may be alternatives, not additive quantities. This policy and its manifest still require Python implementation.</p>
+<p>Downgrade to <code>0006_integrity</code> is rejected if aggregated contributions exist, to avoid data loss. Previous rows retain their <code>element</code> resolution.</p>
+<h2 id="input-and-result-sealing-0008_reproducibility">Input and result sealing (0008_reproducibility)</h2>
+<p><code>calculation_runs.input_manifest</code> is a nullable <abbr title="PostgreSQL binary JSON format">JSONB</abbr> object until sealing. <code>material_quantities.element_measurement_id</code> (nullable BIGINT) references <code>(id, element_id)</code> in <code>inventory.element_measurements</code>, with <abbr title="Foreign Key">FK</abbr> <code>fk_mq_element_measurement_scope</code>, an index and CHECK requiring <code>element</code> resolution when supplied. An area is not required when the method does not use it.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Create running run] --&gt; B[Register models]
+    B --&gt; C[Select inputs and parameters]
+    C --&gt; D[Seal manifest and SHA-256]
+    D --&gt; E[Calculate from sealed inputs]
+    E --&gt; F[Persist contributions and indicators]
+    F --&gt; G[Finalize and freeze results]</code></pre>
+<p>The <code>decub.pg-jsonb.v1</code> manifest contains <code>rows</code> (table, identifier, complete record), <code>parameters</code>, <code>models</code>, profile, mappings, configuration, code version, commit and run type. SHA-256 is calculated over the PostgreSQL <abbr title="PostgreSQL binary JSON format">JSONB</abbr> textual representation in UTF-8; interoperable canonical serialization across engines or PostgreSQL versions is not promised. The exact document is retained, not just its fingerprint.</p>
+<p>The <code>decub.results.reproducibility.seal_run(connection, run_id, selection, parameters)</code> service requires a caller-controlled transaction and returns the fingerprint. Selection is a map of qualified table names to positive identifiers. The profile, mappings if present and all registered models are required. Synthetic example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decub.results.reproducibility</span><span class="w"> </span><span class="kn">import</span> <span class="n">seal_run</span>
+
+<span class="c1"># Inside a transaction, after registering the run and its models.</span>
+<span class="n">fingerprint</span> <span class="o">=</span> <span class="n">seal_run</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">run_id</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">"methodology.profile_versions"</span><span class="p">:</span> <span class="p">[</span><span class="n">profile_id</span><span class="p">],</span>
+    <span class="s2">"methodology.mapping_versions"</span><span class="p">:</span> <span class="p">[</span><span class="n">mapping_id</span><span class="p">],</span>
+    <span class="s2">"inventory.building_models"</span><span class="p">:</span> <span class="p">[</span><span class="n">model_id</span><span class="p">],</span>
+    <span class="c1"># Add all other effective inputs of the method.</span>
+<span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{})</span>
+</code></pre></div>
+<p>The example is not a sufficient selection to calculate a real building. PostgreSQL captures records and rejects completion if direct references of quantities, aggregates and indicators are not selected. Transitive dependency closure is not discovered automatically and scientific validity of parameters is not verified. Calculation details must record additional inputs per contribution where appropriate.</p>
+<p>A sealed run retains its configuration and models; while <code>running</code> it accepts result writes. Upon finalization (<code>completed</code>, <code>failed</code>, <code>cancelled</code>), run rows and results are protected against ordinary changes. Earlier historical runs without a manifest do not become reproducible retroactively. New runs are created <code>running</code> without a manifest; a provisional 64-character hexadecimal fingerprint is replaced when sealed and is not a scientific fingerprint. Only <code>completed</code> requires a manifest; failures and cancellations before sealing are possible.</p>
+<p>Sealing retains and protects selected records, not every row in a logical version. New observations or versions may be added without changing sealed records. The engine must use only the fixed selection, not indiscriminately query new rows of a version. Complete version and dependency closure policy remains pending.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

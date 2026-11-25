@@ -1,0 +1,1402 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Building inventory methodology and infrastructure">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/visualization/">
+      
+      
+      
+      
+        <link rel="prev" href="../methodology/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Visualization - DECUB · Material inventory</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="DECUB · Material inventory" class="md-header__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Material inventory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visualization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="DECUB · Material inventory" class="md-nav__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Material inventory
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting started
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data imports
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Data imports
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reference catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  HULC inventory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes and diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Database
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Database
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  General design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Physical inventory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Methodology
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Results
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Integrity and versioning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Scientific methodology
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualization
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualization
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installation and execution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Navigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-browser-and-visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Building browser and visualizations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building browser and visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly-schematics-and-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Assembly schematics and windows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Architectural viewer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architectural viewer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Building diagnostics
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  References
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installation and execution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Navigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-browser-and-visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Building browser and visualizations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building browser and visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly-schematics-and-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Assembly schematics and windows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Architectural viewer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architectural viewer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Building diagnostics
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="decub-private-explorer">DECUB private explorer</h1>
+<p>The explorer lets users consult the catalog, physical inventory and provenance in PostgreSQL through a local Streamlit interface. It neither modifies data nor calculates intensities. Public documentation contains synthetic examples only.</p>
+<h2 id="installation-and-execution">Installation and execution</h2>
+<p>From the repository root, with the virtual environment active:</p>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-e</span> <span class="s2">".[visualization]"</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">streamlit</span> <span class="n">run</span> <span class="n">src</span><span class="p">/</span><span class="n">decub</span><span class="p">/</span><span class="n">visualization</span><span class="p">/</span><span class="n">explorer</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-server</span><span class="p">.</span><span class="n">address</span> <span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span> <span class="p">-</span><span class="n">-server</span><span class="p">.</span><span class="n">port</span> <span class="n">8501</span> <span class="p">-</span><span class="n">-browser</span><span class="p">.</span><span class="n">gatherUsageStats</span> <span class="n">false</span>
+</code></pre></div>
+<p>Open <code>http://127.0.0.1:8501</code>. Local PostgreSQL configuration and authorized access are required. Stop with Ctrl+C. Do not expose the port to other networks or deploy to public services. Prefer a PostgreSQL role with SELECT-only privileges; the application starts read-only transactions, which do not replace server-side permission controls. Multi-user authentication is not implemented. Do not publish screenshots, values or downloads of actual data.</p>
+<h2 id="navigation">Navigation</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Queries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home</td>
+<td>Entity counts, including historical versions</td>
+</tr>
+<tr>
+<td>Architectural viewer</td>
+<td>Group cards, textured drawings, schematic windows and model diagnostics</td>
+</tr>
+<tr>
+<td>Building browser</td>
+<td>Territorial and model selection, breakdowns, records and proportional schematics</td>
+</tr>
+<tr>
+<td>Materials</td>
+<td>Identities, properties, aliases and classifications</td>
+</tr>
+<tr>
+<td>Classifications</td>
+<td>Systems, versions, nodes and parent references</td>
+</tr>
+<tr>
+<td>Buildings and models</td>
+<td>Study areas, blocks, buildings, models and measurements</td>
+</tr>
+<tr>
+<td>Elements</td>
+<td>Identifiers, measurements, subtypes and associations</td>
+</tr>
+<tr>
+<td>Assemblies</td>
+<td>Versions, parts and aggregated measurements</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>References, files and record locations</td>
+</tr>
+<tr>
+<td>Imports</td>
+<td>Adapter, status, dates and statistics</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Missing scalar density, unmatched opaque elements and part measurements without values</td>
+</tr>
+</tbody>
+</table>
+<p>In the table sections, select an entity, filter by identifier, search for literal text and paginate (up to 100 rows per page). Select a record to consult its direct relationships (up to 100 records per relationship); to continue navigating, use foreign key identifiers in the corresponding entities. Parts of an assembly version can be consulted by its identifier, retaining position and parent. An effective scientific version is not selected automatically. Quality counts include historical versions; they do not represent mass coverage or scientific validation. Nulls are not converted to zeros. Decimal values are displayed as text to preserve precision.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Local Streamlit] --&gt; B[Bounded SQLAlchemy queries]
+    B --&gt; C[(PostgreSQL: read-only transaction)]
+    C --&gt; A</code></pre>
+<p>Queries have a statement timeout and pagination. Original payloads, import configuration and storage paths are omitted; identifiers allow provenance to be followed. There is no persistent data cache. The interface includes no exporters; the browser may allow visible data to be copied. The browser and tables share the same data and read-only transactions. The 3D viewer, certified physical sections and mass and intensity charts remain for later phases.</p>
+<h2 id="building-browser-and-visualizations">Building browser and visualizations</h2>
+<p>In the sidebar, select <strong>Navegador de edificios</strong> (building browser). Choose a study area, block, building and model version; each selector supports search and pagination. Views work exclusively with the selected version, not with the sum of historical models.</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Visualization and navigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Breakdown</td>
+<td>Count, recorded area and coverage by element kind, original type, original category, orientation or original opaque construction</td>
+</tr>
+<tr>
+<td>Elements</td>
+<td>Filter by the same groups, search and select an element; consult identifiers, measurements, thermal properties, associations and their assembly versions</td>
+</tr>
+<tr>
+<td>Assemblies</td>
+<td>Choose a version linked to elements or with part measurements for the model, including assemblies without element associations</td>
+</tr>
+</tbody>
+</table>
+<p>The area breakdown includes only elements with exactly one measurement of type <code>area</code>, unit <code>m2</code>, a known value and a quality other than <code>unknown</code>. If alternatives exist, the element is excluded from the area total but not from the count. The number of elements with and without usable area is reported for each group. Groups without values retain a null area; charts omit those values. The sum of recorded areas is not the usable, gross or net building area: it does not resolve overlap between elements or allow individual and aggregate measurements to be added together. Opaque association coverage counts elements with at least one non-retired association; it does not certify equivalences or mass availability. The original construction view includes opaque elements only. Original categories are not scientific catalog classifications. If there are more than 100 groups, partial totals or charts are not presented as complete.</p>
+<h3 id="assembly-schematics-and-windows">Assembly schematics and windows</h3>
+<p>The schematic section uses strips whose widths are proportional to the original thickness in millimetres, in position order. It is drawn only if all parts of the version are available (at most 100), flat, have unique positions and positive, finite thicknesses. No material-specific textures or colours are assigned: colours distinguish positions. The thickness sum is arithmetic, not a certification of physical thickness; parts imported as <code>source_part</code> may represent components other than layers in series. If the list is hierarchical, incomplete or has unknown thicknesses, the table is retained without drawing a fictitious section.</p>
+<p>Part measurements are filtered by model and assembly version. Areas (<code>m2</code>) and volumes (<code>m3</code>) are displayed separately, without accumulating parts, combining units, selecting alternatives or allocating aggregate data to individual elements. Charts are limited to a complete list of at most 100 records; tables support pagination. A known zero value is not equivalent to missing data.</p>
+<p>For a window with a known frame fraction between 0 and 1, a proportional bar shows the frame and remainder (glass under the frame/glass assumption). No dimensions, geometry, thickness or composition are inferred. Thermal properties remain recorded data. Charts use approximate numbers for display; tables preserve source decimals.</p>
+<p><img alt="Synthetic section example" src="../assets/diagrams/construction.svg" /></p>
+<h2 id="architectural-viewer">Architectural viewer</h2>
+<p>In the sidebar, open <strong>Visor constructivo</strong> (architectural viewer) and select a building and model version. The simplified view retains the scientific browser and uses the same read-only queries. Cards are paginated six at a time and show counts and usable individual area with coverage; models and alternative measurements are not combined.</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Grouping criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opaque elements</td>
+<td>Original construction name and version of the sole non-retired association; missing or multiple associations appear as unresolved groups without choosing an assembly</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Recorded opening name and frame fraction; this is not a geometric or material classification</td>
+</tr>
+</tbody>
+</table>
+<p>Assemblies with a complete flat list of positive, finite thicknesses are drawn in oblique perspective, with proportional widths and symbolic height and depth. Numbers identify original positions. Colours and hatches are illustrative: selected from recognizable words in the source description, not scientific mappings. When a unique recognizable family is unavailable, a neutral texture is used. Serial layers, interior/exterior orientation, material identity, density and mass are not certified. Incomplete or hierarchical lists retain their descriptions without a proportional drawing.</p>
+<p>Windows are represented by a normalized square with a uniform border. For frame fraction f, the side of the remaining area is the square root of 1 − f. This preserves the area proportion, not actual dimensions or physical profile thickness. The frame has a neutral appearance, without assuming aluminium or another material. The remainder is interpreted as glass only under the frame/glass assumption. If the fraction is missing, no fictitious window is drawn.</p>
+<p>Count and area charts in the scientific browser use ranked horizontal bars, value labels and a consistent palette. Drawings use a neutral paper background legible in both themes; the drawing palette does not adapt dynamically. Figures are local, static and require no external graphical resources. For assemblies without associated elements, aggregate measurements and traceability, use the scientific browser. None of these representations calculates material quantities.</p>
+<h3 id="building-diagnostics">Building diagnostics</h3>
+<p>The viewer opens <strong>Resumen general</strong> (overview) by default, with element counts, individual area coverage, distribution, quantification status and model diagnostics. Navigation separates the overview, opaque elements, windows, material inventory and building diagnostics. Open <strong>Diagnóstico del edificio</strong> (building diagnostics) to filter by severity and issue type and select a record. The rule summary is visible without expanding controls: it includes severity, record counts, distinct related elements and an explanation of the consequence. Cards display their status, counts by severity and type, and allow opening filtered diagnostics. The <strong>Ver diagnóstico de todo el modelo</strong> (view diagnostics for the whole model) button clears the card filter. Diagnostics are read-only and obtained from current records; they do not store results or change review status.</p>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error</td>
+<td>Data unusable for the specific check; does not prove that all quantification routes are infeasible</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>Absence, alternative, association or risk requiring review</td>
+</tr>
+<tr>
+<td>Observation</td>
+<td>Recorded characteristic or representation limitation that does not necessarily constitute a defect</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Available rules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elements</td>
+<td>Missing, alternative, unusable or zero area; missing opaque or window properties; missing or out-of-range frame fraction</td>
+</tr>
+<tr>
+<td>Associations</td>
+<td>Opaque elements without a non-retired association or with several; draft associations and linked retired versions</td>
+</tr>
+<tr>
+<td>Assemblies and parts</td>
+<td>Assembly without parts; unknown or zero thickness; nested parts; parts without measurements for the model</td>
+</tr>
+<tr>
+<td>Part measurements</td>
+<td>Missing value/unknown quality; unexpected area or volume unit; alternatives of the same type</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td>Coexistence of individual area and part area/volume measurements for a version; measured assembly without linked elements</td>
+</tr>
+</tbody>
+</table>
+<p>Each issue corresponds to a rule and an identified entity. An entity can have several issues. Rule occurrence counts are distinguished from distinct related element counts: for direct issues, count the element itself; for shared issues, count the elements linked to the version by non-retired associations in the selected model. A card filter restricts the latter count to its own elements. An unlinked assembly may have issues and zero related elements. Do not sum elements across rules or interpret this count as mass coverage. Part and assembly diagnostics include versions linked through non-retired associations or measured in the model. Measurements from other models never fill gaps in the selected model. Coexisting resolutions indicate a risk requiring methodological resolution, not proven physical overlap. Multiple associations may represent legitimate components. A known zero remains distinct from a missing value.</p>
+<p>Cards include direct issues for their elements and, for a unique assembly, shared issues for its version and parts. A shared issue may appear on several cards; card counts must not be summed to obtain the model summary. Unlinked assemblies and issues not attributable to a specific card can be viewed in global diagnostics. Records show original data, identifiers and measurements; for a shared issue, elements associated with the version within the model can be paginated, without claiming that all are affected in the same way. The issue list is paginated in groups of 100; counts are not limited to the page.</p>
+<p>Effective material mappings, effective density, mass coverage and compliance with a calculation methodology are not yet checked. Future quantification must share a single scientific engine, with explicit profiles and methods, traceable contributions and calculation diagnostics. Until it exists, <strong>Inventario de materiales</strong> (material inventory) shows pending mass and volume and unevaluated coverage; the overview and cards also indicate pending mass without displaying fictitious zero values. Individual area coverage in the overview is not mass coverage. Absence of issues under the current rules does not certify the scientific validity of the inventory.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>
