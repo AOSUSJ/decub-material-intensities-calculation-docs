@@ -1,0 +1,1773 @@
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Metodología e infraestructura de inventario de edificios">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/database/methodology/">
+      
+      
+      
+      
+        <link rel="prev" href="../inventory/">
+      
+      
+        <link rel="next" href="../results/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Metodología - DECUB · Inventario de materiales</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Saltar a contenido
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="DECUB · Inventario de materiales" class="md-header__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navegación</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventario de materiales
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metodología
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Buscar</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DECUB · Inventario de materiales" class="md-nav__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventario de materiales
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Primeros pasos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de datos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de datos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Diseño general
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Procedencia
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catálogo
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventario físico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Metodología
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Metodología
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diccionario-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diccionario de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diccionario de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping_sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>mapping_sets</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>methods</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profiles</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>method_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>mapping_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profile_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>assumptions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part_mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>part_mappings</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile_methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profile_methods</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_assignments</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretacion-y-validacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interpretación y validación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Resultados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Integridad y versionado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Metodología científica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glosario
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Referencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Desarrollo
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diccionario-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diccionario de datos
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diccionario de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping_sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>mapping_sets</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>methods</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profiles</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>method_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>mapping_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profile_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>assumptions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part_mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>part_mappings</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile_methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>profile_methods</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_assignments</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretacion-y-validacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interpretación y validación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="metodologia-modelo-relacional">Metodología — modelo relacional</h1>
+<pre class="mermaid"><code>erDiagram
+    METHODS ||--o{ METHOD_VERSIONS : versions
+    PROFILES ||--o{ PROFILE_VERSIONS : versions
+    MAPPING_VERSIONS o|--o{ PROFILE_VERSIONS : selects
+    PROFILE_VERSIONS ||--o{ PROFILE_METHODS : selects
+    METHOD_VERSIONS ||--o{ PROFILE_METHODS : implements
+    PROFILE_VERSIONS ||--o{ ASSUMPTIONS : includes
+    MAPPING_SETS ||--o{ MAPPING_VERSIONS : versions
+    MAPPING_VERSIONS ||--o{ PART_MAPPINGS : contains
+    CONSTRUCTION_PARTS ||--o{ PART_MAPPINGS : interpreted
+    METHOD_VERSIONS o|--o{ PART_MAPPINGS : quantifies
+    PART_MAPPINGS ||--o{ MATERIAL_ASSIGNMENTS : resolves
+    MATERIALS ||--o{ MATERIAL_ASSIGNMENTS : identifies</code></pre>
+<p>La revisión <code>0004_methodology</code> implementa diez tablas. La descripción física permanece en <code>inventory</code>; las propiedades y materiales permanecen en <code>catalog</code>. No hay aún métodos científicos ejecutables ni importadores de perfiles.</p>
+<h2 id="diccionario-de-datos">Diccionario de datos</h2>
+<p>Todos los identificadores <code>id</code> son BIGINT identity y claves primarias. Las claves externas tienen borrado restringido. Los objetos <abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr> contienen parámetros estructurados, no código ejecutable.</p>
+<h3 id="mapping_sets"><code>mapping_sets</code></h3>
+<p>Identidad del conjunto de interpretaciones materiales.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>length(btrim(code)) &gt; 0</code>.</li>
+<li><code>length(btrim(name)) &gt; 0</code>.</li>
+<li>Unicidad: <code>code</code>.</li>
+</ul>
+<h3 id="methods"><code>methods</code></h3>
+<p>Identidad de un procedimiento científico.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>domain</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>length(btrim(code)) &gt; 0</code>.</li>
+<li><code>length(btrim(domain)) &gt; 0</code>.</li>
+<li><code>length(btrim(name)) &gt; 0</code>.</li>
+<li>Unicidad: <code>code</code>.</li>
+</ul>
+<h3 id="profiles"><code>profiles</code></h3>
+<p>Identidad de una estrategia metodológica.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>length(btrim(code)) &gt; 0</code>.</li>
+<li><code>length(btrim(name)) &gt; 0</code>.</li>
+<li>Unicidad: <code>code</code>.</li>
+</ul>
+<h3 id="method_versions"><code>method_versions</code></h3>
+<p>Versión del procedimiento y clave de implementación Python.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>method_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.methods.id</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td><code>draft</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>No</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>implementation_key</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+<tr>
+<td><code>parameter_schema</code></td>
+<td><abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>length(btrim(implementation_key)) &gt; 0</code>.</li>
+<li><code>jsonb_typeof(parameter_schema) = 'object'</code>.</li>
+<li><code>status IN ('draft','reviewed','retired')</code>.</li>
+<li><code>length(btrim(version)) &gt; 0</code>.</li>
+<li>Unicidad: <code>method_id</code>, <code>version</code>.</li>
+<li>Índices: <code>ix_method_versions_method_id</code>, <code>ix_method_versions_reference_id</code>.</li>
+</ul>
+<h3 id="mapping_versions"><code>mapping_versions</code></h3>
+<p>Versiones independientes de los conjuntos de correspondencias.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>mapping_set_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.mapping_sets.id</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td><code>draft</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>No</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>status IN ('draft','reviewed','retired')</code>.</li>
+<li><code>length(btrim(version)) &gt; 0</code>.</li>
+<li>Unicidad: <code>mapping_set_id</code>, <code>version</code>.</li>
+<li>Índices: <code>ix_mapping_versions_mapping_set_id</code>, <code>ix_mapping_versions_reference_id</code>, <code>ix_mapping_versions_source_record_id</code>.</li>
+</ul>
+<h3 id="profile_versions"><code>profile_versions</code></h3>
+<p>Configuración de una versión y conjunto de correspondencias elegido.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>profile_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.profiles.id</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td><code>draft</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>No</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.mapping_versions.id</code></td>
+</tr>
+<tr>
+<td><code>configuration</code></td>
+<td><abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>configuration_hash</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>configuration_hash ~ '^[0-9a-f]{64}$'</code>.</li>
+<li><code>jsonb_typeof(configuration) = 'object'</code>.</li>
+<li><code>status IN ('draft','reviewed','retired')</code>.</li>
+<li><code>length(btrim(version)) &gt; 0</code>.</li>
+<li>Unicidad: <code>profile_id</code>, <code>version</code>.</li>
+<li>Índices: <code>ix_profile_versions_mapping_version_id</code>, <code>ix_profile_versions_profile_id</code>.</li>
+</ul>
+<h3 id="assumptions"><code>assumptions</code></h3>
+<p>Hipótesis explícitas, parámetros y justificación.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>profile_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.profile_versions.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+<tr>
+<td><code>justification</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>length(btrim(code)) &gt; 0</code>.</li>
+<li><code>length(btrim(description)) &gt; 0</code>.</li>
+<li><code>jsonb_typeof(parameters) = 'object'</code>.</li>
+<li>Unicidad: <code>profile_version_id</code>, <code>code</code>.</li>
+<li>Índices: <code>ix_assumptions_profile_version_id</code>, <code>ix_assumptions_reference_id</code>.</li>
+</ul>
+<h3 id="part_mappings"><code>part_mappings</code></h3>
+<p>Interpretación de una parte constructiva dentro de una versión del conjunto.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.mapping_versions.id</code></td>
+</tr>
+<tr>
+<td><code>construction_part_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>inventory.construction_parts.id</code></td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td><code>pending</code></td>
+</tr>
+<tr>
+<td><code>justification</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>status &lt;&gt; 'excluded' OR (justification IS NOT NULL AND length(btrim(justification)) &gt; 0)</code>.</li>
+<li><code>status &lt;&gt; 'mapped' OR method_version_id IS NOT NULL</code>.</li>
+<li><code>status IN ('pending','mapped','excluded')</code>.</li>
+<li>Unicidad: <code>mapping_version_id</code>, <code>construction_part_id</code>.</li>
+<li>Índices: <code>ix_part_mappings_construction_part_id</code>, <code>ix_part_mappings_mapping_version_id</code>, <code>ix_part_mappings_method_version_id</code>, <code>ix_part_mappings_reference_id</code>, <code>ix_part_mappings_source_record_id</code>.</li>
+</ul>
+<h3 id="profile_methods"><code>profile_methods</code></h3>
+<p>Un método versionado por rol dentro del perfil.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>profile_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.profile_versions.id</code></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>TEXT</td>
+<td>No</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>jsonb_typeof(parameters) = 'object'</code>.</li>
+<li><code>length(btrim(role)) &gt; 0</code>.</li>
+<li>Unicidad: <code>profile_version_id</code>, <code>role</code>.</li>
+<li>Índices: <code>ix_profile_methods_method_version_id</code>, <code>ix_profile_methods_profile_version_id</code>.</li>
+</ul>
+<h3 id="material_assignments"><code>material_assignments</code></h3>
+<p>Materiales asociados a una interpretación, con base de fracción y parámetros.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo PostgreSQL</th>
+<th>NULL</th>
+<th>Referencia / valor por defecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr>, identity</td>
+</tr>
+<tr>
+<td><code>part_mapping_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>methodology.part_mappings.id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>No</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>catalog.materials.id</code></td>
+</tr>
+<tr>
+<td><code>fraction_type</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fraction_value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr></td>
+<td>No</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td>Sí</td>
+<td><abbr title="Foreign Key; clave externa">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>TEXT</td>
+<td>Sí</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Restricciones adicionales:</strong></p>
+<ul>
+<li><code>fraction_value IS NULL OR fraction_type IS NOT NULL</code>.</li>
+<li><code>fraction_value BETWEEN 0 AND 1</code>.</li>
+<li><code>fraction_type IN ('volume','mass','area')</code>.</li>
+<li><code>jsonb_typeof(parameters) = 'object'</code>.</li>
+<li>Unicidad: <code>part_mapping_id</code>, <code>material_id</code>.</li>
+<li>Índices: <code>ix_material_assignments_material_id</code>, <code>ix_material_assignments_part_mapping_id</code>, <code>ix_material_assignments_reference_id</code>, <code>ix_material_assignments_source_record_id</code>.</li>
+</ul>
+<h2 id="interpretacion-y-validacion">Interpretación y validación</h2>
+<pre class="mermaid"><code>flowchart LR
+    A[Parte física] --&gt; B[Correspondencia versionada]
+    B --&gt; C[Material A]
+    B --&gt; D[Material B]
+    P[Perfil versionado] --&gt; B
+    P --&gt; E[Método versionado]
+    E --&gt; F[Cuantificación futura]
+    C --&gt; F
+    D --&gt; F</code></pre>
+<p>Los estados de las versiones son <code>draft</code>, <code>reviewed</code> y <code>retired</code>. Las interpretaciones distinguen <code>pending</code>, <code>mapped</code> y <code>excluded</code>. Una interpretación pendiente puede existir sin método ni materiales. Una interpretación <code>mapped</code> requiere método; que tenga asignaciones suficientes se verificará en el servicio de validación. La exclusión exige justificación; no equivale a cantidad cero.</p>
+<p>Las fracciones pueden ser volumétricas (<code>volume</code>), másicas (<code>mass</code>) o superficiales (<code>area</code>). La fracción puede ser desconocida (NULL); un valor informado exige base explícita. Otros métodos pueden utilizar parámetros propios sin fracción. El modelo actual admite una asignación por material y parte interpretada: contribuciones del mismo material se consolidarán o se modelarán mediante partes diferenciadas. No debe imponerse una suma universal de fracciones igual a uno: depende del método, de los huecos y del alcance.</p>
+<p>El perfil puede estar en borrador sin conjunto de correspondencias seleccionado. La huella <code>configuration_hash</code> tiene formato SHA-256 hexadecimal; el cálculo y verificación de la huella, la serialización canónica y la conservación de las entradas efectivas quedan pendientes. No basta con esa huella para reproducir una ejecución. Los servicios futuros validarán compatibilidad de roles y métodos, parámetros, asignaciones, fuentes, completitud y estados, así como inmutabilidad de versiones utilizadas. La base de datos no realiza todavía estas comprobaciones entre filas ni ejecuta los algoritmos.</p>
+<p>La revisión <code>0005_results</code> añade claves únicas de soporte a <code>part_mappings</code> (<code>id</code>, <code>mapping_version_id</code>, <code>construction_part_id</code>) y <code>material_assignments</code> (<code>id</code>, <code>part_mapping_id</code>, <code>material_id</code>) para las <abbr title="Foreign Key; clave externa">FK</abbr> compuestas de <a href="../results/">resultados</a>.</p>
+<p><code>0006_integrity</code> impide cambiar la selección de correspondencias de un perfil que ya tiene ejecuciones. Cuando el perfil fija un conjunto versionado, la ejecución debe respetarlo. Véase <a href="../integrity/">integridad</a>. La inmutabilidad de otros parámetros y dependencias aún no está garantizada.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>

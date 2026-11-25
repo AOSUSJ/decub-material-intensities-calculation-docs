@@ -1,0 +1,1132 @@
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Metodología e infraestructura de inventario de edificios">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/database/integrity/">
+      
+      
+      
+      
+        <link rel="prev" href="../results/">
+      
+      
+        <link rel="next" href="../../methodology/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Integridad y versionado - DECUB · Inventario de materiales</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Saltar a contenido
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="DECUB · Inventario de materiales" class="md-header__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navegación</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventario de materiales
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integridad y versionado
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Buscar</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DECUB · Inventario de materiales" class="md-nav__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventario de materiales
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inicio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Primeros pasos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arquitectura
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de datos
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de datos
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Diseño general
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Procedencia
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catálogo
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventario físico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Metodología
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Resultados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Integridad y versionado
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Integridad y versionado
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integridad-semantica-revision-0006_integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Integridad semántica (revisión 0006_integrity)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integridad semántica (revisión 0006_integrity)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominios-de-clasificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominios de clasificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecucion-y-concurrencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejecución y concurrencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Límites
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucion-de-resultados-0007_resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resolución de resultados (0007_resolution)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducibilidad-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibilidad (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Metodología científica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glosario
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Referencias
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Desarrollo
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integridad-semantica-revision-0006_integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Integridad semántica (revisión 0006_integrity)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integridad semántica (revisión 0006_integrity)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominios-de-clasificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dominios de clasificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecucion-y-concurrencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejecución y concurrencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Límites
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucion-de-resultados-0007_resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Resolución de resultados (0007_resolution)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducibilidad-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibilidad (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="integridad-convenciones-y-versionado">Integridad, convenciones y versionado</h1>
+<p>Identificadores internos BIGINT identity; códigos externos TEXT, independientes de los IDs; nombres técnicos ingleses <code>snake_case</code>; fechas TIMESTAMPTZ; magnitudes NUMERIC(24,10) inicialmente; atributos variables <abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr>. Longitudes en m, áreas en m², volúmenes en m³, masa en kg, densidad en kg/m³, fracciones entre cero y uno. Toneladas derivadas de kg. NULL expresa dato desconocido, no cero.</p>
+<p>Las migraciones de fundamentos implementan claves, unicidad, referencias con borrado restringido, índices de <abbr title="Foreign Key; clave externa">FK</abbr> y controles de coherencia de rangos. La revisión <code>0006_integrity</code> refuerza las restricciones declarativas con funciones y triggers PostgreSQL para las jerarquías, densidades, dominios de clasificación y selección de correspondencias. La compatibilidad científica de métodos y perfiles requiere todavía validación de aplicación. No asumir que una restricción futura ya existe.</p>
+<table>
+<thead>
+<tr>
+<th>Objeto</th>
+<th>Estrategia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archivo</td>
+<td>SHA-256, conservar original privado</td>
+</tr>
+<tr>
+<td>Importación</td>
+<td>Adaptador y versión</td>
+</tr>
+<tr>
+<td>Clasificación</td>
+<td>Sistema y versión</td>
+</tr>
+<tr>
+<td>Propiedad</td>
+<td>Registro alternativo o sucesor</td>
+</tr>
+<tr>
+<td>Modelo y composición</td>
+<td>Versiones explícitas</td>
+</tr>
+<tr>
+<td>Perfil y correspondencias</td>
+<td>Versiones explícitas; entradas seleccionadas protegidas al sellar</td>
+</tr>
+<tr>
+<td>Ejecución</td>
+<td>Commit, configuración, huella y referencias de resultados; generación y validación pendientes</td>
+</tr>
+</tbody>
+</table>
+<p>Una huella no sustituye la conservación de las entradas. Los resultados reproducibles necesitan referencias a las versiones y propiedades exactas. No modificar silenciosamente versiones utilizadas. Inventory protege mediante <abbr title="Foreign Key; clave externa">FK</abbr> compuestas la coherencia de planta, identificador y tipo de elemento, la serie del modelo sucesor y la versión de las partes anidadas. Los índices únicos parciales protegen el orden entre partes hermanas. La inmutabilidad completa de versiones, la semántica de relaciones entre elementos, las unidades y el doble conteo requieren validaciones posteriores. No habilitar particionamiento ni índices indiscriminados sin mediciones.</p>
+<p>Methodology impone unicidad de versiones, roles, hipótesis e interpretaciones dentro de sus ámbitos, fracciones entre cero y uno, base explícita y objetos <abbr title="Formato binario JSON de PostgreSQL">JSONB</abbr>. La validación de sumas, compatibilidad de métodos, asignaciones suficientes e inmutabilidad sigue pendiente de los servicios Python.</p>
+<p>Results añade <abbr title="Foreign Key; clave externa">FK</abbr> compuestas entre ejecución, modelo, elemento, composición, parte, conjunto de correspondencias y asignación material; comprueba que la propiedad referenciada corresponde al material. Los agregados por modelo tienen grano único incluso con dimensiones NULL. Las cantidades desconocidas permanecen NULL; la cobertura, la selección de versiones de clasificación y métodos y la consistencia de los cálculos requieren validación de aplicación. Véase <a href="../results/">resultados</a>.</p>
+<h2 id="integridad-semantica-revision-0006_integrity">Integridad semántica (revisión 0006_integrity)</h2>
+<pre class="mermaid"><code>flowchart LR
+    P[Perfil versionado] --&gt;|correspondencia fija| R[Ejecución]
+    D[Propiedad de densidad] --&gt;|tipo y unidad| Q[Cantidad material]
+    R --&gt; Q
+    Q --&gt;|ámbito coherente| I[Incidencia]
+    C[Dominio de clasificación] --&gt;|asignación compatible| Q</code></pre>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Mecanismo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correspondencia fija del perfil respetada</td>
+<td>Trigger en ejecuciones; cambio de selección del perfil prohibido cuando ya tiene ejecuciones</td>
+</tr>
+<tr>
+<td>Perfil con correspondencia NULL</td>
+<td>Puede elegir una versión explícita en la ejecución; sin selección solo cuando no se cuantifican asignaciones</td>
+</tr>
+<tr>
+<td>Propiedad física finita</td>
+<td>CHECK de no NaN en valor, mínimo y máximo; NUMERIC con precisión fija</td>
+</tr>
+<tr>
+<td>Densidad positiva, tipo <code>density</code>, unidad <code>kg/m3</code></td>
+<td>CHECK de unidad existente y triggers sobre propiedades y cantidades</td>
+</tr>
+<tr>
+<td>Dominios de clasificación compatibles</td>
+<td>Triggers de asignación, incluida dimensión de categoría y componente de resultados</td>
+</tr>
+<tr>
+<td>Incidencia y cantidad coincidentes</td>
+<td>Tres <abbr title="Foreign Key; clave externa">FK</abbr> compuestas adicionales, comprobando cada dimensión informada</td>
+</tr>
+<tr>
+<td>Ciclos de longitud arbitraria</td>
+<td>Triggers por sentencia y recorrido recursivo de cinco jerarquías</td>
+</tr>
+<tr>
+<td>Tipo de medición y unidad no vacíos</td>
+<td>CHECK en las tres tablas de mediciones; no valida aún compatibilidad dimensional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dominios-de-clasificacion">Dominios de clasificación</h3>
+<table>
+<thead>
+<tr>
+<th>Asociación</th>
+<th>Valores de <code>classification_systems.domain</code> admitidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material</td>
+<td><code>material</code>, <code>material_category</code>, <code>waste</code></td>
+</tr>
+<tr>
+<td>Edificio</td>
+<td><code>building_typology</code></td>
+</tr>
+<tr>
+<td>Elemento</td>
+<td><code>component</code></td>
+</tr>
+<tr>
+<td>Categoría material de resultados</td>
+<td><code>material_category</code></td>
+</tr>
+<tr>
+<td>Componente de resultados</td>
+<td><code>component</code></td>
+</tr>
+</tbody>
+</table>
+<p>Los sistemas pueden conservar otros dominios no vacíos, pero no usarse en estas asociaciones sin ampliar expresamente el contrato. El dominio del sistema, el sistema de una versión, la versión de un nodo, el código/unidad canónica de un tipo de propiedad y el tipo de una propiedad no son editables tras su creación. Se crearán nuevas identidades o versiones cuando sea necesario. Los nombres descriptivos siguen siendo editables; esto no equivale a congelar un conjunto de datos científico.</p>
+<h3 id="ejecucion-y-concurrencia">Ejecución y concurrencia</h3>
+<p>Los triggers se instalan mediante Alembic, no mediante <code>metadata.create_all()</code>; <code>alembic check</code> no verifica por sí solo las funciones ni los triggers. CI ejecuta pruebas de inserción y rechazo sobre PostgreSQL aislado y un ciclo de reversión/reaplicación. Las comprobaciones de jerarquías recorren el grafo completo tras cada sentencia relevante y serializan escrituras con <code>SHARE ROW EXCLUSIVE</code>. Importar por lotes y usar <code>READ COMMITTED</code> (predeterminado); pueden producirse conflictos/deadlocks que obliguen a reintentar la transacción completa. <code>REPEATABLE READ</code> se rechaza en escrituras de jerarquías y selección de correspondencias; <code>SERIALIZABLE</code> requiere gestionar reintentos. No se han medido aún rendimiento o concurrencia. Los roles de escritura de jerarquías necesitan permiso para adquirir dicho bloqueo.</p>
+<p>La migración verifica también filas existentes mediante actualizaciones sin cambio lógico; un registro incompatible aborta la migración, no se corrige ni elimina automáticamente. La reversión elimina solo las restricciones y triggers añadidos.</p>
+<h3 id="limites">Límites</h3>
+<p>Todavía faltan el cierre completo de versiones y dependencias, la selección científica de métodos y mediciones, la compatibilidad dimensional y de densidad aparente/intrínseca y la prevención del doble conteo. Las revisiones posteriores incorporan contribuciones agregadas y sellado de entradas seleccionadas. Una <abbr title="Foreign Key; clave externa">FK</abbr> o un trigger no garantiza por sí solo validez científica.</p>
+<h2 id="resolucion-de-resultados-0007_resolution">Resolución de resultados (0007_resolution)</h2>
+<p>La restricción de ámbito distingue contribuciones de elemento, medición de parte y componente; conserva las <abbr title="Foreign Key; clave externa">FK</abbr> existentes y exige una cadena completa cuando corresponde. Los índices parciales limitan duplicados por ámbito; el trigger comprueba el dominio del componente. La selección de ámbitos no solapados y la suficiencia de las entradas quedan pendientes del motor Python. La reversión rechaza datos agregados existentes. Véase <a href="../results/">resultados</a>.</p>
+<h2 id="reproducibilidad-0008_reproducibility">Reproducibilidad (0008_reproducibility)</h2>
+<ul>
+<li>El manifiesto se genera en PostgreSQL desde una selección explícita; se conserva la instantánea y se calcula la huella, sin convertir numéricos a <code>float</code> en Python.</li>
+<li>Los triggers impiden actualizar o borrar entradas selladas, alterar la configuración y modelos sellados o modificar resultados de ejecuciones finalizadas. No impiden crear filas nuevas en conjuntos lógicos; la selección completa sigue siendo responsabilidad del servicio científico.</li>
+<li>El sellado toma bloqueos <code>SHARE</code> de las tablas seleccionadas en orden estable y exige aislamiento <code>READ COMMITTED</code>; las actualizaciones y borrados de entradas también exigen dicho aislamiento. Las escrituras de resultados bloquean su ejecución para serializarse con el sellado/finalización. Mantener transacciones breves y reintentar transacciones abortadas por interbloqueo. La concurrencia y rendimiento requieren pruebas representativas.</li>
+<li>El downgrade se bloquea si existen manifiestos, ejecuciones finalizadas o mediciones explícitas en cantidades, evitando perder protección histórica.</li>
+<li>Los triggers protegen operaciones DML ordinarias, no operaciones administrativas como deshabilitarlos o truncar tablas. Separar rol de migración/administración del rol de aplicación y no conceder <code>TRUNCATE</code> ni DDL a este último.</li>
+<li>No duplicar la base completa: seleccionar únicamente entradas relevantes. El manifiesto puede contener registros de origen privados y permanece en la base de datos; nunca publicarlo en documentación ni repositorios.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  </body>
+</html>
