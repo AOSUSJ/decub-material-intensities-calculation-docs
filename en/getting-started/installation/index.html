@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/getting-started/installation/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/getting-started/installation/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/getting-started/installation/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/getting-started/installation/" data-decub-anchors="[&quot;__skip&quot;, &quot;check-the-postgresql-target&quot;, &quot;connection&quot;, &quot;documentation-and-checks&quot;, &quot;export-markdown-reports-to-pdf&quot;, &quot;hulc-inventory-import&quot;, &quot;import-modes-and-diagnostics&quot;, &quot;installation-and-configuration&quot;, &quot;private-explorer&quot;, &quot;revision-management&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/getting-started/installation/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/getting-started/installation/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1581,7 +1589,7 @@ decub<span class="w"> </span>db<span class="w"> </span>status
 python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>site
 python<span class="w"> </span>-m<span class="w"> </span>pytest
 </code></pre></div>
-<p>Zensical generates the bilingual site from Markdown with <code>zensical.toml</code> and <code>zensical.en.toml</code>. The combined preview is at <code>http://127.0.0.1:8080/</code>, with English under <code>/en/</code>. For another port, adjust <code>--site-url</code> when building and the HTTP server port. See <a href="../../development/">development</a>. The local server allows documentation to be consulted without publishing information. Offline tests do not replace validation against an isolated PostgreSQL instance.</p>
+<p>Zensical generates the trilingual site from Markdown with <code>docs/zensical.es.toml</code>, <code>docs/zensical.en.toml</code> and <code>docs/zensical.fr.toml</code>. The combined preview is at <code>http://127.0.0.1:8080/</code>, with English under <code>/en/</code> and French under <code>/fr/</code>. For another port, adjust <code>--site-url</code> when building and the HTTP server port. See <a href="../../development/">development</a>. The local server allows documentation to be consulted without publishing information. Offline tests do not replace validation against an isolated PostgreSQL instance.</p>
 <h2 id="check-the-postgresql-target">Check the PostgreSQL target</h2>
 <p>Before applying migrations, configure the local connection and run <code>decub db inspect</code>. The command uses a read-only transaction and returns target, user, version, <code>search_path</code>, basic privileges, existing objects and detected revision tables. It creates no schemas and modifies no data. Review authorization and possible collisions with other projects; this is not an automatic guarantee of DDL permissions or structural compatibility. Its output contains infrastructure information: do not publish without review.</p>
 <h2 id="hulc-inventory-import"><abbr title="Herramienta Unificada LIDER-CALENER (unified LIDER-CALENER tool)">HULC</abbr> inventory import</h2>
@@ -1661,5 +1669,5 @@ python<span class="w"> </span>-m<span class="w"> </span>pytest
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

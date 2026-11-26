@@ -1,0 +1,1646 @@
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Méthodologie et infrastructure de l’inventaire des bâtiments">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/development/">
+      
+      
+      
+      
+        <link rel="prev" href="../references/">
+      
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Développement - DECUB · Inventaire des matériaux</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="./.." title="DECUB · Inventaire des matériaux" class="md-header__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventaire des matériaux
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Développement
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/development/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/development/" data-decub-anchors="[&quot;__skip&quot;]">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/en/development/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/development/" data-decub-anchors="[&quot;__skip&quot;]">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/development/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/development/" data-decub-anchors="[&quot;__skip&quot;, &quot;developpement-et-contribution&quot;, &quot;documentation-trilingue&quot;, &quot;gestion-des-versions-et-artefacts-generes&quot;, &quot;integration-postgresql&quot;, &quot;publication-web&quot;, &quot;tests-de-lexplorateur&quot;, &quot;validation-des-performances-dimportation&quot;]">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="DECUB · Inventaire des matériaux" class="md-nav__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventaire des matériaux
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Accueil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Premiers pas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Importations de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Importations de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vue d’ensemble
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue de référence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire HULC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes et diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conception générale
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résultats
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Intégrité et versionnement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie scientifique
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Méthodologie scientifique
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fondements et périmètre
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/mappings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Correspondances de matériaux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Décomposition hiérarchique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/composites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Matériaux et produits composites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Surfaces, volumes et géométrie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenêtres et menuiseries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/densities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Masses volumiques et propriétés
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Hypothèses et incertitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/mass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calcul des masses
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/intensities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Indicateurs et intensités
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Couverture et qualité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/traceability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reproductibilité et traçabilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualisation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Références
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-versions-et-artefacts-generes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Gestion des versions et artefacts générés
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Publication web
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Intégration PostgreSQL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intégration PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-des-performances-dimportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validation des performances d'importation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-de-lexplorateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tests de l'explorateur
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-trilingue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentation trilingue
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-versions-et-artefacts-generes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Gestion des versions et artefacts générés
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Publication web
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Intégration PostgreSQL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intégration PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-des-performances-dimportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validation des performances d'importation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-de-lexplorateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tests de l'explorateur
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-trilingue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentation trilingue
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="developpement-et-contribution">Développement et contribution</h1>
+<p>Utiliser des branches de courte durée <code>feat/...</code>, <code>fix/...</code>, <code>docs/...</code> et des pull requests vers <code>main</code>. Chaque modification doit inclure les tests pertinents et actualiser la documentation courante concernée. Ne pas créer de page pour chaque correction. Séparer méthodes scientifiques, paramètres, persistance et visualisation ; éviter les valeurs propres aux matériaux intégrées dans les algorithmes.</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pytest
+ruff<span class="w"> </span>check<span class="w"> </span>.
+python<span class="w"> </span>tools/check_public_tree.py
+python<span class="w"> </span>tools/build_docs.py
+</code></pre></div>
+<p>Ne pas modifier les migrations appliquées ; créer une nouvelle révision, l'examiner et la tester sur PostgreSQL isolé. Ne pas activer l'autogénération pour les schémas d'autres applications. La publication de la documentation utilise uniquement <code>docs/es/</code>, <code>docs/en/</code>, <code>docs/fr/</code> et les ressources publiques.</p>
+<h2 id="gestion-des-versions-et-artefacts-generes">Gestion des versions et artefacts générés</h2>
+<p>Le programme suit <code>MAJOR.MINOR.PATCH</code> (série 0.x pendant l’évolution de l’API et de la méthodologie). Incrémenter MINOR pour les étapes fonctionnelles et PATCH pour les corrections d’une version publiée ; réserver 1.0.0 à une première version stable et scientifiquement validée. La source unique est <code>src/decub/__init__.py</code> ; setuptools en déduit les métadonnées du paquet. Mettre à jour les README et CHANGELOG dans les trois langues lors d’un changement de version et réinstaller le paquet éditable (<code>python -m pip install -e ".[dev,docs,visualization]"</code>). Vérifier <code>decub --version</code>. Ne pas créer de tags rétrospectifs pour des versions non publiées.</p>
+<p><code>build/</code> contient les fichiers temporaires de Zensical (dont les destinations monolingues <code>standalone-es</code>, <code>standalone-en</code> et <code>standalone-fr</code>) et peut contenir des artefacts de setuptools ; <code>dist/</code> contient les paquets générés et <code>site/</code> le site compilé. Ces trois répertoires sont exclus de Git. Ils peuvent être régénérés ; arrêter au préalable toute compilation ou prévisualisation qui les utilise.</p>
+<h2 id="publication-web">Publication web</h2>
+<p>Le dépôt principal peut rester privé. Le dépôt public frère <code>decub-material-intensities-calculation-docs</code> (même organisation) contient exclusivement le site compilé. Ne pas le modifier manuellement : sa branche <code>main</code> est remplacée par les fichiers statiques à chaque publication.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Markdown dans le dépôt principal] --&gt; B[Zensical et vérifications]
+    B --&gt; C[Dépôt de documentation public]
+    C --&gt; D[GitHub Pages]</code></pre>
+<p>Configuration initiale par un administrateur :</p>
+<ol>
+<li>Créer le dépôt public frère avec README et branche <code>main</code>.</li>
+<li>Dans Settings → Pages sélectionner Deploy from a branch, <code>main</code>, <code>/ (root)</code>.</li>
+<li>Créer un jeton d'accès à granularité fine avec accès uniquement au dépôt public et permission Contents: Read and write. Le stocker comme secret Actions <code>DOCS_PUBLISH_TOKEN</code> dans le dépôt principal. Ne pas le stocker dans des fichiers ni le partager. L'organisation peut exiger une approbation.</li>
+<li>Réviser le contenu public et exécuter le workflow Documentation depuis <code>main</code>. Il s'exécute également lors de l'intégration des modifications dans <code>main</code>.</li>
+</ol>
+<p>Le workflow compile avec l'URL publique de l'organisation, valide les types de fichiers (y compris les exceptions de chemins exacts pour <code>assets/javascripts/LICENSE</code> de Zensical et ses équivalents anglais et français) et les motifs élémentaires de secrets, puis publie l'artefact statique via une tâche distincte. Le secret de publication est utilisé uniquement dans cette tâche. L'historique du dépôt principal n'est pas copié. La publication nécessite une autorisation institutionnelle ; les contrôles automatisés ne remplacent pas l'examen du contenu. Le site local conserve son adresse habituelle.</p>
+<p><strong>Confidentialité :</strong> ne pas ajouter au dépôt de sources réelles, données dérivées, géométries, identifiants secrets ni résultats. <code>.gitignore</code> ne supprime pas les fichiers déjà suivis ; examiner <code>git status</code> et le diff avant chaque commit. Exemples et tests doivent être synthétiques. La licence de distribution nécessite confirmation des responsables.</p>
+<p>Le contrôle de l'index Git détecte des chemins interdits et certains motifs de secrets ; il ne remplace pas l'examen du contenu ni ne détecte toutes les données potentiellement sensibles. L'exécuter après la préparation des modifications pour le commit.</p>
+<h2 id="integration-postgresql">Intégration PostgreSQL</h2>
+<p>CI exécute une matrice PostgreSQL 14 et 16 avec Python 3.12. Chaque version dispose de son service jetable et exécute les mêmes contrôles, y compris migrations, tests d'intégration et cycle de rétrogradation/réapplication. Les deux tâches doivent réussir avant déploiement. L'échec d'une version n'annule pas l'autre contrôle. La matrice n'utilise ni identifiants ni connexions de production. Les images officielles suivent les mises à jour mineures de chaque version majeure.</p>
+<p>Les tests dans <code>tests/test_postgres_integrity.py</code> sont ignorés par défaut. Leur exécution nécessite une instance isolée avec base <code>decub_test</code>, migrations appliquées et configuration explicite <code>DECUB_TEST_DATABASE_URL</code>. Chaque test annule ses enregistrements synthétiques ; les séquences peuvent avancer. CI exécute en outre <code>alembic downgrade base</code> et réapplique les révisions à son service jetable. Ne jamais effectuer cette rétrogradation sur la production. Les déclencheurs sont testés par insertions et mises à jour, et non seulement par introspection des métadonnées.</p>
+<h3 id="validation-des-performances-dimportation">Validation des performances d'importation</h3>
+<p>Les tests d'intégration comparent des importations synthétiques équivalentes avec tailles de lot 1 et 10 sur la même base isolée, en utilisant un point de sauvegarde pour annuler la première importation. Ils comptent les exécutions SQL observées par SQLAlchemy/DBAPI ; aucun seuil temporel dépendant de la machine n'est imposé. Ils vérifient également la correspondance entre enregistrements sources et identifiants, l'absence de duplication et l'annulation après violation d'intégrité dans un lot ultérieur. Les gains de temps sur connexion distante doivent être mesurés séparément.</p>
+<h2 id="tests-de-lexplorateur">Tests de l'explorateur</h2>
+<p>CI installe l'extra <code>visualization</code> avec <code>dev</code> et <code>docs</code>. Les tests hors ligne vérifient les requêtes bornées, paramètres et relations, et un test d'interface Streamlit simule une configuration manquante. L'intégration PostgreSQL vérifie les requêtes réelles et le rejet des écritures dans une transaction en lecture seule. L'application s'exécute localement ; elle ne fait pas partie de l'artefact de documentation statique. Les tests synthétiques vérifient aussi l'ordre et les proportions des bandes, les fractions de cadre, les valeurs inconnues et le périmètre du modèle ; les tests d'intégration vérifient que les surfaces alternatives ne dupliquent pas les dénombrements ni ne sont additionnées.</p>
+<h2 id="documentation-trilingue">Documentation trilingue</h2>
+<p>Les fichiers README et CHANGELOG du dépôt restent à la racine en espagnol, avec leurs traductions dans <code>docs/en/</code> et <code>docs/fr/</code>. Leurs liens initiaux permettent de passer d’une version à l’autre. Zensical exclut explicitement ces documents de la compilation web ; <code>index.md</code> reste la page d’accueil.</p>
+<p>Les sources espagnoles se trouvent dans <code>docs/es/</code>, les anglaises dans <code>docs/en/</code> et les françaises dans <code>docs/fr/</code>, avec les mêmes chemins relatifs. Les configurations <code>docs/zensical.es.toml</code>, <code>docs/zensical.en.toml</code> et <code>docs/zensical.fr.toml</code> maintiennent une navigation équivalente et le lien vers le dépôt principal. L'espagnol est la langue par défaut ; l'anglais est publié sous <code>/en/</code> et le français sous <code>/fr/</code>. Dans la compilation conjointe, le sélecteur natif de l’en-tête utilise des chemins explicites depuis la racine de publication pour accéder à la page équivalente dans la langue choisie. Un script garantit la destination du clic et conserve l’ancre si son identifiant existe dans les deux pages ; sinon, il ouvre la page équivalente sans ancre. Le lien fonctionne également sans JavaScript. La compilation vérifie chaque destination dans le HTML final. Pour vérifier à nouveau le site existant, exécuter <code>python tools/build_docs.py --check-links</code> (avec le même <code>--site-url</code> que lors de la compilation, si spécifié). Le serveur d’édition monolingue n’intègre pas ce traitement. Le dépôt principal est privé : le lien n'accorde pas d'autorisation. Les trois configurations partagent <code>project.extra.scope</code> (URL de base espagnole, remplacée lors de la compilation pour publication), afin que les préférences du thème soient indépendantes de la langue. Ce sélecteur est propre à la documentation et indépendant de l'explorateur privé.</p>
+<p>Actualiser les trois versions dans la même modification, y compris dictionnaires, diagrammes, abréviations, exemples et navigation. Les noms techniques, contrats SQL et commandes restent identiques. Les contrôles de parité structurelle ne certifient pas à eux seuls l'équivalence sémantique des traductions ; examiner le contenu avant publication.</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/check_docs_languages.py
+python<span class="w"> </span>tools/build_docs.py
+python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>site
+</code></pre></div>
+<p>Les compilations strictes des trois versions génèrent <code>site/</code> uniquement après validation des artefacts de chaque langue et assemblage. Pour une URL publique, utiliser <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (remplacer par l'URL autorisée). L'aperçu combiné permet de tester le sélecteur et les liens sur le serveur local. Les configurations permanentes restent dans <code>docs/</code> ; le générateur crée et supprime une configuration temporaire à la racine du dépôt, avec des chemins relatifs de sources et de sortie à l’intérieur de cette racine, conformément aux exigences de Zensical. Ne pas exécuter Zensical directement avec les configurations de <code>docs/</code>. Pour modifier une seule édition, utiliser <code>python tools/build_docs.py --serve-language es</code> (ou <code>en</code> ou <code>fr</code>) ; ce mode ne sert pas la compilation combinée des trois langues. CI et publication utilisent le même générateur ; la tâche de publication reçoit uniquement le site statique validé. Chaque configuration déclare <code>edit_uri</code> avec des séparateurs <code>/</code> et le chemin de son édition sur <code>main</code>, afin d’éviter que Zensical ne dérive une URL de modification d’un chemin natif Windows.</p>
+<p>Les tests de correspondances utilisent des données synthétiques, vérifient que les propositions n'affectent pas de matériaux, rejettent les révisions périmées et décisions incohérentes, et vérifient le périmètre des parties liées ou mesurées. L'intégration PostgreSQL vérifie simulation, écriture et lecture d'une nouvelle version et rejet des versions répétées. Les tests couvrent aussi les noms multilingues, ambiguïtés, libellés périmés et persistance du code résolu.</p>
+<p>Les libellés éditoriaux ont une clé primaire composite (entité et langue) ; les tests insèrent des enregistrements synthétiques sans exiger un <code>id</code> de substitution.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
+</html>

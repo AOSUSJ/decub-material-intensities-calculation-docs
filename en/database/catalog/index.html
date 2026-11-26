@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/database/catalog/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogproperty_types&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/database/catalog/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;batch-imports&quot;, &quot;catalog-implemented-schema&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogproperty_types&quot;, &quot;esenfr-editorial-labels-0009_localization-0011_french_labels&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/catalog/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogproperty_types&quot;]">
+              Français
             </a>
           </li>
         
@@ -782,10 +790,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esen-editorial-labels-0009_localization" class="md-nav__link">
+  <a href="#esenfr-editorial-labels-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ES/EN editorial labels (<code>0009_localization</code>)
+        ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)
       </span>
     </span>
   </a>
@@ -1571,10 +1579,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esen-editorial-labels-0009_localization" class="md-nav__link">
+  <a href="#esenfr-editorial-labels-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ES/EN editorial labels (<code>0009_localization</code>)
+        ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)
       </span>
     </span>
   </a>
@@ -2075,7 +2083,7 @@
 <p>The reference adapter groups source records and resolves reference, material, alias and classification keys using queries bounded to relevant identities. Classifications are resolved by level: each parent must exist before creating its children. For densities, the latest adapter property per material is queried; properties from other sources remain unchanged. Changes are written in batches without changing identity or versioning rules.</p>
 <p>Identifiers returned by inserts are correlated with input rows through ordered <code>RETURNING</code>; they are not assumed to be consecutive. Provenance of each relationship and the first occurrence of repeated keys are retained. Integrity checks and a single transaction per import are maintained.</p>
 <p>See the <a href="../../imports/catalog/">catalog import guide</a> for format, identity and use.</p>
-<h2 id="esen-editorial-labels-0009_localization">ES/EN editorial labels (<code>0009_localization</code>)</h2>
+<h2 id="esenfr-editorial-labels-0009_localization-0011_french_labels">ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)</h2>
 <table>
 <thead>
 <tr>
@@ -2124,7 +2132,7 @@
 <tr>
 <td><code>language</code></td>
 <td>TEXT</td>
-<td>Composite <abbr title="Primary Key">PK</abbr>; <code>es</code> or <code>en</code></td>
+<td>Composite <abbr title="Primary Key">PK</abbr>; <code>es</code>, <code>en</code> or <code>fr</code></td>
 </tr>
 <tr>
 <td><code>source_text</code></td>
@@ -2222,5 +2230,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

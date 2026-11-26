@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/imports/catalog/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/imports/catalog/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/imports/catalog/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/imports/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;reference-catalog&quot;, &quot;reimport-and-identity&quot;, &quot;spanish-english-and-french-labels&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/imports/catalog/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/imports/catalog/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -500,10 +508,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spanish-and-english-labels" class="md-nav__link">
+  <a href="#spanish-english-and-french-labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Spanish and English labels
+        Spanish, English and French labels
       </span>
     </span>
   </a>
@@ -1395,10 +1403,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spanish-and-english-labels" class="md-nav__link">
+  <a href="#spanish-english-and-french-labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Spanish and English labels
+        Spanish, English and French labels
       </span>
     </span>
   </a>
@@ -1448,7 +1456,7 @@ decub<span class="w"> </span>import<span class="w"> </span>catalog<span class="w
 </code></pre></div>
 <p>Pass <code>--aliases data/reference/aliases.json</code> in both simulation and application and keep the map for future imports. Use <code>--allow-identity-changes</code> only after reviewing intentional additions and removals. There is no fuzzy matching or inference of missing hazard markers. Bibliographic entries and density citations are claims from the source, not independently verified references. Densities come from cached numeric cells (kg/m³); nonnumeric densities are rejected and missing values do not mean zero. The adapter supports the observed fixed worksheet layout; format changes require review. Simulation is indicative; application recomputes the comparison inside its transaction.</p>
 <p>See <a href="../modes/">modes and diagnostics</a>, <a href="../../database/catalog/">catalog persistence</a> and <a href="../../database/sources/">provenance</a>.</p>
-<h2 id="spanish-and-english-labels">Spanish and English labels</h2>
+<h2 id="spanish-english-and-french-labels">Spanish, English and French labels</h2>
 <p>Original names, codes, aliases and properties remain intact. Migration <code>0009_localization</code> creates editorial label tables in the catalog, inventory and sources schemas. The explicit loader works with a local JSON file in <code>data/</code>, separate from catalog imports. Review provenance and translations before loading; do not use labels as scientific equivalences or verified legal waste designations.</p>
 <div class="highlight"><pre><span></span><code>decub<span class="w"> </span>db<span class="w"> </span>migrate<span class="w"> </span>--apply
 decub<span class="w"> </span>labels<span class="w"> </span>--file<span class="w"> </span>data/localization/labels.json<span class="w"> </span>--dry-run
@@ -1459,12 +1467,13 @@ decub<span class="w"> </span>labels<span class="w"> </span>--file<span class="w"
 <span class="w">  </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example editorial review"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog.materials"</span><span class="p">,</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"synthetic"</span><span class="p">,</span><span class="w"> </span><span class="nt">"source_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthetic material"</span><span class="p">,</span><span class="w"> </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Material sintético"</span><span class="p">,</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthetic material"</span><span class="p">}}</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog.materials"</span><span class="p">,</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"synthetic"</span><span class="p">,</span><span class="w"> </span><span class="nt">"source_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthetic material"</span><span class="p">,</span><span class="w"> </span><span class="nt">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Material sintético"</span><span class="p">,</span><span class="w"> </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthetic material"</span><span class="p">,</span><span class="w"> </span><span class="nt">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matériau synthétique"</span><span class="p">}}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Nodes also require <code>system_code</code>; codes and original names must match. Assemblies and parts reuse translations of identical text without inferring physical equivalence. Bibliographic references retain their original citation titles; display translations are not new official titles. An optional <code>note</code> records uncertainties. The loader validates the complete input before inserting, reuses identical labels and rejects conflicts; application is transactional and requires write permissions. Dry-run does not modify PostgreSQL. Do not run concurrently with other writers. No workbook reimport is required to add labels. Mapping reviews retain their original fingerprints; scientific candidate search is not automatically expanded. Original free-text values, codes, units and payloads are neither translated nor replaced.</p>
 <p>Dry-run uses a read-only PostgreSQL <code>REPEATABLE READ</code> transaction. If a SQL operation fails, the command reports SQLSTATE when available without exposing queries or private parameters. If tables are missing, first check the status of migration <code>0009_localization</code>.</p>
+<p><code>0011_french_labels</code> extends all seven language constraints. A file containing only <code>fr</code> is accepted; existing ES/EN labels are unchanged. The migration does not generate translations. Downgrading to ES/EN fails if French rows exist, without deleting them.</p>
 
 
 
@@ -1533,5 +1542,5 @@ decub<span class="w"> </span>labels<span class="w"> </span>--file<span class="w"
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

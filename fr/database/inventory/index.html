@@ -1,0 +1,3489 @@
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Méthodologie et infrastructure de l’inventaire des bâtiments">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/database/inventory/">
+      
+      
+      
+      
+        <link rel="prev" href="../catalog/">
+      
+      
+        <link rel="next" href="../methodology/">
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Inventaire physique - DECUB · Inventaire des matériaux</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="DECUB · Inventaire des matériaux" class="md-header__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventaire des matériaux
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inventaire physique
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/database/inventory/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;levels&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;study_areas&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/en/database/inventory/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;levels&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;study_areas&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/inventory/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;adaptateur-dinventaire-categorise&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;criteres-dimportation&quot;, &quot;dictionnaire-de-donnees&quot;, &quot;ecriture-par-lots-et-tracabilite&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;exemple-synthetique-de-composition&quot;, &quot;identite-classification-et-perimetre&quot;, &quot;inventaire-physique&quot;, &quot;levels&quot;, &quot;libelles-editoriaux-esenfr-0009_localization-0011_french_labels&quot;, &quot;libelles-editoriaux-etendus&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;resume-des-entites&quot;, &quot;study_areas&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DECUB · Inventaire des matériaux" class="md-nav__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventaire des matériaux
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Accueil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Premiers pas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Importations de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Importations de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vue d’ensemble
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue de référence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire HULC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes et diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conception générale
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resume-des-entites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Résumé des entités
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionnaire-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dictionnaire de données
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionnaire de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#study_areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>study_areas</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urban_blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>urban_blocks</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>buildings</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>levels</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_classifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_classifications</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>elements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_identifiers</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_relationships</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_classifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_classifications</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#window_properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>window_properties</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opaque_properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>opaque_properties</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>constructions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>construction_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction_parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>construction_parts</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_constructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_constructions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>part_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identite-classification-et-perimetre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identité, classification et périmètre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-synthetique-de-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exemple synthétique de composition
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteres-dimportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Critères d’importation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptateur-dinventaire-categorise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adaptateur d’inventaire catégorisé
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptateur d’inventaire catégorisé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecriture-par-lots-et-tracabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écriture par lots et traçabilité
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-esenfr-0009_localization-0011_french_labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-etendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux étendus
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résultats
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Intégrité et versionnement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie scientifique
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Méthodologie scientifique
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fondements et périmètre
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/mappings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Correspondances de matériaux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Décomposition hiérarchique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/composites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Matériaux et produits composites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Surfaces, volumes et géométrie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenêtres et menuiseries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/densities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Masses volumiques et propriétés
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Hypothèses et incertitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/mass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calcul des masses
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/intensities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Indicateurs et intensités
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Couverture et qualité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/traceability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reproductibilité et traçabilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualisation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Références
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resume-des-entites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Résumé des entités
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionnaire-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dictionnaire de données
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionnaire de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#study_areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>study_areas</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urban_blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>urban_blocks</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>buildings</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>levels</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building_classifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>building_classifications</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>elements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_identifiers</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_relationships</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_classifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_classifications</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#window_properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>window_properties</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opaque_properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>opaque_properties</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>constructions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction_versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>construction_versions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction_parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>construction_parts</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element_constructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>element_constructions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part_measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>part_measurements</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identite-classification-et-perimetre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identité, classification et périmètre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-synthetique-de-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exemple synthétique de composition
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteres-dimportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Critères d’importation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptateur-dinventaire-categorise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adaptateur d’inventaire catégorisé
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adaptateur d’inventaire catégorisé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecriture-par-lots-et-tracabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écriture par lots et traçabilité
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-esenfr-0009_localization-0011_french_labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-etendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux étendus
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="inventaire-physique">Inventaire physique</h1>
+<div class="admonition note">
+<p class="admonition-title">État</p>
+<p>19 tables disponibles dans la révision <code>0003_inventory</code>. L’importateur <abbr title="Herramienta Unificada LIDER-CALENER (outil unifié LIDER-CALENER)">HULC</abbr> est disponible ; les calculs scientifiques restent à réaliser.</p>
+</div>
+<pre class="mermaid"><code>erDiagram
+    STUDY_AREAS ||--o{ URBAN_BLOCKS : contient
+    URBAN_BLOCKS ||--o{ BUILDINGS : contient
+    BUILDINGS ||--o{ BUILDING_MODELS : versions
+    BUILDING_MODELS ||--o{ LEVELS : contient
+    BUILDING_MODELS ||--o{ ELEMENTS : contient
+    LEVELS o|--o{ ELEMENTS : emplacement
+    ELEMENTS ||--o{ ELEMENT_LABELS : labels
+    LEVELS ||--o{ LEVEL_LABELS : labels
+    ELEMENTS ||--o{ ELEMENT_IDENTIFIERS : identifié
+    ELEMENTS ||--o{ ELEMENT_MEASUREMENTS : mesuré
+    ELEMENTS ||--o| WINDOW_PROPERTIES : possède
+    ELEMENTS ||--o| OPAQUE_PROPERTIES : possède
+    ELEMENTS ||--o{ ELEMENT_CONSTRUCTIONS : utilise
+    CONSTRUCTIONS ||--o{ CONSTRUCTION_VERSIONS : versions
+    CONSTRUCTION_VERSIONS ||--o{ CONSTRUCTION_PARTS : contient
+    CONSTRUCTION_VERSIONS ||--o{ ELEMENT_CONSTRUCTIONS : affecté
+    CONSTRUCTION_PARTS ||--o{ PART_MEASUREMENTS : mesuré
+    CONSTRUCTION_PARTS o|--o{ CONSTRUCTION_PARTS : subdivise</code></pre>
+<h2 id="resume-des-entites">Résumé des entités</h2>
+<p>Par défaut, les champs <code>id</code> et <code>*_id</code> sont BIGINT (<abbr title="Clé primaire">PK</abbr>/<abbr title="Clé étrangère">FK</abbr>) ; codes, noms, types, états et descriptions sont TEXT ; mesures NUMERIC(24,10) ; métadonnées <abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr> ; dates TIMESTAMPTZ. <code>element_id</code> est la <abbr title="Clé primaire">PK</abbr> et la <abbr title="Clé étrangère">FK</abbr> des tables de propriétés spécialisées. Les champs d’année sont SMALLINT et les positions INTEGER. Le dictionnaire ci-dessous fournit les détails exacts.</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Principaux champs hors id</th>
+<th>Finalité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>study_areas</td>
+<td>code, name, description</td>
+<td>Zone d'étude</td>
+</tr>
+<tr>
+<td>urban_blocks</td>
+<td>study_area_id, code, name, description</td>
+<td>Îlot urbain</td>
+</tr>
+<tr>
+<td>buildings</td>
+<td>urban_block_id, code, name, description, construction_year_from, construction_year_to</td>
+<td>Bâtiment physique</td>
+</tr>
+<tr>
+<td>building_models</td>
+<td>building_id, code, version, source_system, source_import_id, supersedes_id, status, created_at</td>
+<td>Représentation versionnée</td>
+</tr>
+<tr>
+<td>levels</td>
+<td>building_model_id, code, name, level_number, elevation_m</td>
+<td>Niveau facultatif</td>
+</tr>
+<tr>
+<td>building_measurements</td>
+<td>building_model_id, measurement_type, value, unit, measurement_method, reference_id, source_record_id, quality_status, notes</td>
+<td>Dénominateurs alternatifs</td>
+</tr>
+<tr>
+<td>building_classifications</td>
+<td>building_id, classification_node_id, source_record_id, status, justification</td>
+<td>Typologies</td>
+</tr>
+<tr>
+<td>elements</td>
+<td>building_model_id, level_id, element_kind, name, source_type, orientation, source_record_id, metadata, created_at</td>
+<td>Élément individuel</td>
+</tr>
+<tr>
+<td>element_identifiers</td>
+<td>element_id, model_id, namespace, external_id, source_record_id</td>
+<td>Identifiants externes uniques par modèle et espace de noms</td>
+</tr>
+<tr>
+<td>element_relationships</td>
+<td>from_element_id, to_element_id, relationship_type, source_record_id, status</td>
+<td>Ouvertures, relations physiques ou équivalences explicites</td>
+</tr>
+<tr>
+<td>element_classifications</td>
+<td>element_id, classification_node_id, assignment_type, source_record_id, justification, status</td>
+<td>Classification déclarée et révisée</td>
+</tr>
+<tr>
+<td>element_measurements</td>
+<td>element_id, measurement_type, value, unit, measurement_method, quality_status, source_record_id</td>
+<td>Surfaces et dimensions</td>
+</tr>
+<tr>
+<td>window_properties</td>
+<td>element_id, element_kind, u_value_w_m2k, frame_fraction, glass_solar_factor, shading_factor, air_permeability_m3_h_m2_100pa, opening_name</td>
+<td>Attributs des fenêtres</td>
+</tr>
+<tr>
+<td>opaque_properties</td>
+<td>element_id, element_kind, u_value_w_m2k, b_factor, enclosure_type, construction_name</td>
+<td>Attributs des parois opaques</td>
+</tr>
+<tr>
+<td>constructions</td>
+<td>code, name, description</td>
+<td>Composition réutilisable</td>
+</tr>
+<tr>
+<td>construction_versions</td>
+<td>construction_id, version, source_import_id, source_record_id, status, notes</td>
+<td>Version de composition</td>
+</tr>
+<tr>
+<td>construction_parts</td>
+<td>construction_version_id, parent_part_id, position, part_kind, description, thickness_m, source_record_id</td>
+<td>Couches, cadres, verre, cavités</td>
+</tr>
+<tr>
+<td>element_constructions</td>
+<td>element_id, construction_version_id, role, coverage_fraction, source_record_id, assignment_status</td>
+<td>Composition affectée</td>
+</tr>
+<tr>
+<td>part_measurements</td>
+<td>part_id, building_model_id, measurement_type, value, unit, measurement_method, quality_status, source_record_id</td>
+<td>Mesures agrégées originales</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dictionnaire-de-donnees">Dictionnaire de données</h2>
+<p>Les champs marqués « Oui » dans la colonne NULL autorisent l’absence. Les identifiants <code>id</code> sont des BIGINT identity ; les deux tables de propriétés utilisent <code>element_id</code> comme clé primaire. Les références utilisent <code>ON DELETE RESTRICT</code>. Les index <abbr title="Clé étrangère">FK</abbr> et de recherche ne remplacent pas les règles scientifiques.</p>
+<h3 id="study_areas"><code>study_areas</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Unicité : <code>code</code>.</li>
+</ul>
+<h3 id="urban_blocks"><code>urban_blocks</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>study_area_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.study_areas.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Unicité : <code>study_area_id, code</code>.</li>
+</ul>
+<h3 id="buildings"><code>buildings</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>urban_block_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.urban_blocks.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>construction_year_from</code></td>
+<td>SMALLINT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>construction_year_to</code></td>
+<td>SMALLINT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>construction_year_from &lt;= construction_year_to</code>.</li>
+<li>Unicité : <code>urban_block_id, code</code>.</li>
+</ul>
+<h3 id="building_models"><code>building_models</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>building_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.building_id</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.buildings.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.code</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_system</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_import_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.imports.id</code></td>
+</tr>
+<tr>
+<td><code>supersedes_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>now()</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>supersedes_id &lt;&gt; id</code>.</li>
+<li>CHECK : <code>status IN ('draft','reviewed','retired')</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>supersedes_id, building_id, code</code> → <code>inventory.building_models.id, inventory.building_models.building_id, inventory.building_models.code</code>.</li>
+<li>Unicité : <code>building_id, code, version</code>.</li>
+<li>Unicité : <code>id, building_id, code</code>.</li>
+</ul>
+<h3 id="levels"><code>levels</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>level_number</code></td>
+<td>INTEGER</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>elevation_m</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Unicité : <code>building_model_id, code</code>.</li>
+<li>Unicité : <code>id, building_model_id</code>.</li>
+</ul>
+<h3 id="building_measurements"><code>building_measurements</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+<tr>
+<td><code>measurement_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>measurement_method</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quality_status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>unknown</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>reference_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.references.id</code></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>value &gt;= 0 AND value &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>CHECK : <code>quality_status IN ('unknown','reported','measured','estimated','derived','reviewed')</code>.</li>
+</ul>
+<h3 id="building_classifications"><code>building_classifications</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>building_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.buildings.id</code></td>
+</tr>
+<tr>
+<td><code>classification_node_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+<tr>
+<td><code>justification</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>status IN ('draft','reviewed','retired')</code>.</li>
+<li>Unicité : <code>building_id, classification_node_id</code>.</li>
+</ul>
+<h3 id="elements"><code>elements</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.levels.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>level_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.levels.id</code></td>
+</tr>
+<tr>
+<td><code>element_kind</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>orientation</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>now()</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>length(btrim(element_kind)) &gt; 0</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>level_id, building_model_id</code> → <code>inventory.levels.id, inventory.levels.building_model_id</code>.</li>
+<li>Unicité : <code>id, element_kind</code>.</li>
+<li>Unicité : <code>id, building_model_id</code>.</li>
+</ul>
+<h3 id="element_identifiers"><code>element_identifiers</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>model_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>external_id</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>length(btrim(namespace)) &gt; 0 AND length(btrim(external_id)) &gt; 0</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>element_id, model_id</code> → <code>inventory.elements.id, inventory.elements.building_model_id</code>.</li>
+<li>Unicité : <code>model_id, namespace, external_id</code>.</li>
+</ul>
+<h3 id="element_relationships"><code>element_relationships</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>from_element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>to_element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>relationship_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>from_element_id &lt;&gt; to_element_id</code>.</li>
+<li>CHECK : <code>status IN ('draft','reviewed','retired')</code>.</li>
+<li>Unicité : <code>from_element_id, to_element_id, relationship_type</code>.</li>
+</ul>
+<h3 id="element_classifications"><code>element_classifications</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>classification_node_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>assignment_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>justification</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>status IN ('draft','reviewed','retired')</code>.</li>
+<li>Unicité : <code>element_id, classification_node_id, assignment_type</code>.</li>
+</ul>
+<h3 id="element_measurements"><code>element_measurements</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>measurement_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>measurement_method</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quality_status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>unknown</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>value &gt;= 0 AND value &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>CHECK : <code>quality_status IN ('unknown','reported','measured','estimated','derived','reviewed')</code>.</li>
+</ul>
+<h3 id="window_properties"><code>window_properties</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>element_kind</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>window</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.element_kind</code></td>
+</tr>
+<tr>
+<td><code>u_value_w_m2k</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>frame_fraction</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>glass_solar_factor</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>shading_factor</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>air_permeability_m3_h_m2_100pa</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>opening_name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>air_permeability_m3_h_m2_100pa &gt;= 0 AND air_permeability_m3_h_m2_100pa &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>CHECK : <code>frame_fraction BETWEEN 0 AND 1</code>.</li>
+<li>CHECK : <code>glass_solar_factor BETWEEN 0 AND 1</code>.</li>
+<li>CHECK : <code>element_kind = 'window'</code>.</li>
+<li>CHECK : <code>shading_factor BETWEEN 0 AND 1</code>.</li>
+<li>CHECK : <code>u_value_w_m2k &gt;= 0 AND u_value_w_m2k &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>element_id, element_kind</code> → <code>inventory.elements.id, inventory.elements.element_kind</code>.</li>
+</ul>
+<h3 id="opaque_properties"><code>opaque_properties</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>element_kind</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>opaque</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.element_kind</code></td>
+</tr>
+<tr>
+<td><code>u_value_w_m2k</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>b_factor</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>enclosure_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>construction_name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>b_factor &gt;= 0 AND b_factor &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>CHECK : <code>element_kind = 'opaque'</code>.</li>
+<li>CHECK : <code>u_value_w_m2k &gt;= 0 AND u_value_w_m2k &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>element_id, element_kind</code> → <code>inventory.elements.id, inventory.elements.element_kind</code>.</li>
+</ul>
+<h3 id="constructions"><code>constructions</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Unicité : <code>code</code>.</li>
+</ul>
+<h3 id="construction_versions"><code>construction_versions</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>construction_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.constructions.id</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>INTEGER</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_import_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.imports.id</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>version &gt; 0</code>.</li>
+<li>CHECK : <code>status IN ('draft','reviewed','retired')</code>.</li>
+<li>Unicité : <code>construction_id, version</code>.</li>
+</ul>
+<h3 id="construction_parts"><code>construction_parts</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>construction_version_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.construction_version_id</code>; <abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_versions.id</code></td>
+</tr>
+<tr>
+<td><code>parent_part_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.id</code></td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>INTEGER</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>part_kind</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>thickness_m</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>parent_part_id &lt;&gt; id</code>.</li>
+<li>CHECK : <code>position &gt; 0</code>.</li>
+<li>CHECK : <code>thickness_m &gt;= 0 AND thickness_m &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>parent_part_id, construction_version_id</code> → <code>inventory.construction_parts.id, inventory.construction_parts.construction_version_id</code>.</li>
+<li>Unicité : <code>id, construction_version_id</code>.</li>
+<li>Index unique partiel : <code>parent_part_id, position</code> lorsque <code>parent_part_id IS NOT NULL</code>.</li>
+<li>Index unique partiel : <code>construction_version_id, position</code> lorsque <code>parent_part_id IS NULL</code>.</li>
+</ul>
+<h3 id="element_constructions"><code>element_constructions</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>construction_version_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_versions.id</code></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_fraction</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+<tr>
+<td><code>assignment_status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>draft</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>assignment_status IN ('draft','reviewed','retired')</code>.</li>
+<li>CHECK : <code>coverage_fraction BETWEEN 0 AND 1</code>.</li>
+<li>Unicité : <code>element_id, construction_version_id, role</code>.</li>
+</ul>
+<h3 id="part_measurements"><code>part_measurements</code></h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th style="text-align: center;">NULL</th>
+<th>Clé / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé primaire">PK</abbr>; IDENTITY ALWAYS</td>
+</tr>
+<tr>
+<td><code>part_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+<tr>
+<td><code>measurement_type</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>measurement_method</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quality_status</code></td>
+<td>TEXT</td>
+<td style="text-align: center;">Non</td>
+<td>Défaut <code>unknown</code></td>
+</tr>
+<tr>
+<td><code>source_record_id</code></td>
+<td>BIGINT</td>
+<td style="text-align: center;">Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CHECK : <code>value &gt;= 0 AND value &lt;&gt; 'NaN'::numeric</code>.</li>
+<li>CHECK : <code>quality_status IN ('unknown','reported','measured','estimated','derived','reviewed')</code>.</li>
+</ul>
+<h2 id="identite-classification-et-perimetre">Identité, classification et périmètre</h2>
+<pre class="mermaid"><code>erDiagram
+    BUILDINGS ||--o{ BUILDING_CLASSIFICATIONS : classé
+    BUILDING_MODELS ||--o{ BUILDING_MEASUREMENTS : mesuré
+    ELEMENTS ||--o{ ELEMENT_CLASSIFICATIONS : classé
+    CLASSIFICATION_NODES ||--o{ BUILDING_CLASSIFICATIONS : affecte
+    CLASSIFICATION_NODES ||--o{ ELEMENT_CLASSIFICATIONS : affecte
+    ELEMENTS ||--o{ ELEMENT_RELATIONSHIPS : origine
+    ELEMENTS ||--o{ ELEMENT_RELATIONSHIPS : destination
+    BUILDING_MODELS ||--o{ PART_MEASUREMENTS : périmètre</code></pre>
+<ul>
+<li>Les codes des îlots et bâtiments sont uniques au sein de leur entité territoriale parente. Les modèles sont identifiés par bâtiment, code et version. Un successeur appartient à la même série de modèles.</li>
+<li>Le niveau et le périmètre de l’identifiant d’un élément doivent correspondre à son modèle. Des espaces de noms peuvent être ajoutés dans ce modèle ; les correspondances entre représentations différentes sont exprimées par des relations explicites entre éléments. L’identité n’est pas inférée à partir de noms similaires.</li>
+<li><code>element_kind</code> distinguishes <code>window</code>, <code>opaque</code> and future types. Property tables have a discriminator protected by a composite <abbr title="Clé étrangère">FK</abbr>; a specialized row is not mandatory if attributes are missing.</li>
+<li>Les états de révision sont <code>draft</code>, <code>reviewed</code>, <code>retired</code> ; l’état de qualité des mesures est indépendant (<code>unknown</code>, <code>reported</code>, <code>measured</code>, <code>estimated</code>, <code>derived</code>, <code>reviewed</code>). Une mesure inconnue reste NULL, sans valeur par défaut.</li>
+<li>Les positions des parties commencent à 1 et sont uniques entre parties sœurs, y compris les parties racines. L’ordre n’implique pas à lui seul l’orientation extérieur/intérieur. Les hiérarchies et successions interdisent les autoréférences ; la révision <code>0006_integrity</code> vérifie également les cycles plus longs des parties et modèles.</li>
+<li><code>assignment_type</code> distinguishes reported and reviewed classifications. Classification domain, canonical units and selection of current measurements and assignments require validation in future services. Versions are not yet immutable by SQL constraint.</li>
+<li>Les relations peuvent représenter des équivalences entre modèles ; les relations physiques, par exemple ouverture-paroi, nécessiteront des contrôles de périmètre et sémantiques. Des mesures de parties agrégées par modèle peuvent exister avant que des éléments soient affectés à la composition.</li>
+</ul>
+<h2 id="exemple-synthetique-de-composition">Exemple synthétique de composition</h2>
+<p><img alt="Coupe constructive conceptuelle" src="../../assets/diagrams/construction.svg" /></p>
+<p>Une façade fictive peut posséder une composition avec plusieurs parties ordonnées, réutilisée par plusieurs éléments. L’épaisseur appartient à chaque partie ; la surface appartient aux mesures d’éléments ou à une mesure source agrégée. Le matériau interprété sera affecté dans le contexte méthodologique, non dans cette table. Pour les fenêtres, cadre, verre et lame d’air peuvent être représentés comme des parties avec des méthodes différentes.</p>
+<h2 id="criteres-dimportation">Critères d’importation</h2>
+<p>L’adaptateur <abbr title="Herramienta Unificada LIDER-CALENER (outil unifié LIDER-CALENER)">HULC</abbr> distingue les fenêtres des parois opaques selon la structure originale, en conservant identifiant, type, orientation, propriétés et ligne source. Le code de composant sera une classification externe, non le type technique de table. Les surfaces déclarées sont stockées comme <code>reported_area</code> jusqu’à ce que leur caractère brut ou net soit connu. Un nom de composition n’est pas une identité globale. Les couches sont importées même sans correspondance matérielle. Les sous-totaux sources servent à contrôler les quantités et ne sont pas ajoutés aux résultats désagrégés. Les zéros dérivés d’entrées manquantes ne sont pas interprétés comme des absences confirmées.</p>
+<p>Une future représentation géométrique pourra référencer les éléments par identifiants de modèle et d’espace de noms. Aucune correspondance <abbr title="Herramienta Unificada LIDER-CALENER (outil unifié LIDER-CALENER)">HULC</abbr>–<abbr title="Industry Foundation Classes">IFC</abbr> automatique ni stabilité des identifiants entre exports n’est supposée.</p>
+<p>La révision <code>0005_results</code> ajoute des clés uniques de support à <code>element_constructions</code> (<code>id</code>, <code>element_id</code>, <code>construction_version_id</code>) et <code>building_measurements</code> (<code>id</code>, <code>building_model_id</code>) pour les <abbr title="Clé étrangère">FK</abbr> composites dans les <a href="../results/">résultats</a>.</p>
+<p><code>0006_integrity</code> vérifie les domaines de classification des bâtiments (<code>building_typology</code>) et éléments (<code>component</code>), et exige un type et une unité non vides dans toutes les mesures. La compatibilité dimensionnelle reste à traiter. Voir <a href="../integrity/">intégrité</a>.</p>
+<p><code>0007_resolution</code> ajoute l’unicité de support <code>(id, part_id, building_model_id)</code> dans <code>part_measurements</code>, pour référencer les mesures agrégées depuis les résultats sans inventer d’éléments.</p>
+<p>La révision <code>0008_reproducibility</code> ajoute l’unicité <code>(id, element_id)</code> à <code>element_measurements</code> pour référencer une mesure effective depuis une contribution individuelle. Les mesures sélectionnées dans les manifestes sont protégées contre les modifications ordinaires ; les alternatives sont enregistrées comme nouvelles lignes.</p>
+<h2 id="adaptateur-dinventaire-categorise">Adaptateur d’inventaire catégorisé</h2>
+<pre class="mermaid"><code>flowchart LR
+    A[Classeur catégorisé] --&gt; B[Enregistrements originaux]
+    A --&gt; C[Modèle physique versionné]
+    C --&gt; D[Éléments et mesures]
+    C --&gt; E[Compositions et parties]
+    B --&gt; D
+    B --&gt; E</code></pre>
+<p>Les codes de catégories originaux sont conservés dans <code>elements.metadata.source_category</code>, sans supposer d’équivalence avec les systèmes de classification du catalogue. Seules les compositions opaques dont le nom normalisé correspond exactement sont liées directement. Les fenêtres conservent leurs propriétés sans affectation automatique de compositions ou de géométries de cadre ou de verre. Les parties sont enregistrées comme <code>source_part</code> jusqu’à interprétation de leur fonction. Les niveaux, surfaces de référence du bâtiment et relations de contenance ne sont pas inférés.</p>
+<p>Les mesures agrégées de chaque partie restent distinctes des surfaces individuelles. Les volumes de formules mis en cache avec entrées manquantes sont enregistrés comme inconnus (<code>NULL</code>) ; les valeurs originales restent dans <code>sources.source_records</code>. Ne pas additionner mesures agrégées et quantités individuelles sans résoudre les recouvrements. Un volume mis en cache n’est pas nécessairement égal au volume de matière solide. Le rapport d’importation identifie les compositions sans correspondance de nom physique et les formules avec entrées manquantes.</p>
+<p>L’importateur résout les noms de compositions opaques sans correspondance directe par des équivalences explicites confirmées par l’opérateur. L’association est stockée dans <code>element_constructions</code> ; le nom original reste dans <code>opaque_properties.construction_name</code> et l’enregistrement source. La configuration normalisée est conservée dans <code>sources.imports.configuration</code> et fait partie de l’identité de l’instantané lorsqu’elle contient des équivalences. L’identité du bâtiment ne change pas et les correspondances directes ne sont pas remplacées. Les fenêtres et correspondances partie-matériau sont hors de cette opération. Voir <a href="../../imports/hulc/">importation de l’inventaire <abbr title="Herramienta Unificada LIDER-CALENER (outil unifié LIDER-CALENER)">HULC</abbr></a>.</p>
+<h3 id="ecriture-par-lots-et-tracabilite">Écriture par lots et traçabilité</h3>
+<p>L’importateur regroupe les enregistrements sources, versions de compositions et parties, éléments, mesures, sous-types et associations selon leurs dépendances. Les clés des compositions existantes et dernières versions sont interrogées par groupes. Les entités générant des identifiants demandent <code>RETURNING</code> avec corrélation explicite à l’ordre des paramètres ; la correspondance n’est pas inférée de la continuité des séquences. Les relations dépendantes sont écrites après récupération des identifiants correspondants.</p>
+<p>Les contraintes, déclencheurs et le verrou consultatif transactionnel sont conservés. Les données inconnues, noms originaux, empreinte physique et configuration scientifique ne changent pas avec une taille de lot différente. L’ensemble du chargement est validé ensemble. La simulation n’écrit toujours aucun enregistrement.</p>
+<h2 id="libelles-editoriaux-esenfr-0009_localization-0011_french_labels">Libellés éditoriaux ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Clé de l'entité</th>
+<th>Cible <abbr title="Clé étrangère">FK</abbr></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inventory.construction_labels</code></td>
+<td><code>construction_id</code></td>
+<td><code>inventory.constructions.id</code></td>
+</tr>
+<tr>
+<td><code>inventory.construction_part_labels</code></td>
+<td><code>part_id</code></td>
+<td><code>inventory.construction_parts.id</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type</th>
+<th>Contrainte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifiant de l'entité (voir tableau précédent)</td>
+<td>BIGINT</td>
+<td><abbr title="Clé primaire">PK</abbr> composite, <abbr title="Clé étrangère">FK</abbr> RESTRICT</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>TEXT</td>
+<td><abbr title="Clé primaire">PK</abbr> composite ; <code>es</code>, <code>en</code> ou <code>fr</code></td>
+</tr>
+<tr>
+<td><code>source_text</code></td>
+<td>TEXT</td>
+<td>NOT NULL, non vide</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>TEXT</td>
+<td>NOT NULL, non vide</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>TEXT</td>
+<td>NOT NULL, non vide</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td>TEXT</td>
+<td>Facultatif</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>NOT NULL, DEFAULT now()</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque table de libellés utilise la même structure. Sa clé primaire composite empêche plusieurs libellés par entité et langue. La clé étrangère restreint la suppression de l’entité originale. <code>source_text</code> conserve l’original traduit ; s’il ne correspond plus à l’entité, les requêtes de présentation renvoient NULL et le visualiseur conserve l’original. <code>origin</code> enregistre la provenance éditoriale ; <code>note</code> peut consigner ambiguïtés et limitations. Il ne s’agit ni d’entrées de calcul scientifique ni d’équivalences matérielles. Le chargeur n’écrase pas les libellés différents ; les révisions ultérieures doivent être résolues explicitement.</p>
+<h2 id="libelles-editoriaux-etendus">Libellés éditoriaux étendus</h2>
+<p>La révision <code>0012_extended_labels</code> ajoute <code>inventory.element_labels</code>, <code>inventory.level_labels</code> et <code>methodology.decomposition_node_labels</code>. Les deux premières référencent l’identifiant de l’entité ; la troisième utilise la clé composée <code>(part_mapping_id, path)</code>. Les trois prennent en charge ES/EN/FR, conservent le texte original, la provenance, la note et la date de création, et rejettent les références inexistantes. Les révisions scientifiques et les identifiants restent inchangés. Le retour arrière est refusé si les nouvelles tables contiennent des libellés.</p>
+<p>Les noms d’éléments correspondant à des identifiants externes et les noms de niveaux identiques à leur code ne sont pas traduits. L’audit distingue ces cas et les noms vides par <code>not_applicable</code>. Les nœuds conservent les libellés révisés ES/EN comme repli ; les libellés éditoriaux valides sont prioritaires pour l’affichage et le français se replie sur l’espagnol en leur absence.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
+</html>

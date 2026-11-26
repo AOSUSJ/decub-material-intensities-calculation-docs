@@ -1,0 +1,2697 @@
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Méthodologie et infrastructure de l’inventaire des bâtiments">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/database/results/">
+      
+      
+      
+      
+        <link rel="prev" href="../methodology/">
+      
+      
+        <link rel="next" href="../integrity/">
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Résultats - DECUB · Inventaire des matériaux</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="DECUB · Inventaire des matériaux" class="md-header__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventaire des matériaux
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Résultats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/database/results/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/results/" data-decub-anchors="[&quot;__skip&quot;, &quot;calculation_issues&quot;, &quot;calculation_runs&quot;, &quot;indicator_definitions&quot;, &quot;indicator_values&quot;, &quot;material_quantities&quot;, &quot;material_totals&quot;, &quot;run_models&quot;]">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/en/database/results/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/results/" data-decub-anchors="[&quot;__skip&quot;, &quot;calculation_issues&quot;, &quot;calculation_runs&quot;, &quot;indicator_definitions&quot;, &quot;indicator_values&quot;, &quot;material_quantities&quot;, &quot;material_totals&quot;, &quot;run_models&quot;]">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/results/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/results/" data-decub-anchors="[&quot;__skip&quot;, &quot;calculation_issues&quot;, &quot;calculation_runs&quot;, &quot;coherence-entre-schemas&quot;, &quot;dictionnaire-de-donnees&quot;, &quot;etats-et-quantites-inconnues&quot;, &quot;granularite-et-perimetre&quot;, &quot;indicateurs-et-couverture&quot;, &quot;indicator_definitions&quot;, &quot;indicator_values&quot;, &quot;material_quantities&quot;, &quot;material_totals&quot;, &quot;reproductibilite-et-persistance&quot;, &quot;resolution-des-contributions&quot;, &quot;resultats-modele-relationnel&quot;, &quot;run_models&quot;, &quot;scellement-des-entrees-et-resultats-0008_reproducibility&quot;]">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DECUB · Inventaire des matériaux" class="md-nav__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventaire des matériaux
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Accueil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Premiers pas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Importations de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Importations de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vue d’ensemble
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue de référence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire HULC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes et diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conception générale
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résultats
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résultats
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#granularite-et-perimetre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Granularité et périmètre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionnaire-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dictionnaire de données
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionnaire de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indicator_definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_definitions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_runs</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>run_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_values</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_quantities</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_totals</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_issues</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coherence-entre-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cohérence entre schémas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etats-et-quantites-inconnues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        États et quantités inconnues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicateurs-et-couverture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Indicateurs et couverture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproductibilite-et-persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproductibilité et persistance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-des-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Résolution des contributions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scellement-des-entrees-et-resultats-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Scellement des entrées et résultats (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Intégrité et versionnement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie scientifique
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Méthodologie scientifique
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fondements et périmètre
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/mappings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Correspondances de matériaux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Décomposition hiérarchique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/composites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Matériaux et produits composites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Surfaces, volumes et géométrie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenêtres et menuiseries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/densities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Masses volumiques et propriétés
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Hypothèses et incertitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/mass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calcul des masses
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/intensities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Indicateurs et intensités
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Couverture et qualité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methodology/traceability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reproductibilité et traçabilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualisation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Références
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#granularite-et-perimetre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Granularité et périmètre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionnaire-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dictionnaire de données
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionnaire de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indicator_definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_definitions</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_runs</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>run_models</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>indicator_values</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_quantities</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>material_totals</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculation_issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>calculation_issues</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coherence-entre-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cohérence entre schémas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etats-et-quantites-inconnues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        États et quantités inconnues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicateurs-et-couverture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Indicateurs et couverture
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproductibilite-et-persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproductibilité et persistance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-des-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Résolution des contributions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scellement-des-entrees-et-resultats-0008_reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Scellement des entrées et résultats (0008_reproducibility)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="resultats-modele-relationnel">Résultats — modèle relationnel</h1>
+<p>La révision <code>0005_results</code> implémente sept tables pour la persistance facultative des résultats. Le moteur de calcul Python et les services d’écriture ne sont pas encore implémentés. PostgreSQL stocke la provenance et les quantités ; il n’exécute pas les formules scientifiques.</p>
+<pre class="mermaid"><code>erDiagram
+    PROFILE_VERSIONS ||--o{ CALCULATION_RUNS : configure
+    MAPPING_VERSIONS o|--o{ CALCULATION_RUNS : interprète
+    CALCULATION_RUNS ||--o{ RUN_MODELS : périmètre
+    BUILDING_MODELS ||--o{ RUN_MODELS : inclus
+    RUN_MODELS ||--o{ MATERIAL_QUANTITIES : produit
+    RUN_MODELS ||--o{ MATERIAL_TOTALS : agrège
+    RUN_MODELS ||--o{ INDICATOR_VALUES : calcule
+    CALCULATION_RUNS ||--o{ CALCULATION_ISSUES : signale
+    INDICATOR_DEFINITIONS ||--o{ INDICATOR_VALUES : définit</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    E[Élément et modèle] --&gt; Q[Contribution matérielle]
+    C[Composition et partie] --&gt; Q
+    M[Correspondance et affectation] --&gt; Q
+    D[Masse volumique et méthode] --&gt; Q
+    Q --&gt; T[Totaux par modèle]
+    T --&gt; I[Indicateurs]
+    B[Mesure du bâtiment] --&gt; I</code></pre>
+<h2 id="granularite-et-perimetre">Granularité et périmètre</h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Granularité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calculation_runs</td>
+<td>Une exécution scientifique</td>
+</tr>
+<tr>
+<td>run_models</td>
+<td>Un modèle inclus par exécution</td>
+</tr>
+<tr>
+<td>material_quantities</td>
+<td>Une contribution matérielle par exécution, selon sa résolution</td>
+</tr>
+<tr>
+<td>material_totals</td>
+<td>Une combinaison modèle et dimensions par exécution</td>
+</tr>
+<tr>
+<td>indicator_definitions</td>
+<td>Une définition versionnée d'indicateur de ratio</td>
+</tr>
+<tr>
+<td>indicator_values</td>
+<td>Une combinaison modèle, indicateur versionné et dimensions par exécution</td>
+</tr>
+<tr>
+<td>calculation_issues</td>
+<td>Une anomalie d'exécution, avec contexte facultatif</td>
+</tr>
+</tbody>
+</table>
+<p>Les totaux et indicateurs persistés sont initialement limités à un modèle. Les agrégats pour les bâtiments ayant plusieurs modèles, îlots et zones seront calculés dans Python, en sélectionnant des représentations sans recouvrement. Les différentes versions d’un bâtiment ne seront pas additionnées comme s’il s’agissait de bâtiments distincts. Chaque total peut se référer à un matériau, une catégorie de matériau ou tous les matériaux ; il est éventuellement ventilé par composant. Les nœuds de classification identifient déjà une version. Les groupes à différents niveaux ne sont pas additifs : ne pas mélanger totaux globaux et ventilations. Les domaines sont validés dans PostgreSQL depuis <code>0006_integrity</code> ; la sélection cohérente de versions appartient au service.</p>
+<h2 id="dictionnaire-de-donnees">Dictionnaire de données</h2>
+<p>Les identifiants sont BIGINT identity et <abbr title="Clé primaire">PK</abbr>. Les <abbr title="Clé étrangère">FK</abbr> utilisent la suppression restreinte. Les valeurs physiques utilisent NUMERIC(24,10) ; <code>NULL</code> signifie inconnu. Les objets <abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr> ne contiennent pas de code exécutable. Les clés composites sont énumérées explicitement sous chaque table.</p>
+<h3 id="indicator_definitions"><code>indicator_definitions</code></h3>
+<p>Définitions versionnées des indicateurs de ratio et unités.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>numerator_unit</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>denominator_unit</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li>Unicité : <code>code</code>, <code>version</code>.</li>
+<li>Index : <code>ix_indicator_definitions_method_version_id</code>.</li>
+</ul>
+<h3 id="calculation_runs"><code>calculation_runs</code></h3>
+<p>Enregistrement d’exécution, versions, configuration effective et empreinte des entrées.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>profile_version_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.profile_versions.id</code></td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.mapping_versions.id</code></td>
+</tr>
+<tr>
+<td><code>run_type</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>started_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>Non</td>
+<td><code>now()</code></td>
+</tr>
+<tr>
+<td><code>finished_at</code></td>
+<td>TIMESTAMP WITH TIME ZONE</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td><code>running</code></td>
+</tr>
+<tr>
+<td><code>code_version</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>git_commit</code></td>
+<td>TEXT</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>input_fingerprint</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>— (calculée au scellement)</td>
+</tr>
+<tr>
+<td><code>input_manifest</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Oui</td>
+<td>Instantané scellé des entrées effectives</td>
+</tr>
+<tr>
+<td><code>configuration_snapshot</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>statistics</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li><code>jsonb_typeof(configuration_snapshot) = 'object'</code>.</li>
+<li><code>input_fingerprint ~ '^[0-9a-f]{64}$'</code>.</li>
+<li><code>(status = 'running') = (finished_at IS NULL)</code>.</li>
+<li><code>jsonb_typeof(statistics) = 'object'</code>.</li>
+<li><code>status IN ('running','completed','failed','cancelled')</code>.</li>
+<li><code>finished_at &gt;= started_at</code>.</li>
+<li>Unicité : <code>id</code>, <code>mapping_version_id</code>.</li>
+<li>Index : <code>ix_calculation_runs_mapping_version_id</code>, <code>ix_calculation_runs_profile_version_id</code>.</li>
+</ul>
+<h3 id="run_models"><code>run_models</code></h3>
+<p>Modèles inclus dans une exécution.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_models.id</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li>Unicité : <code>run_id</code>, <code>building_model_id</code>.</li>
+<li>Index : <code>ix_run_models_building_model_id</code>, <code>ix_run_models_run_id</code>.</li>
+</ul>
+<h3 id="indicator_values"><code>indicator_values</code></h3>
+<p>Numérateur, dénominateur, résultat, mesure de référence et couverture.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_measurements.building_model_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>indicator_definition_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.indicator_definitions.id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.materials.id</code></td>
+</tr>
+<tr>
+<td><code>material_category_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>component_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>denominator_measurement_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.building_measurements.id</code></td>
+</tr>
+<tr>
+<td><code>numerator</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>denominator</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_basis</code></td>
+<td>TEXT</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_details</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+<tr>
+<td><code>calculation_details</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li><code>jsonb_typeof(calculation_details) = 'object'</code>.</li>
+<li><code>coverage_basis IS NOT NULL OR (mass_coverage IS NULL AND volume_coverage IS NULL)</code>.</li>
+<li><code>jsonb_typeof(coverage_details) = 'object'</code>.</li>
+<li><code>denominator &gt; 0 AND denominator &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>denominator IS NULL OR denominator_measurement_id IS NOT NULL</code>.</li>
+<li><code>mass_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>material_id IS NULL OR material_category_id IS NULL</code>.</li>
+<li><code>numerator &gt;= 0 AND numerator &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>value IS NULL OR (numerator IS NOT NULL AND denominator IS NOT NULL)</code>.</li>
+<li><code>value &gt;= 0 AND value &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>volume_coverage BETWEEN 0 AND 1</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(denominator_measurement_id, building_model_id)</code> → <code>inventory.building_measurements (id, building_model_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Index : <code>ix_indicator_values_building_model_id</code>, <code>ix_indicator_values_component_id</code>, <code>ix_indicator_values_denominator_measurement_id</code>, <code>ix_indicator_values_indicator_definition_id</code>, <code>ix_indicator_values_material_category_id</code>, <code>ix_indicator_values_material_id</code>, <code>ix_indicator_values_run_id</code>, <code>uq_iv_scope</code>.</li>
+<li>Index unique : <code>CREATE UNIQUE INDEX uq_iv_scope ON results.indicator_values (run_id, building_model_id, indicator_definition_id, coalesce(material_id, 0), coalesce(material_category_id, 0), coalesce(component_id, 0))</code>.</li>
+</ul>
+<h3 id="material_quantities"><code>material_quantities</code></h3>
+<p>Contributions physiques issues des affectations matérielles, avec provenance relationnelle et masse volumique effective.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.building_model_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.element_constructions.element_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>element_construction_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.element_constructions.id</code></td>
+</tr>
+<tr>
+<td><code>construction_version_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.construction_version_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>inventory.element_constructions.construction_version_id</code></td>
+</tr>
+<tr>
+<td><code>construction_part_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>methodology.part_mappings.construction_part_id</code></td>
+</tr>
+<tr>
+<td><code>mapping_version_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.part_mappings.mapping_version_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.mapping_version_id</code></td>
+</tr>
+<tr>
+<td><code>part_mapping_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.material_assignments.part_mapping_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>methodology.part_mappings.id</code></td>
+</tr>
+<tr>
+<td><code>material_assignment_id</code></td>
+<td>BIGINT</td>
+<td>Oui, selon la résolution</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.material_assignments.id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.material_properties.material_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>catalog.materials.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>methodology.material_assignments.material_id</code></td>
+</tr>
+<tr>
+<td><code>density_property_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.material_properties.id</code></td>
+</tr>
+<tr>
+<td><code>method_version_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>methodology.method_versions.id</code></td>
+</tr>
+<tr>
+<td><code>density_kg_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_kg</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quantity_status</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>quality_status</code></td>
+<td>TEXT</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>calculation_details</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p>| <code>resolution</code> | TEXT | Non | <code>element</code> by default; <code>part_measurement</code> or <code>component</code> |
+| <code>coverage_key</code> | TEXT | Oui, selon la résolution | Identifiant stable du périmètre physique agrégé |
+| <code>part_measurement_id</code> | BIGINT | Oui | <abbr title="Clé étrangère">FK</abbr> composite avec partie et modèle |
+| <code>building_measurement_id</code> | BIGINT | Oui | <abbr title="Clé étrangère">FK</abbr> composite avec modèle |
+| <code>component_id</code> | BIGINT | Oui | <abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code>; domaine <code>component</code> |
+| <code>source_record_id</code> | BIGINT | Oui | <abbr title="Clé étrangère">FK</abbr> <code>sources.source_records.id</code> |</p>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li><code>0007_resolution</code> exige exactement un des trois contrats de périmètre décrits ci-dessous.</li>
+<li><abbr title="Clé étrangère">FK</abbr> <code>(part_measurement_id, construction_part_id, building_model_id)</code> → <code>inventory.part_measurements (id, part_id, building_model_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> <code>(building_measurement_id, building_model_id)</code> → <code>inventory.building_measurements (id, building_model_id)</code>.</li>
+<li>Unicité partielle <code>uq_mq_part_coverage</code> : exécution, modèle, partie, affectation et périmètre de couverture.</li>
+<li>Unicité partielle <code>uq_mq_component_coverage</code> : exécution, modèle, composant, matériau et périmètre de couverture.</li>
+<li>
+<p>Index des quatre nouvelles <abbr title="Clé étrangère">FK</abbr>, en plus des index existants.</p>
+</li>
+<li>
+<p><code>quantity_status &lt;&gt; 'confirmed_absent' OR (volume_m3 IS NOT NULL AND mass_kg IS NOT NULL AND volume_m3 = 0 AND mass_kg = 0)</code>.</p>
+</li>
+<li><code>jsonb_typeof(calculation_details) = 'object'</code>.</li>
+<li><code>quantity_status NOT IN ('calculated','estimated') OR (volume_m3 IS NOT NULL AND mass_kg IS NOT NULL)</code>.</li>
+<li><code>density_kg_m3 &gt; 0 AND density_kg_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>density_property_id IS NULL OR density_kg_m3 IS NOT NULL</code>.</li>
+<li><code>mass_kg &gt;= 0 AND mass_kg &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>quantity_status &lt;&gt; 'partial' OR (volume_m3 IS NOT NULL OR mass_kg IS NOT NULL)</code>.</li>
+<li><code>quantity_status IN ('calculated','estimated','partial','pending','excluded','confirmed_absent')</code>.</li>
+<li><code>quantity_status NOT IN ('pending','excluded') OR (volume_m3 IS NULL AND mass_kg IS NULL)</code>.</li>
+<li><code>volume_m3 &gt;= 0 AND volume_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(material_assignment_id, part_mapping_id, material_id)</code> → <code>methodology.material_assignments (id, part_mapping_id, material_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(density_property_id, material_id)</code> → <code>catalog.material_properties (id, material_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(element_construction_id, element_id, construction_version_id)</code> → <code>inventory.element_constructions (id, element_id, construction_version_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(element_id, building_model_id)</code> → <code>inventory.elements (id, building_model_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(part_mapping_id, mapping_version_id, construction_part_id)</code> → <code>methodology.part_mappings (id, mapping_version_id, construction_part_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(construction_part_id, construction_version_id)</code> → <code>inventory.construction_parts (id, construction_version_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(run_id, mapping_version_id)</code> → <code>results.calculation_runs (id, mapping_version_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Unicité : <code>run_id</code>, <code>element_construction_id</code>, <code>material_assignment_id</code>.</li>
+<li>Unicité : <code>id</code>, <code>run_id</code>.</li>
+<li>Index : <code>ix_material_quantities_building_model_id</code>, <code>ix_material_quantities_construction_part_id</code>, <code>ix_material_quantities_construction_version_id</code>, <code>ix_material_quantities_density_property_id</code>, <code>ix_material_quantities_element_construction_id</code>, <code>ix_material_quantities_element_id</code>, <code>ix_material_quantities_mapping_version_id</code>, <code>ix_material_quantities_material_assignment_id</code>, <code>ix_material_quantities_material_id</code>, <code>ix_material_quantities_method_version_id</code>, <code>ix_material_quantities_part_mapping_id</code>, <code>ix_material_quantities_run_id</code>.</li>
+</ul>
+<h3 id="material_totals"><code>material_totals</code></h3>
+<p>Quantités agrégées par modèle et dimensions, avec couverture distincte.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.materials.id</code></td>
+</tr>
+<tr>
+<td><code>material_category_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>component_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>catalog.classification_nodes.id</code></td>
+</tr>
+<tr>
+<td><code>mass_kg</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_m3</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>mass_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>volume_coverage</code></td>
+<td>NUMERIC(24, 10)</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_basis</code></td>
+<td>TEXT</td>
+<td>Oui</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>coverage_details</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li><code>coverage_basis IS NOT NULL OR (mass_coverage IS NULL AND volume_coverage IS NULL)</code>.</li>
+<li><code>jsonb_typeof(coverage_details) = 'object'</code>.</li>
+<li><code>mass_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>mass_kg &gt;= 0 AND mass_kg &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><code>material_id IS NULL OR material_category_id IS NULL</code>.</li>
+<li><code>volume_coverage BETWEEN 0 AND 1</code>.</li>
+<li><code>volume_m3 &gt;= 0 AND volume_m3 &lt;&gt; 'NaN'::numeric</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Index : <code>ix_material_totals_building_model_id</code>, <code>ix_material_totals_component_id</code>, <code>ix_material_totals_material_category_id</code>, <code>ix_material_totals_material_id</code>, <code>ix_material_totals_run_id</code>, <code>uq_mt_scope</code>.</li>
+<li>Index unique : <code>CREATE UNIQUE INDEX uq_mt_scope ON results.material_totals (run_id, building_model_id, coalesce(material_id, 0), coalesce(material_category_id, 0), coalesce(component_id, 0))</code>.</li>
+</ul>
+<h3 id="calculation_issues"><code>calculation_issues</code></h3>
+<p>Anomalies d’exécution et contexte facultatif ; également parties sans affectation matérielle.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type PostgreSQL</th>
+<th>NULL</th>
+<th>Référence / valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé primaire">PK</abbr>, identité</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>BIGINT</td>
+<td>Non</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.calculation_runs.id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.material_quantities.run_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.run_id</code></td>
+</tr>
+<tr>
+<td><code>building_model_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.building_model_id</code>, <abbr title="Clé étrangère">FK</abbr> <code>results.run_models.building_model_id</code></td>
+</tr>
+<tr>
+<td><code>element_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.elements.id</code></td>
+</tr>
+<tr>
+<td><code>construction_part_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>inventory.construction_parts.id</code></td>
+</tr>
+<tr>
+<td><code>material_quantity_id</code></td>
+<td>BIGINT</td>
+<td>Oui</td>
+<td><abbr title="Clé étrangère">FK</abbr> <code>results.material_quantities.id</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>TEXT</td>
+<td>Non</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td><abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr></td>
+<td>Non</td>
+<td><code>'{}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contraintes et index :</strong></p>
+<ul>
+<li><code>jsonb_typeof(details) = 'object'</code>.</li>
+<li><code>element_id IS NULL OR building_model_id IS NOT NULL</code>.</li>
+<li><code>severity IN ('info','warning','error')</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(element_id, building_model_id)</code> → <code>inventory.elements (id, building_model_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(material_quantity_id, run_id)</code> → <code>results.material_quantities (id, run_id)</code>.</li>
+<li><abbr title="Clé étrangère">FK</abbr> composite : <code>(run_id, building_model_id)</code> → <code>results.run_models (run_id, building_model_id)</code>.</li>
+<li>Index : <code>ix_calculation_issues_building_model_id</code>, <code>ix_calculation_issues_construction_part_id</code>, <code>ix_calculation_issues_element_id</code>, <code>ix_calculation_issues_material_quantity_id</code>, <code>ix_calculation_issues_run_id</code>.</li>
+</ul>
+<h2 id="coherence-entre-schemas">Cohérence entre schémas</h2>
+<p>La révision ajoute cinq contraintes UNIQUE aux tables existantes afin que les <abbr title="Clé étrangère">FK</abbr> composites des résultats puissent vérifier conjointement identifiants et périmètres. Elle ne modifie pas les révisions antérieures.</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Clé unique de support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inventory.element_constructions</code></td>
+<td><code>uq_ec_result_scope</code>: id, element_id, construction_version_id</td>
+</tr>
+<tr>
+<td><code>inventory.building_measurements</code></td>
+<td><code>uq_bm_result_scope</code>: id, building_model_id</td>
+</tr>
+<tr>
+<td><code>methodology.part_mappings</code></td>
+<td><code>uq_pm_result_scope</code>: id, mapping_version_id, construction_part_id</td>
+</tr>
+<tr>
+<td><code>methodology.material_assignments</code></td>
+<td><code>uq_ma_result_scope</code>: id, part_mapping_id, material_id</td>
+</tr>
+<tr>
+<td><code>catalog.material_properties</code></td>
+<td><code>uq_mp_result_material</code>: id, material_id</td>
+</tr>
+</tbody>
+</table>
+<p>La quantité matérielle doit appartenir au modèle inclus dans l’exécution. À la résolution <code>element</code>, elle doit appartenir à la composition de l’élément ; la partie doit appartenir à la bonne version de composition et l’affectation doit appartenir à la correspondance de cette partie et à l’ensemble sélectionné par l’exécution. La propriété de masse volumique, si référencée, doit correspondre au même matériau. La masse volumique effective est conservée numériquement ; la révision <code>0006_integrity</code> exige que la propriété référencée soit de type <code>density</code> en <code>kg/m3</code>, avec valeurs positives finies. La sélection de la valeur effective et de sa base physique appartient au moteur. PostgreSQL exige qu’une correspondance fixée par le profil concorde avec celle de l’exécution ; les états de révision et la sélection scientifique des méthodes seront validés dans Python. Une référence valide n’est pas supposée scientifiquement appropriée.</p>
+<h2 id="etats-et-quantites-inconnues">États et quantités inconnues</h2>
+<table>
+<thead>
+<tr>
+<th>État</th>
+<th>Volume et masse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>calculated</code></td>
+<td>Les deux renseignés</td>
+</tr>
+<tr>
+<td><code>estimated</code></td>
+<td>Les deux renseignés, hypothèse traçable</td>
+</tr>
+<tr>
+<td><code>partial</code></td>
+<td>Au moins une quantité renseignée ; sous-totaux connus possibles</td>
+</tr>
+<tr>
+<td><code>pending</code></td>
+<td>Les deux NULL</td>
+</tr>
+<tr>
+<td><code>excluded</code></td>
+<td>Les deux NULL</td>
+</tr>
+<tr>
+<td><code>confirmed_absent</code></td>
+<td>Les deux à zéro, absence justifiée</td>
+</tr>
+</tbody>
+</table>
+<p>Les parties pas encore associées à un matériau seront enregistrées comme anomalies, non comme matériaux artificiels. L’état <code>completed</code> d’une exécution indique qu’elle est terminée, non que son inventaire est complet. Les services doivent valider justifications, états de correspondances et exhaustivité. Les quantités partielles ne doivent pas être confondues avec des totaux complets. Les index uniques d’agrégats traitent les dimensions NULL comme la même absence (avec <code>coalesce</code> vers 0) ; les identifiants générés sont positifs.</p>
+<h2 id="indicateurs-et-couverture">Indicateurs et couverture</h2>
+<p>Les indicateurs initiaux sont des ratios non négatifs avec un dénominateur positif provenant d’une mesure du même modèle. Une mesure absente peut laisser dénominateur et indicateur NULL. Le moteur doit valider unités, type de mesure, calcul du ratio et dénominateurs ; la base ne recalcule pas les formules. Les définitions d’indicateurs sont versionnées afin que les changements d’unités ou de sens ne remplacent pas les valeurs historiques.</p>
+<p>Les couvertures massique et volumique sont indépendantes, facultatives et comprises entre zéro et un. Si une couverture est connue, sa base est enregistrée ; les détails peuvent conserver numérateur, dénominateur et périmètre de couverture. Une formule de couverture universelle n’est pas encore définie. Le moteur doit vérifier que la couverture est interprétable, non l’estimer simplement à partir du nombre de lignes. Les résultats réels restent dans un stockage privé autorisé.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemple synthétique</p>
+<p>Une contribution avec volume connu et masse volumique inconnue a une masse NULL et l’état <code>partial</code>. Une autre contribution de masse connue peut être agrégée, mais le total doit déclarer qu’il est partiel. La masse inconnue n’est pas convertie en zéro, et le pourcentage de contributions complètes n’est pas interprété comme le pourcentage de masse connue.</p>
+</div>
+<h2 id="reproductibilite-et-persistance">Reproductibilité et persistance</h2>
+<p>Chaque exécution conserve profil, correspondances, version du code, configuration et empreinte SHA-256. La révision <code>0008_reproducibility</code> ajoute un manifeste des entrées sélectionnées et protège les résultats finalisés. Le moteur doit identifier toutes les dépendances effectives et consommer les entrées scellées ; le format de l’empreinte seul ne garantit pas la reproductibilité scientifique. Le commit est facultatif. Le service d’écriture, l’agrégateur, le calcul des indicateurs et la politique de rétention automatique n’existent pas encore. La persistance détaillée est facultative.</p>
+<p><code>0006_integrity</code> ajoute des clés uniques (<code>id</code>, <code>building_model_id</code>), (<code>id</code>, <code>element_id</code>) et (<code>id</code>, <code>construction_part_id</code>) dans <code>material_quantities</code>, et les <abbr title="Clé étrangère">FK</abbr> composites correspondantes dans <code>calculation_issues</code>. Si une quantité est renseignée, chaque dimension non nulle de l’anomalie doit lui correspondre ; une dimension omise peut être dérivée de la quantité. Voir <a href="../integrity/">intégrité</a>.</p>
+<h2 id="resolution-des-contributions">Résolution des contributions</h2>
+<p>La révision <code>0007_resolution</code> conserve les sept tables du schéma. Aucun élément fictif n’est créé pour stocker des estimations ou mesures agrégées.</p>
+<pre class="mermaid"><code>flowchart TD
+    E[Élément et composition] --&gt; Q[Contribution matérielle]
+    P[Mesure de partie et modèle] --&gt; Q
+    B[Mesure du bâtiment ou enregistrement source] --&gt; Q
+    Q --&gt; V[Sélection de périmètres sans recouvrement dans Python]
+    V --&gt; T[Totaux et indicateurs]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Résolution</th>
+<th>Références obligatoires supplémentaires</th>
+<th>Références interdites</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>element</code></td>
+<td>Élément, association élément-composition, version, partie et chaîne de correspondances</td>
+<td>Champs agrégés</td>
+</tr>
+<tr>
+<td><code>part_measurement</code></td>
+<td>Version, partie, chaîne de correspondances, mesure de partie, composant, clé de couverture</td>
+<td>Élément, association élément-composition, mesure du bâtiment</td>
+</tr>
+<tr>
+<td><code>component</code></td>
+<td>Composant, clé de couverture et au moins une mesure du bâtiment ou un enregistrement original</td>
+<td>Élément, composition, partie, mesure de partie et chaîne de correspondances</td>
+</tr>
+</tbody>
+</table>
+<p>Exécution, modèle, matériau et méthode sont obligatoires dans tous les cas. Un résultat par composant peut provenir d’une mesure externe ou d’une estimation directe sans correspondance par couche ; la méthode et les détails du calcul doivent expliquer son interprétation. Une référence à un enregistrement original ne suffit pas à établir qu’il appartient au modèle : l’importateur ou le service doit le vérifier. Les quantités partielles peuvent être conservées, par exemple masse sans volume. Les mesures peuvent être en attente ; suffisance et unités seront validées dans Python.</p>
+<p><code>coverage_key</code> identifie un périmètre physique stable dans le modèle. Elle doit être réutilisée pour des mesures alternatives du même périmètre ; ce n’est ni une empreinte de fichier ni une identité géométrique. Les index partiels empêchent les doublons exacts par périmètre et contribution mais n’établissent pas que deux périmètres différents ne se recouvrent pas. Ne pas additionner automatiquement des lignes de résolution différente : sélectionner d’abord une représentation sans recouvrement pour chaque composant physique. Un résultat par partie et un résultat par composant peuvent être des alternatives, non des quantités additives. Cette politique et son manifeste nécessitent encore une implémentation Python.</p>
+<p>La rétrogradation vers <code>0006_integrity</code> est rejetée si des contributions agrégées existent, pour éviter la perte de données. Les lignes précédentes conservent leur résolution <code>element</code>.</p>
+<h2 id="scellement-des-entrees-et-resultats-0008_reproducibility">Scellement des entrées et résultats (0008_reproducibility)</h2>
+<p><code>calculation_runs.input_manifest</code> est un objet <abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr> nullable jusqu’au scellement. <code>material_quantities.element_measurement_id</code> (BIGINT nullable) référence <code>(id, element_id)</code> dans <code>inventory.element_measurements</code>, avec <abbr title="Clé étrangère">FK</abbr> <code>fk_mq_element_measurement_scope</code>, un index et un CHECK exigeant la résolution <code>element</code> lorsqu’il est fourni. Une surface n’est pas requise lorsque la méthode ne l’utilise pas.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Créer une exécution running] --&gt; B[Enregistrer les modèles]
+    B --&gt; C[Sélectionner les entrées et paramètres]
+    C --&gt; D[Sceller le manifeste et SHA-256]
+    D --&gt; E[Calculer à partir des entrées scellées]
+    E --&gt; F[Persister les contributions et indicateurs]
+    F --&gt; G[Finaliser et figer les résultats]</code></pre>
+<p>Le manifeste <code>decub.pg-jsonb.v1</code> contient <code>rows</code> (table, identifiant, enregistrement complet), <code>parameters</code>, <code>models</code>, profil, correspondances, configuration, version du code, commit et type d’exécution. SHA-256 est calculé sur la représentation textuelle <abbr title="Format JSON binaire de PostgreSQL">JSONB</abbr> de PostgreSQL en UTF-8 ; une sérialisation canonique interopérable entre moteurs ou versions de PostgreSQL n’est pas garantie. Le document exact est conservé, pas seulement son empreinte.</p>
+<p>Le service <code>decub.results.reproducibility.seal_run(connection, run_id, selection, parameters)</code> exige une transaction contrôlée par l’appelant et renvoie l’empreinte. La sélection est une correspondance de noms de tables qualifiés vers des identifiants positifs. Le profil, les correspondances si présentes et tous les modèles enregistrés sont requis. Exemple synthétique :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decub.results.reproducibility</span><span class="w"> </span><span class="kn">import</span> <span class="n">seal_run</span>
+
+<span class="c1"># Dans une transaction, après enregistrement de l’exécution et de ses modèles.</span>
+<span class="n">fingerprint</span> <span class="o">=</span> <span class="n">seal_run</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">run_id</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">"methodology.profile_versions"</span><span class="p">:</span> <span class="p">[</span><span class="n">profile_id</span><span class="p">],</span>
+    <span class="s2">"methodology.mapping_versions"</span><span class="p">:</span> <span class="p">[</span><span class="n">mapping_id</span><span class="p">],</span>
+    <span class="s2">"inventory.building_models"</span><span class="p">:</span> <span class="p">[</span><span class="n">model_id</span><span class="p">],</span>
+    <span class="c1"># Ajouter toutes les autres entrées effectives de la méthode.</span>
+<span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{})</span>
+</code></pre></div>
+<p>L’exemple n’est pas une sélection suffisante pour calculer un bâtiment réel. PostgreSQL capture les enregistrements et rejette la finalisation si les références directes des quantités, agrégats et indicateurs ne sont pas sélectionnées. La fermeture transitive des dépendances n’est pas découverte automatiquement et la validité scientifique des paramètres n’est pas vérifiée. Les détails du calcul doivent enregistrer des entrées supplémentaires par contribution le cas échéant.</p>
+<p>Une exécution scellée conserve sa configuration et ses modèles ; tant qu’elle est <code>running</code>, elle accepte les écritures de résultats. À la finalisation (<code>completed</code>, <code>failed</code>, <code>cancelled</code>), les lignes d’exécution et résultats sont protégés contre les modifications ordinaires. Les exécutions historiques antérieures sans manifeste ne deviennent pas rétroactivement reproductibles. Les nouvelles exécutions sont créées <code>running</code> sans manifeste ; une empreinte hexadécimale provisoire de 64 caractères est remplacée au scellement et n’est pas une empreinte scientifique. Seul <code>completed</code> exige un manifeste ; échecs et annulations avant scellement sont possibles.</p>
+<p>Le scellement conserve et protège les enregistrements sélectionnés, non chaque ligne d’une version logique. De nouvelles observations ou versions peuvent être ajoutées sans modifier les enregistrements scellés. Le moteur doit utiliser uniquement la sélection figée, non interroger indistinctement les nouvelles lignes d’une version. La politique de fermeture complète des versions et dépendances reste à réaliser.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
+</html>

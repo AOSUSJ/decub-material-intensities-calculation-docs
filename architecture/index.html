@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/architecture/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/architecture/" data-decub-anchors="[&quot;__skip&quot;, &quot;arquitectura&quot;, &quot;procesamiento-y-persistencia&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/architecture/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/architecture/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/architecture/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/architecture/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1406,7 +1414,7 @@
     S[(PostgreSQL central)] --&gt; X[Explorador privado de consulta]
     S --&gt; I[ingest / inventory / catalog]
     I --&gt; M[methodology]
-    S --&gt; L[Etiquetas ES/EN]
+    S --&gt; L[Etiquetas ES/EN/FR]
     L --&gt; M
     M --&gt; H[Interpretación jerárquica]
     H --&gt; X
@@ -1478,7 +1486,7 @@
 <h2 id="procesamiento-y-persistencia">Procesamiento y persistencia</h2>
 <p>PostgreSQL es la fuente principal. SQL filtra y relaciona entradas; Python implementará la lógica científica. Polars será el motor tabular preferente y DuckDB un complemento analítico (por ejemplo consultas sobre Parquet o Arrow). No se duplicarán algoritmos sin justificación ni se presupone un motor más rápido para todo. La interoperabilidad se comprobará con pruebas reales, incluyendo precisión decimal y nulos.</p>
 <p>La caché futura será selectiva, con huella de entradas, versiones de metodología y código, límites y limpieza. DuckDB utilizará memoria y temporales dentro de <code>data/cache/</code>; sus límites de memoria no cubren necesariamente todo el consumo del proceso. Los valores de <code>config/defaults/processing.yaml</code> son orientativos y todavía no se aplican automáticamente. No replicar PostgreSQL localmente. <code>data/raw</code>, <code>data/cache</code>, <code>data/results</code> son privados; resultados detallados podrán persistirse en las tablas de <code>results</code> cuando se implementen los servicios. Nunca publicarlos en Git ni Pages.</p>
-<p>La capa de etiquetas editoriales ES/EN reside en tablas relacionales separadas con <abbr title="Foreign Key; clave externa">FK</abbr> a las entidades originales. El cargador y las consultas de presentación son independientes del motor científico y de las huellas de correspondencia.</p>
+<p>La capa de etiquetas editoriales ES/EN/FR reside en tablas relacionales separadas con <abbr title="Foreign Key; clave externa">FK</abbr> a las entidades originales. El cargador y las consultas de presentación son independientes del motor científico y de las huellas de correspondencia.</p>
 <p>La identificación versionada admite nombres multilingües y árboles cualitativos independientes de las partes físicas. Véase <a href="../methodology/mappings/">correspondencias</a> y <a href="../methodology/decomposition/">descomposición</a>.</p>
 
 
@@ -1548,5 +1556,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

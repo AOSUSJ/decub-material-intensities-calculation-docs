@@ -26,6 +26,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -171,14 +173,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/development/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/development/" data-decub-anchors="[&quot;__skip&quot;, &quot;desarrollo-y-contribucion&quot;, &quot;documentacion-trilingue&quot;, &quot;integracion-postgresql&quot;, &quot;pruebas-del-explorador&quot;, &quot;publicacion-web&quot;, &quot;validacion-del-rendimiento-de-importacion&quot;, &quot;versionado-y-artefactos-generados&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/development/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/development/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/development/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/development/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1310,6 +1318,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versionado-y-artefactos-generados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versionado y artefactos generados
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publicacion-web" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1360,10 +1379,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentacion-bilingue" class="md-nav__link">
+  <a href="#documentacion-trilingue" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Documentación bilingüe
+        Documentación trilingüe
       </span>
     </span>
   </a>
@@ -1419,6 +1438,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versionado-y-artefactos-generados" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versionado y artefactos generados
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publicacion-web" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1469,10 +1499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentacion-bilingue" class="md-nav__link">
+  <a href="#documentacion-trilingue" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Documentación bilingüe
+        Documentación trilingüe
       </span>
     </span>
   </a>
@@ -1506,7 +1536,10 @@ ruff<span class="w"> </span>check<span class="w"> </span>.
 python<span class="w"> </span>tools/check_public_tree.py
 python<span class="w"> </span>tools/build_docs.py
 </code></pre></div>
-<p>No editar migraciones ya aplicadas; crear una revisión nueva, revisarla y comprobarla contra PostgreSQL aislado. No activar autogeneración sobre esquemas de otras aplicaciones. La publicación de documentación usa únicamente <code>docs/</code>, <code>docs-en/</code> y recursos públicos.</p>
+<p>No editar migraciones ya aplicadas; crear una revisión nueva, revisarla y comprobarla contra PostgreSQL aislado. No activar autogeneración sobre esquemas de otras aplicaciones. La publicación de documentación usa únicamente <code>docs/es/</code>, <code>docs/en/</code>, <code>docs/fr/</code> y recursos públicos.</p>
+<h2 id="versionado-y-artefactos-generados">Versionado y artefactos generados</h2>
+<p>La versión del programa sigue <code>MAJOR.MINOR.PATCH</code> (serie 0.x mientras la API y la metodología evolucionan). Incrementar MINOR por hitos funcionales y PATCH por correcciones de una versión publicada; reservar 1.0.0 para una primera versión científica estable y validada. La fuente única es <code>src/decub/__init__.py</code>; setuptools obtiene de ella los metadatos del paquete. Actualizar los README y CHANGELOG en los tres idiomas al cambiar de versión y reinstalar el paquete editable (<code>python -m pip install -e ".[dev,docs,visualization]"</code>). Comprobar <code>decub --version</code>. No crear etiquetas retrospectivas de versiones no publicadas.</p>
+<p><code>build/</code> contiene trabajo temporal de Zensical (incluidos los destinos monolingües <code>standalone-es</code>, <code>standalone-en</code> y <code>standalone-fr</code>) y puede contener artefactos de setuptools; <code>dist/</code> contiene paquetes generados y <code>site/</code> la web compilada. Los tres directorios se excluyen de Git. Pueden regenerarse; detener antes cualquier compilación o previsualización que los utilice.</p>
 <h2 id="publicacion-web">Publicación web</h2>
 <p>El repositorio principal puede permanecer privado. El repositorio público hermano <code>decub-material-intensities-calculation-docs</code> (misma organización) contiene exclusivamente la web compilada. No editarlo manualmente: su rama <code>main</code> se reemplaza con los archivos estáticos de cada publicación.</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1520,7 +1553,7 @@ python<span class="w"> </span>tools/build_docs.py
 <li>Crear un token de acceso fine-grained con acceso exclusivo al repositorio público y permiso Contents: Read and write. Guardarlo como secreto de Actions <code>DOCS_PUBLISH_TOKEN</code> en el repositorio principal. No guardarlo en archivos ni compartirlo. La organización puede requerir aprobación.</li>
 <li>Revisar los contenidos públicos y ejecutar el workflow Documentation desde <code>main</code>. También se ejecuta al integrar cambios en <code>main</code>.</li>
 </ol>
-<p>El workflow compila con la URL pública de la organización, valida tipos de archivo (incluida excepciones de ruta exacta para <code>assets/javascripts/LICENSE</code> de Zensical y su equivalente en inglés) y patrones básicos de credenciales, y publica el artefacto estático mediante un trabajo separado. El secreto de publicación solo se usa en ese trabajo. No se copia el historial del repositorio principal. La publicación requiere autorización institucional; los controles automáticos no sustituyen la revisión de contenido. El sitio local conserva su dirección habitual.</p>
+<p>El workflow compila con la URL pública de la organización, valida tipos de archivo (incluidas excepciones de ruta exacta para <code>assets/javascripts/LICENSE</code> de Zensical y sus equivalentes en inglés y francés) y patrones básicos de credenciales, y publica el artefacto estático mediante un trabajo separado. El secreto de publicación solo se usa en ese trabajo. No se copia el historial del repositorio principal. La publicación requiere autorización institucional; los controles automáticos no sustituyen la revisión de contenido. El sitio local conserva su dirección habitual.</p>
 <p><strong>Privacidad:</strong> no añadir fuentes, datos derivados, geometrías, credenciales o resultados reales al repositorio. <code>.gitignore</code> no elimina archivos ya rastreados; revisar <code>git status</code> y el diff antes de cada commit. Los ejemplos y pruebas deben ser sintéticos. La licencia de distribución requiere confirmación de los responsables.</p>
 <p>La comprobación del índice detecta rutas restringidas y algunos patrones de credenciales; no sustituye una revisión de contenidos ni detecta todos los posibles datos sensibles. Ejecutarla después de preparar los cambios para commit.</p>
 <h2 id="integracion-postgresql">Integración PostgreSQL</h2>
@@ -1530,14 +1563,15 @@ python<span class="w"> </span>tools/build_docs.py
 <p>Las pruebas de integración comparan cargas sintéticas equivalentes con tamaños de lote 1 y 10 sobre la misma base aislada, usando un savepoint para deshacer la primera carga. Se cuenta el número de ejecuciones SQL observadas por SQLAlchemy/DBAPI, no se impone un umbral de tiempo dependiente del equipo. También se comprueba la correspondencia entre registros fuente e identificadores, la ausencia de duplicación y el rollback tras una infracción de integridad en un lote posterior. La mejora de tiempo en una conexión remota debe medirse aparte.</p>
 <h2 id="pruebas-del-explorador">Pruebas del explorador</h2>
 <p>CI instala el extra <code>visualization</code> junto con <code>dev</code> y <code>docs</code>. Las pruebas offline comprueban consultas acotadas, parámetros y relaciones, y una prueba de interfaz Streamlit simula configuración ausente. La integración PostgreSQL comprueba consultas reales y el rechazo de escritura en una transacción de solo lectura. La aplicación se ejecuta localmente; no forma parte del artefacto estático de documentación. Las pruebas sintéticas comprueban también el orden y proporción de las franjas, las fracciones de marco, los valores desconocidos y el aislamiento por modelo; la integración prueba que las áreas alternativas no duplican recuentos ni se suman.</p>
-<h2 id="documentacion-bilingue">Documentación bilingüe</h2>
-<p>Las fuentes españolas están en <code>docs/</code>, las inglesas en <code>docs-en/</code>, con las mismas rutas relativas. Las configuraciones <code>zensical.toml</code> y <code>zensical.en.toml</code> mantienen navegación equivalente y enlace al repositorio principal. El español es predeterminado; el inglés se publica bajo <code>/en/</code>. El selector nativo de la cabecera enlaza a la portada del idioma seleccionado. El repositorio principal es privado: el enlace no concede permisos de acceso. Las dos configuraciones comparten <code>project.extra.scope</code> (la URL base española, sustituida al compilar para publicación), de modo que la preferencia de tema no depende del idioma.</p>
-<p>Actualizar las dos versiones en el mismo cambio, incluidos diccionarios, diagramas, abreviaturas, ejemplos y navegación. Los nombres técnicos, contratos SQL y comandos permanecen iguales. Las comprobaciones de paridad estructural no certifican por sí solas la equivalencia semántica de una traducción; revisar el contenido antes de publicar.</p>
+<h2 id="documentacion-trilingue">Documentación trilingüe</h2>
+<p>Los README y CHANGELOG del repositorio se mantienen en la raíz en español y en <code>docs/en/</code> y <code>docs/fr/</code> para las traducciones. Sus enlaces iniciales permiten cambiar entre las tres versiones. Zensical excluye explícitamente estos documentos de la compilación web; las portadas siguen siendo <code>index.md</code>.</p>
+<p>Las fuentes españolas están en <code>docs/es/</code>, las inglesas en <code>docs/en/</code> y las francesas en <code>docs/fr/</code>, con las mismas rutas relativas. Las configuraciones <code>docs/zensical.es.toml</code>, <code>docs/zensical.en.toml</code> y <code>docs/zensical.fr.toml</code> mantienen navegación equivalente y enlace al repositorio principal. El español es predeterminado; el inglés se publica bajo <code>/en/</code> y el francés bajo <code>/fr/</code>. En la compilación conjunta, el selector nativo de la cabecera utiliza rutas explícitas desde la raíz de publicación para enlazar con la página equivalente del idioma seleccionado. Un script refuerza el destino del clic y conserva el ancla si su identificador existe en ambas páginas; si no existe, abre la página equivalente sin ancla. El enlace funciona también sin JavaScript. La compilación comprueba cada destino en el HTML final. Para volver a comprobar el sitio existente, ejecutar <code>python tools/build_docs.py --check-links</code> (con el mismo <code>--site-url</code> empleado al compilar, si se especificó). El servidor de edición de un solo idioma no incorpora este procesamiento. El repositorio principal es privado: el enlace no concede permisos de acceso. Las tres configuraciones comparten <code>project.extra.scope</code> (la URL base española, sustituida al compilar para publicación), de modo que la preferencia de tema no depende del idioma. El selector público no modifica el idioma del explorador privado ni el de la CLI.</p>
+<p>Actualizar las tres versiones en el mismo cambio, incluidos diccionarios, diagramas, abreviaturas, ejemplos y navegación. Los nombres técnicos, contratos SQL y comandos permanecen iguales. Las comprobaciones de paridad estructural no certifican por sí solas la equivalencia semántica de una traducción; revisar el contenido antes de publicar.</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/check_docs_languages.py
 python<span class="w"> </span>tools/build_docs.py
 python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>site
 </code></pre></div>
-<p>La compilación estricta de ambas versiones genera <code>site/</code> solo tras validar los artefactos de cada idioma y combinarlos. Para una URL pública, usar <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (sustituir por la URL autorizada). La previsualización conjunta permite probar el selector y los enlaces con el servidor local. <code>zensical serve</code> sigue siendo útil para editar la versión española, pero no sirve la compilación conjunta de ambos idiomas. CI y publicación utilizan el mismo compilador; el trabajo de publicación solo recibe el sitio estático validado.</p>
+<p>La compilación estricta de las tres versiones genera <code>site/</code> solo tras validar los artefactos de cada idioma y combinarlos. Para una URL pública, usar <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (sustituir por la URL autorizada). La previsualización conjunta permite probar el selector y los enlaces con el servidor local. Las configuraciones permanentes permanecen en <code>docs/</code>; el compilador crea y elimina una configuración temporal en la raíz del repositorio, con rutas relativas de fuentes y salida dentro de esa raíz, como exige Zensical. No ejecutar Zensical directamente con las configuraciones de <code>docs/</code>. Para editar una sola edición, utilizar <code>python tools/build_docs.py --serve-language es</code> (o <code>en</code> o <code>fr</code>); este modo no sirve la compilación conjunta de los tres idiomas. CI y publicación utilizan el mismo compilador; el trabajo de publicación solo recibe el sitio estático validado. Cada configuración declara <code>edit_uri</code> con separadores <code>/</code> y la ruta de su edición en <code>main</code>, para evitar que Zensical derive una URL de edición a partir de una ruta nativa de Windows.</p>
 <p>Las pruebas de correspondencias usan datos sintéticos, verifican que las propuestas no asignan materiales, rechazan revisiones obsoletas y decisiones incoherentes, y comprueban el ámbito de partes vinculadas o medidas. La integración PostgreSQL comprueba la simulación, escritura y lectura de una nueva versión y el rechazo de versiones repetidas. Se prueban además nombres multilingües, ambigüedad, etiquetas desactualizadas y persistencia del código resuelto.</p>
 <p>Las etiquetas editoriales tienen clave primaria compuesta (entidad e idioma); las pruebas insertan sus registros sintéticos sin exigir un identificador artificial <code>id</code>.</p>
 
@@ -1608,5 +1642,5 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

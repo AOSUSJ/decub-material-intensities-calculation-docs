@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/database/methodology/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/methodology/" data-decub-anchors="[&quot;__skip&quot;, &quot;arboles-de-interpretacion-0010_decomposition&quot;, &quot;assumptions&quot;, &quot;diccionario-de-datos&quot;, &quot;etiquetas-editoriales-ampliadas&quot;, &quot;interpretacion-y-validacion&quot;, &quot;mapping_sets&quot;, &quot;mapping_versions&quot;, &quot;material_assignments&quot;, &quot;method_versions&quot;, &quot;methods&quot;, &quot;metodologia-modelo-relacional&quot;, &quot;part_mappings&quot;, &quot;profile_methods&quot;, &quot;profile_versions&quot;, &quot;profiles&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/database/methodology/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/methodology/" data-decub-anchors="[&quot;__skip&quot;, &quot;assumptions&quot;, &quot;mapping_sets&quot;, &quot;mapping_versions&quot;, &quot;material_assignments&quot;, &quot;method_versions&quot;, &quot;methods&quot;, &quot;part_mappings&quot;, &quot;profile_methods&quot;, &quot;profile_versions&quot;, &quot;profiles&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/methodology/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/methodology/" data-decub-anchors="[&quot;__skip&quot;, &quot;assumptions&quot;, &quot;mapping_sets&quot;, &quot;mapping_versions&quot;, &quot;material_assignments&quot;, &quot;method_versions&quot;, &quot;methods&quot;, &quot;part_mappings&quot;, &quot;profile_methods&quot;, &quot;profile_versions&quot;, &quot;profiles&quot;]">
+              Français
             </a>
           </li>
         
@@ -879,6 +887,17 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         Árboles de interpretación (<code>0010_decomposition</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
       </span>
     </span>
   </a>
@@ -1659,6 +1678,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2333,6 +2363,7 @@
 <h2 id="arboles-de-interpretacion-0010_decomposition">Árboles de interpretación (<code>0010_decomposition</code>)</h2>
 <p>La tabla <code>methodology.decomposition_nodes</code> pertenece a una correspondencia versionada. No incorpora datos derivados al inventario físico original.</p>
 <pre class="mermaid"><code>erDiagram
+    DECOMPOSITION_NODES ||--o{ DECOMPOSITION_NODE_LABELS : labels
     PART_MAPPINGS ||--o{ DECOMPOSITION_NODES : contiene
     DECOMPOSITION_NODES o|--o{ DECOMPOSITION_NODES : padre
     MATERIAL_ASSIGNMENTS o|--o{ DECOMPOSITION_NODES : identifica</code></pre>
@@ -2403,6 +2434,9 @@
 </tbody>
 </table>
 <p>Las rutas positivas separadas por puntos y la relación con un prefijo inmediato impiden ciclos; las <abbr title="Foreign Key; clave externa">FK</abbr> restringen el borrado y el ámbito. Solo <code>material</code> admite la pareja asignación/material (ambos obligatorios). Etiquetas y justificación no vacías. El servicio de revisión valida grupos no vacíos, hojas sin hijos, ausencia de asignación directa del padre y límites de tamaño/profundidad. Estas últimas reglas no están garantizadas frente a modificaciones SQL arbitrarias. No se registran fracciones ni resultados en este árbol cualitativo; las asignaciones repetidas por material se reutilizan y no constituyen cantidades.</p>
+<h2 id="etiquetas-editoriales-ampliadas">Etiquetas editoriales ampliadas</h2>
+<p>La revisión <code>0012_extended_labels</code> añade <code>inventory.element_labels</code>, <code>inventory.level_labels</code> y <code>methodology.decomposition_node_labels</code>. Las primeras dos referencian el ID de la entidad; la tercera usa la clave compuesta <code>(part_mapping_id, path)</code>. Las tres admiten ES/EN/FR, conservan texto original, procedencia, nota y fecha y rechazan referencias inexistentes. No se modifican revisiones científicas ni identificadores. La reversión se rechaza si existen etiquetas en las nuevas tablas.</p>
+<p>Los nombres de elementos que coinciden con identificadores externos y los nombres de niveles iguales a su código no se traducen. La auditoría distingue estos casos y los nombres vacíos mediante <code>not_applicable</code>. Los nodos conservan las etiquetas revisadas ES/EN como retorno; las traducciones editoriales vigentes tienen prioridad en la presentación y el francés retorna al español si falta.</p>
 
 
 
@@ -2471,5 +2505,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

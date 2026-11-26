@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/methodology/mappings/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;, &quot;correspondencias-materiales&quot;, &quot;perfiles-y-correspondencias&quot;, &quot;revision-de-correspondencias-individuales&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/methodology/mappings/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/methodology/mappings/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1468,7 +1476,7 @@
 </tr>
 </tbody>
 </table>
-<p>El campo <code>material_code</code> admite también el nombre original completo, un alias registrado o una etiqueta ES/EN vigente de <code>catalog.material_labels</code>. Se da prioridad al código exacto; las demás entradas se comparan ignorando mayúsculas, tildes y espacios, conservando puntuación y orden. Si hay cero o varias coincidencias se rechaza la revisión; no hay búsqueda parcial ni selección automática. Las etiquetas editoriales no modifican la huella de la plantilla ni las sugerencias originales. La simulación devuelve <code>resolved_names</code> con identificadores de parte y códigos resueltos cuando se usan nombres. Comprueba esa lista y, si quieres fijar inequívocamente la selección antes de aplicar, sustituye los nombres por los códigos. La aplicación vuelve a resolver las entradas con etiquetas vigentes bloqueadas y registra denominación introducida y código resuelto en las notas de versión.</p>
+<p>El campo <code>material_code</code> admite también el nombre original completo, un alias registrado o una etiqueta ES/EN/FR vigente de <code>catalog.material_labels</code>. Se da prioridad al código exacto; las demás entradas se comparan ignorando mayúsculas, tildes y espacios, conservando puntuación y orden. Si hay cero o varias coincidencias se rechaza la revisión; no hay búsqueda parcial ni selección automática. Las etiquetas editoriales no modifican la huella de la plantilla ni las sugerencias originales. La simulación devuelve <code>resolved_names</code> con identificadores de parte y códigos resueltos cuando se usan nombres. Comprueba esa lista y, si quieres fijar inequívocamente la selección antes de aplicar, sustituye los nombres por los códigos. La aplicación vuelve a resolver las entradas con etiquetas vigentes bloqueadas y registra denominación introducida y código resuelto en las notas de versión.</p>
 <p>Las sugerencias son coincidencias de nombres/alias normalizados y términos de búsqueda bilingües; incluso un candidato único requiere revisión. No son equivalencias ni probabilidades. El revisor debe mantener pendientes las partes compuestas sin identificación individual justificada. Las partes padre y las construcciones retiradas no admiten asignación individual en este procedimiento. No se infieren proporciones: los campos de fracción quedan nulos. Las exclusiones no representan masa cero. La cuantificación de huecos, carpinterías compuestas y asignaciones multicomponente requiere metodología posterior.</p>
 <div class="highlight"><pre><span></span><code><span class="n">decub</span> <span class="n">mapping</span> <span class="n">review</span> <span class="p">-</span><span class="o">-file</span> <span class="n">data</span><span class="p">/</span><span class="n">mapping</span><span class="p">/</span><span class="n">review</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-dry-run</span>
 <span class="n">decub</span> <span class="n">mapping</span> <span class="n">review</span> <span class="p">-</span><span class="o">-file</span> <span class="n">data</span><span class="p">/</span><span class="n">mapping</span><span class="p">/</span><span class="n">review</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-apply</span>
@@ -1544,5 +1552,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

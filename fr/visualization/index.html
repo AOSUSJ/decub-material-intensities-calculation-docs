@@ -1,0 +1,2122 @@
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Méthodologie et infrastructure de l’inventaire des bâtiments">
+      
+      
+      
+        <link rel="canonical" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/visualization/">
+      
+      
+      
+      
+        <link rel="prev" href="../methodology/traceability/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
+        
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.3">
+    
+    
+      
+        <title>Visualisation - DECUB · Inventaire des matériaux</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.e2cf241e.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("https://aosusj.github.io/decub-material-intensities-calculation-docs/",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="./.." title="DECUB · Inventaire des matériaux" class="md-header__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DECUB · Inventaire des matériaux
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visualisation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-languages" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/visualization/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/visualization/" data-decub-anchors="[&quot;__skip&quot;]">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/en/visualization/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/visualization/" data-decub-anchors="[&quot;__skip&quot;, &quot;component-breakdown&quot;, &quot;navigation&quot;]">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/visualization/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/visualization/" data-decub-anchors="[&quot;__skip&quot;, &quot;bois-et-isolants&quot;, &quot;component-breakdown&quot;, &quot;diagnostic-du-batiment&quot;, &quot;etats-de-representation&quot;, &quot;etiquettes-multilingues&quot;, &quot;explorateur-de-batiments-et-visualisations&quot;, &quot;explorateur-prive-decub&quot;, &quot;galerie-de-textures-et-conventions-graphiques&quot;, &quot;identifications-revisees&quot;, &quot;installation-et-execution&quot;, &quot;libelles-editoriaux-etendus&quot;, &quot;metaux-et-verre&quot;, &quot;mineraux-et-produits-ceramiques&quot;, &quot;navigation&quot;, &quot;polymeres-textiles-et-membranes&quot;, &quot;schemas-de-compositions-et-fenetres&quot;, &quot;visualiseur-constructif&quot;]">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="DECUB · Inventaire des matériaux" class="md-nav__button md-logo" aria-label="DECUB · Inventaire des matériaux" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    DECUB · Inventaire des matériaux
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AOSUSJ/decub-material-intensities-calculation" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AOSUSJ/decub-material-intensities-calculation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Accueil
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Premiers pas
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Importations de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Importations de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vue d’ensemble
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue de référence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/hulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire HULC
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imports/modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modes et diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Base de données
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Base de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conception générale
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Provenance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Catalogue
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résultats
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Intégrité et versionnement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Méthodologie scientifique
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Méthodologie scientifique
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fondements et périmètre
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Inventaire physique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/mappings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Correspondances de matériaux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/decomposition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Décomposition hiérarchique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/composites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Matériaux et produits composites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/geometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Surfaces, volumes et géométrie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenêtres et menuiseries
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/densities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Masses volumiques et propriétés
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Hypothèses et incertitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/mass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Calcul des masses
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/intensities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Indicateurs et intensités
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Couverture et qualité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/traceability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reproductibilité et traçabilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualisation
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visualisation
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-et-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installation et exécution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Navigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explorateur-de-batiments-et-visualisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Explorateur de bâtiments et visualisations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explorateur de bâtiments et visualisations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schemas-de-compositions-et-fenetres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Schémas de compositions et fenêtres
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualiseur-constructif" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Visualiseur constructif
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualiseur constructif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-du-batiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diagnostic du bâtiment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifications-revisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identifications révisées
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiquettes-multilingues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Étiquettes multilingues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Décomposition des composants
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galerie-de-textures-et-conventions-graphiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Galerie de textures et conventions graphiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Galerie de textures et conventions graphiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mineraux-et-produits-ceramiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Minéraux et produits céramiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metaux-et-verre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métaux et verre
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bois-et-isolants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bois et isolants
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymeres-textiles-et-membranes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Polymères, textiles et membranes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etats-de-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        États de représentation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-etendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux étendus
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Références
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-et-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Installation et exécution
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Navigation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explorateur-de-batiments-et-visualisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Explorateur de bâtiments et visualisations
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explorateur de bâtiments et visualisations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schemas-de-compositions-et-fenetres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Schémas de compositions et fenêtres
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualiseur-constructif" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Visualiseur constructif
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualiseur constructif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-du-batiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diagnostic du bâtiment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifications-revisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identifications révisées
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiquettes-multilingues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Étiquettes multilingues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Décomposition des composants
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galerie-de-textures-et-conventions-graphiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Galerie de textures et conventions graphiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Galerie de textures et conventions graphiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mineraux-et-produits-ceramiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Minéraux et produits céramiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metaux-et-verre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métaux et verre
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bois-et-isolants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bois et isolants
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymeres-textiles-et-membranes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Polymères, textiles et membranes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etats-de-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        États de représentation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libelles-editoriaux-etendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Libellés éditoriaux étendus
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="explorateur-prive-decub">Explorateur privé DECUB</h1>
+<p>L'explorateur permet de consulter le catalogue, l'inventaire physique et la provenance dans PostgreSQL à travers une interface Streamlit locale. Il ne modifie pas les données et ne calcule pas les intensités. La documentation publique ne contient que des exemples synthétiques.</p>
+<h2 id="installation-et-execution">Installation et exécution</h2>
+<p>Depuis la racine du dépôt, avec l'environnement virtuel activé :</p>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-e</span> <span class="s2">".[visualization]"</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">streamlit</span> <span class="n">run</span> <span class="n">src</span><span class="p">/</span><span class="n">decub</span><span class="p">/</span><span class="n">visualization</span><span class="p">/</span><span class="n">explorer</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-server</span><span class="p">.</span><span class="n">address</span> <span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span> <span class="p">-</span><span class="n">-server</span><span class="p">.</span><span class="n">port</span> <span class="n">8501</span> <span class="p">-</span><span class="n">-browser</span><span class="p">.</span><span class="n">gatherUsageStats</span> <span class="n">false</span>
+</code></pre></div>
+<p>Ouvrir <code>http://127.0.0.1:8501</code>. Une configuration PostgreSQL locale et un accès autorisé sont nécessaires. Arrêter avec Ctrl+C. Ne pas exposer le port à d'autres réseaux ni déployer sur des services publics. Privilégier un rôle PostgreSQL limité à SELECT ; l'application ouvre des transactions en lecture seule, qui ne remplacent pas les contrôles d'autorisation du serveur. L'authentification multi-utilisateur n'est pas implémentée. Ne pas publier de captures, de valeurs ou de téléchargements de données réelles.</p>
+<h2 id="navigation">Navigation</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Consultations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accueil</td>
+<td>Nombre d'entités, y compris les versions historiques</td>
+</tr>
+<tr>
+<td>Visualiseur constructif</td>
+<td>Fiches de groupes, dessins texturés, fenêtres schématiques et diagnostic du modèle</td>
+</tr>
+<tr>
+<td>Explorateur de bâtiments</td>
+<td>Sélection territoriale et du modèle, ventilations, fiches et schémas proportionnels</td>
+</tr>
+<tr>
+<td>Matériaux</td>
+<td>Identités, propriétés, alias et classifications</td>
+</tr>
+<tr>
+<td>Classifications</td>
+<td>Systèmes, versions, nœuds et références parentes</td>
+</tr>
+<tr>
+<td>Bâtiments et modèles</td>
+<td>Zones d'étude, îlots, bâtiments, modèles et mesures</td>
+</tr>
+<tr>
+<td>Éléments</td>
+<td>Identifiants, mesures, sous-types et associations</td>
+</tr>
+<tr>
+<td>Compositions</td>
+<td>Versions, parties et mesures agrégées</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>Références, fichiers et emplacements des enregistrements</td>
+</tr>
+<tr>
+<td>Importations</td>
+<td>Adaptateur, état, dates et statistiques</td>
+</tr>
+<tr>
+<td>Qualité</td>
+<td>Masse volumique scalaire absente, éléments opaques non associés et mesures de parties sans valeur</td>
+</tr>
+<tr>
+<td>Couverture linguistique</td>
+<td>Couverture des libellés par entité et langue</td>
+</tr>
+</tbody>
+</table>
+<p>Dans les sections tabulaires, sélectionner une entité, filtrer par identifiant, rechercher du texte littéral et paginer (100 lignes au maximum par page). Sélectionner un enregistrement pour consulter ses relations directes (100 enregistrements au maximum par relation) ; pour poursuivre, utiliser les identifiants de clés étrangères dans les entités correspondantes. Les parties d'une version de composition peuvent être consultées par son identifiant, en conservant position et parent. Aucune version scientifique effective n'est sélectionnée automatiquement. Les comptages de qualité incluent les versions historiques ; ils ne représentent ni la couverture massique ni la validation scientifique. Les valeurs nulles ne sont pas converties en zéros. Les décimales sont affichées sous forme de texte pour conserver la précision.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Streamlit local] --&gt; B[Requêtes SQLAlchemy bornées]
+    B --&gt; C[(PostgreSQL : transaction en lecture seule)]
+    C --&gt; A</code></pre>
+<p>Les requêtes disposent d'un délai d'exécution maximal et d'une pagination. Les contenus bruts d'origine, la configuration d'importation et les chemins de stockage sont omis ; les identifiants permettent de suivre la provenance. Il n'existe pas de cache persistant des données. L'interface ne comporte pas d'exportateur ; le navigateur peut permettre de copier les données visibles. L'explorateur et les tables partagent les mêmes données et transactions en lecture seule. Le visualiseur 3D, les coupes physiques certifiées et les graphiques de masses et d'intensités restent à développer.</p>
+<h2 id="explorateur-de-batiments-et-visualisations">Explorateur de bâtiments et visualisations</h2>
+<p>Dans la barre latérale, sélectionner <strong>Navegador de edificios</strong> (explorateur de bâtiments). Choisir une zone d'étude, un îlot, un bâtiment et une version du modèle ; chaque sélecteur permet la recherche et la pagination. Les vues portent exclusivement sur la version sélectionnée, et non sur la somme des modèles historiques.</p>
+<table>
+<thead>
+<tr>
+<th>Vue</th>
+<th>Visualisation et navigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ventilation</td>
+<td>Nombre, surface enregistrée et couverture par nature d'élément, type d'origine, catégorie d'origine, orientation ou composition opaque d'origine</td>
+</tr>
+<tr>
+<td>Éléments</td>
+<td>Filtrer selon les mêmes groupes, rechercher et sélectionner un élément ; consulter ses identifiants, mesures, propriétés thermiques, associations et versions de composition</td>
+</tr>
+<tr>
+<td>Compositions</td>
+<td>Choisir une version liée à des éléments ou disposant de mesures de parties pour le modèle, y compris les compositions sans association à un élément</td>
+</tr>
+</tbody>
+</table>
+<p>La ventilation des surfaces n'inclut que les éléments disposant d'exactement une mesure de type <code>area</code>, d'unité <code>m2</code>, de valeur connue et de qualité différente de <code>unknown</code>. En présence d'alternatives, l'élément est exclu du total des surfaces, mais pas du comptage. Le nombre d'éléments avec et sans surface utilisable est indiqué pour chaque groupe. Les groupes sans valeur conservent une surface nulle au sens informatique ; les graphiques omettent ces valeurs. La somme des surfaces enregistrées ne correspond ni à la surface utile, ni à la surface brute ou nette du bâtiment : elle ne résout pas les recouvrements entre éléments et ne permet pas d'additionner mesures individuelles et agrégées. La couverture des associations opaques compte les éléments ayant au moins une association non retirée ; elle ne certifie ni les équivalences ni la disponibilité des masses. La vue par composition d'origine n'inclut que les éléments opaques. Les catégories d'origine ne sont pas des classifications scientifiques du catalogue. Au-delà de 100 groupes, aucun total ou graphique partiel n'est présenté comme complet.</p>
+<h3 id="schemas-de-compositions-et-fenetres">Schémas de compositions et fenêtres</h3>
+<p>La coupe schématique utilise des bandes dont les largeurs sont proportionnelles aux épaisseurs d'origine en millimètres, dans l'ordre des positions. Elle n'est dessinée que si toutes les parties de la version sont disponibles (100 au maximum), sans hiérarchie, de positions uniques et d'épaisseurs positives et finies. Aucune texture ou couleur propre à un matériau n'est attribuée : les couleurs distinguent les positions. La somme des épaisseurs est arithmétique et ne certifie pas l'épaisseur physique ; les parties importées comme <code>source_part</code> peuvent être d'autres composants que des couches en série. Si la liste est hiérarchique, incomplète ou comporte des épaisseurs inconnues, la table est conservée sans dessiner de coupe fictive.</p>
+<p>Les mesures de parties sont filtrées par modèle et version de composition. Les surfaces (<code>m2</code>) et volumes (<code>m3</code>) sont affichés séparément, sans cumuler les parties, combiner les unités, sélectionner des alternatives ni affecter les données agrégées aux éléments individuels. Les graphiques sont limités à une liste complète de 100 enregistrements au maximum ; les tables sont paginées. Une valeur zéro connue n'est pas équivalente à une donnée manquante.</p>
+<p>Pour une fenêtre dont la fraction de cadre connue est comprise entre 0 et 1, une barre proportionnelle représente le cadre et le reste (vitrage sous l'hypothèse cadre/vitrage). Aucune dimension, géométrie, épaisseur ou composition n'est déduite. Les propriétés thermiques restent des données enregistrées. Les graphiques utilisent des nombres approchés pour l'affichage ; les tables conservent les décimales d'origine.</p>
+<p><img alt="Exemple synthétique de coupe" src="../assets/diagrams/construction.svg" /></p>
+<h2 id="visualiseur-constructif">Visualiseur constructif</h2>
+<p>Dans la barre latérale, ouvrir <strong>Visor constructivo</strong> (visualiseur constructif) et sélectionner un bâtiment et une version du modèle. La vue simplifiée conserve l'explorateur scientifique et utilise les mêmes requêtes en lecture seule. Les fiches sont paginées par six et présentent le nombre d'éléments, la surface individuelle utilisable et sa couverture ; les modèles et mesures alternatives ne sont pas combinés.</p>
+<table>
+<thead>
+<tr>
+<th>Vue</th>
+<th>Critère de regroupement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Éléments opaques</td>
+<td>Nom de composition d'origine et version de l'unique association non retirée ; les associations absentes ou multiples apparaissent comme groupes non résolus sans choisir de composition</td>
+</tr>
+<tr>
+<td>Fenêtres</td>
+<td>Nom d'ouverture enregistré et fraction de cadre ; ce n'est pas une classification géométrique ou matérielle</td>
+</tr>
+</tbody>
+</table>
+<p>Les compositions dont la liste de parties est complète, sans hiérarchie et d'épaisseurs positives et finies sont dessinées en perspective oblique, avec des largeurs proportionnelles et des hauteur et profondeur symboliques. Les numéros identifient les positions d'origine. Sans version de correspondances sélectionnée, les couleurs et hachures sont illustratives et choisies à partir de mots reconnaissables de la description source. En l'absence de famille identifiable de manière univoque, une texture neutre est utilisée. Ni les couches en série, ni l'orientation intérieur/extérieur, ni l'identité matérielle, la masse volumique ou la masse ne sont certifiées. Les listes incomplètes ou hiérarchiques conservent leurs descriptions sans dessin proportionnel.</p>
+<p>Les fenêtres sont représentées par un carré normalisé à bord uniforme. Pour une fraction de cadre f, le côté de la surface restante est la racine carrée de 1 − f. Cela conserve la proportion de surface, non les dimensions réelles ou l'épaisseur physique des profilés. Le cadre a une apparence neutre, sans présumer d'aluminium ou d'un autre matériau. Le reste n'est interprété comme vitrage que sous l'hypothèse cadre/vitrage. Si la fraction manque, aucune fenêtre fictive n'est dessinée.</p>
+<p>Les graphiques de comptage et de surface de l'explorateur scientifique utilisent des barres horizontales classées, des étiquettes de valeurs et une palette cohérente. Les dessins utilisent un fond papier neutre lisible dans les deux thèmes ; la palette ne s'adapte pas dynamiquement. Les figures sont locales, statiques et ne nécessitent aucune ressource graphique externe. Pour les compositions sans éléments associés, les mesures agrégées et la traçabilité, utiliser l'explorateur scientifique. Aucune de ces représentations ne calcule les quantités de matériaux.</p>
+<h3 id="diagnostic-du-batiment">Diagnostic du bâtiment</h3>
+<p>Le visualiseur ouvre par défaut <strong>Resumen general</strong> (vue d'ensemble), avec le nombre d'éléments, la couverture des surfaces individuelles, la distribution, l'état de quantification et le diagnostic du modèle. La navigation sépare la vue d'ensemble, les éléments opaques, les fenêtres, l'inventaire des matériaux et le diagnostic. Ouvrir <strong>Diagnóstico del edificio</strong> (diagnostic du bâtiment) pour filtrer par gravité et type de problème et sélectionner un enregistrement. Le résumé des règles est visible sans déplier de contrôles : il comprend la gravité, le nombre d'enregistrements, les éléments distincts liés et une explication de la conséquence. Les fiches affichent leur état, les comptages par gravité et type, et permettent d'ouvrir le diagnostic filtré. Le bouton <strong>Ver diagnóstico de todo el modelo</strong> (voir le diagnostic de tout le modèle) efface le filtre de la fiche. Les diagnostics sont en lecture seule, obtenus à partir des enregistrements actuels ; ils ne stockent pas de résultats et ne changent pas l'état de révision.</p>
+<table>
+<thead>
+<tr>
+<th>Gravité</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Erreur</td>
+<td>Données inutilisables pour le contrôle concerné ; ne prouve pas l'impossibilité de toutes les voies de quantification</td>
+</tr>
+<tr>
+<td>Avertissement</td>
+<td>Absence, alternative, association ou risque nécessitant une révision</td>
+</tr>
+<tr>
+<td>Observation</td>
+<td>Caractéristique enregistrée ou limite de représentation ne constituant pas nécessairement un défaut</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Périmètre</th>
+<th>Règles disponibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Éléments</td>
+<td>Surface manquante, alternative, inutilisable ou nulle ; propriétés opaques ou de fenêtres manquantes ; fraction de cadre absente ou hors intervalle</td>
+</tr>
+<tr>
+<td>Associations</td>
+<td>Éléments opaques sans association non retirée ou avec plusieurs ; associations provisoires et versions retirées liées</td>
+</tr>
+<tr>
+<td>Compositions et parties</td>
+<td>Composition sans parties ; épaisseur inconnue ou nulle ; parties imbriquées ; parties sans mesures pour le modèle</td>
+</tr>
+<tr>
+<td>Mesures de parties</td>
+<td>Valeur manquante/qualité inconnue ; unité de surface ou de volume inattendue ; alternatives de même type</td>
+</tr>
+<tr>
+<td>Couverture</td>
+<td>Coexistence de surfaces individuelles et de mesures de surface/volume de parties d'une version ; composition mesurée sans éléments associés</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque problème correspond à une règle et à une entité identifiée. Une entité peut présenter plusieurs problèmes. Les occurrences des règles sont distinguées du nombre d'éléments distincts liés : pour les problèmes directs, compter l'élément lui-même ; pour les problèmes partagés, compter les éléments liés à la version par des associations non retirées dans le modèle sélectionné. Le filtre d'une fiche restreint ce dernier nombre à ses propres éléments. Une composition non liée peut présenter des problèmes et zéro élément lié. Ne pas additionner les éléments entre règles ni interpréter ce comptage comme une couverture massique. Les diagnostics de parties et de compositions incluent les versions liées par des associations non retirées ou mesurées dans le modèle. Les mesures d'autres modèles ne comblent jamais les lacunes du modèle sélectionné. La coexistence de résolutions signale un risque à résoudre méthodologiquement, et non un recouvrement physique prouvé. Les associations multiples peuvent représenter des composants légitimes. Un zéro connu reste distinct d'une valeur manquante.</p>
+<p>Les fiches incluent les problèmes directs de leurs éléments et, pour une composition unique, les problèmes partagés de sa version et de ses parties. Un problème partagé peut apparaître sur plusieurs fiches ; leurs comptages ne doivent pas être additionnés pour obtenir le résumé du modèle. Les compositions non liées et les problèmes non attribuables à une fiche sont consultables dans le diagnostic global. Les enregistrements présentent les données, identifiants et mesures d'origine ; pour un problème partagé, les éléments associés à la version au sein du modèle peuvent être paginés, sans prétendre qu'ils sont tous affectés de la même manière. La liste de problèmes est paginée par 100 ; les comptages ne sont pas limités à la page.</p>
+<p>Les correspondances effectives pour un profil de calcul, la masse volumique effective, la couverture massique et la conformité à une méthodologie de calcul ne sont pas encore contrôlées. La quantification future devra partager un moteur scientifique unique, avec des profils et méthodes explicites, des contributions traçables et des diagnostics de calcul. En attendant, <strong>Inventario de materiales</strong> (inventaire des matériaux) indique des masses et volumes à déterminer et une couverture non évaluée ; la vue d'ensemble et les fiches indiquent également les masses en attente sans afficher de zéros fictifs. La couverture des surfaces individuelles de la vue d'ensemble n'est pas la couverture massique. L'absence de problèmes selon les règles actuelles ne certifie pas la validité scientifique de l'inventaire.</p>
+<h2 id="identifications-revisees">Identifications révisées</h2>
+<p>Le sélecteur de version des correspondances du visualiseur est explicite et ne sélectionne rien par défaut. Avec une version révisée, les fiches opaques présentent les noms du catalogue pour les identifications monomatériau prises en charge et les textures des identités du catalogue ; les autres parties restent neutres. Les textures demeurent représentatives et ne certifient pas les propriétés physiques. Les fenêtres conservent leur schéma normalisé sans attribuer un matériau de cadre à partir de son apparence.</p>
+<p>L'inventaire des matériaux affiche les états et justifications par partie et le nombre d'identifications distinctes, non des quantités. Le diagnostic distingue les parties identifiées, en attente, exclues, sans décision et avec affectation non prise en charge. Les éléments liés sont distincts par état et association non retirée ; les comptages ne doivent pas être additionnés entre états. Les compositions mesurées sans éléments peuvent avoir zéro élément lié. Les fiches affichent les parties en attente et exclues dans la liste visible. Les 22 règles de diagnostic de l'inventaire physique restent indépendantes. Voir la <a href="../methodology/mappings/">procédure de révision</a>.</p>
+<h2 id="etiquettes-multilingues">Étiquettes multilingues</h2>
+<p>Le sélecteur <strong>Idioma / Language / Langue</strong> de la barre latérale contrôle tout l’explorateur pendant la session (ES par défaut, EN et FR). Navigation, contrôles, diagnostics, en-têtes et graphiques sont localisés via <code>visualization/i18n.py</code> et <code>i18n_messages.py</code>. Les entités utilisent les libellés éditoriaux à jour de PostgreSQL, avec repli sur l’original en leur absence. Codes, identifiants, justifications et valeurs d’origine ne sont pas réécrits. Les valeurs de domaine sont traduites selon leur contexte pour l’affichage ; les catégories source sans correspondance documentée et les codes d’orientation non interprétés restent des codes. La virgule décimale est utilisée en ES/FR et le point en EN, sans arrondir les valeurs Decimal des tableaux. Les libellés de navigation ne constituent pas des critères scientifiques. Les options des sélecteurs sont explicitement converties du texte affiché vers leur identité interne. Le changement de langue conserve la section active et chaque sélection de liste si elle reste disponible ; sinon, la première option disponible est sélectionnée. Les libellés identiques sont distingués à l’aide de leur identifiant. Les sélections de navigation et de filtres peuvent persister pendant la session.</p>
+<p>La section <strong>Couverture linguistique</strong> présente par entité et langue les totaux applicables, libellés à jour, absents, obsolètes, non applicables et originaux révisés. Sans dénominateur, le pourcentage est nul au sens SQL, et non 0 ou 100 %. Elle réutilise l’audit existant en lecture seule dans un instantané répétable ; aucune exportation ni modification de données. La couverture n’implique ni validation linguistique spécialisée, ni traduction des textes originaux, ni couverture scientifique.</p>
+<h2 id="component-breakdown">Décomposition des composants</h2>
+<p>Sélectionner une version révisée des correspondances. Dans les fiches opaques, ouvrir <strong>Ventilation</strong> pour une partie composite ou <strong>Détail</strong> pour une identification individuelle. L'inventaire des matériaux permet de sélectionner une composition et une partie, y compris celles sans éléments associés. Les fiches de fenêtres affichent les compositions explicitement liées, avec le nombre d'éléments de chaque lien. Les compositions de menuiserie avec décomposition mais sans lien individuel sont affichées séparément, sans les attribuer aux fenêtres. Les identifications et les étiquettes suivent la version et la langue sélectionnées.</p>
+<p>Les détails réutilisent des modèles de dessin pour le béton armé et fibré, les planchers nervurés, les maçonneries de briques, les profilés à rupture de pont thermique, les plaques et les membranes. Les produits sans modèle disposent d'une représentation symbolique des composants ; les identifications individuelles affichent un échantillon de texture. Les chemins de l'arbre relient les repères du dessin et la légende. Un modèle est choisi à partir des descriptions sources et étiquettes des nœuds <strong>à des fins graphiques uniquement</strong> ; les textures utilisent les identités révisées. Les composants non résolus et les géométries non confirmées restent neutres. La légende graphique comprend jusqu'à douze nœuds ; l'arbre textuel conserve tous les composants et justifications. Aucune dalle de compression n'est ajoutée au schéma du plancher nervuré.</p>
+<table>
+<thead>
+<tr>
+<th>Donnée</th>
+<th>Représentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Épaisseur d'origine positive</td>
+<td>Valeur enregistrée de la partie, non épaisseur validée de ses enfants.</td>
+</tr>
+<tr>
+<td>Épaisseur inconnue</td>
+<td>Dimension d'exemple synthétique si un modèle existe ; sinon représentation symbolique sans mesure.</td>
+</tr>
+<tr>
+<td>Géométrie interne</td>
+<td>Illustrative, non à l'échelle, sans fractions approuvées.</td>
+</tr>
+<tr>
+<td>Masse volumique du catalogue</td>
+<td>Candidats par code matériau, identifiant de propriété, valeur ou intervalle, état et références de provenance ; jusqu'à huit par matériau, sans sélection automatique.</td>
+</tr>
+<tr>
+<td>Masse volumique effective ou quantité d'armatures</td>
+<td>Sélection méthodologique en attente ; non déduite des formes dessinées.</td>
+</tr>
+</tbody>
+</table>
+<p>La dimension synthétique sert uniquement à l'illustration et n'est pas une valeur normative. Les quantités inconnues ne sont pas imputées et les paramètres de dessin ne sont pas stockés dans PostgreSQL. La masse volumique de l'acier (masse par volume d'acier) ne détermine ni la quantité d'armatures (masse d'acier par volume du composite) ni leur distribution géométrique. La quantification future devra fournir des dimensions et fractions justifiées pour chaque sous-composant, en distinguant la masse volumique effective des paramètres de dessin. Les détails actuels ne calculent pas les masses et ne certifient pas la configuration des produits.</p>
+<h2 id="galerie-de-textures-et-conventions-graphiques">Galerie de textures et conventions graphiques</h2>
+<p>Dans <strong>Galerie de textures</strong>, consulter les pages de 24 enregistrements et rechercher par code, original ou traduction à jour. La galerie utilise le sélecteur global. Codes, états et textures liées à l’identité sont affichés ; en l’absence de libellé à jour, l’original est conservé. La galerie est en lecture seule.</p>
+<p>Le module <code>visualization/material_textures.py</code> centralise les recettes immuables de hachures/couleurs vectorielles et les associations explicites par code stable du catalogue. La bibliothèque réutilise la fonction de génération de codes de l'adaptateur de référence ; un changement de traduction, de langue ou d'identifiant numérique PostgreSQL ne change pas la texture. Coupes proportionnelles, détails et légendes réutilisent les mêmes recettes. Avant de sélectionner une révision, l'illustration lexicale reste provisoire et n'identifie pas les matériaux.</p>
+<p>Les planches suivantes présentent le vocabulaire graphique générique, non une liste de matériaux présents dans un bâtiment ni un export du catalogue privé. Les motifs sont symboliques : densité graphique, points, cercles, lignes et couleurs ne codent ni porosité, ni fractions, géométrie, masse volumique ou couleur réelle. Les modèles constructifs différencient les formes (par exemple, blocs ou matrice de béton) sans modifier l'identité matérielle.</p>
+<h3 id="mineraux-et-produits-ceramiques">Minéraux et produits céramiques</h3>
+<p><img alt="Conventions des minéraux et produits céramiques" src="../assets/diagrams/textures-mineral.svg" /></p>
+<h3 id="metaux-et-verre">Métaux et verre</h3>
+<p><img alt="Conventions des métaux et du verre" src="../assets/diagrams/textures-metals.svg" /></p>
+<h3 id="bois-et-isolants">Bois et isolants</h3>
+<p><img alt="Conventions du bois et des isolants" src="../assets/diagrams/textures-insulation.svg" /></p>
+<h3 id="polymeres-textiles-et-membranes">Polymères, textiles et membranes</h3>
+<p><img alt="Conventions des polymères, textiles et membranes" src="../assets/diagrams/textures-polymers.svg" /></p>
+<h3 id="etats-de-representation">États de représentation</h3>
+<p><img alt="Conventions des inconnues, vides, exclusions et groupes" src="../assets/diagrams/textures-states.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>État</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identification en attente</td>
+<td>Aucune identité utilisable ; s'applique aussi aux matériaux retirés dans les vues révisées.</td>
+</tr>
+<tr>
+<td>Sans texture spécifique</td>
+<td>Une identité existe, mais aucune convention graphique univoque ou association explicite n'est disponible.</td>
+</tr>
+<tr>
+<td>Vide</td>
+<td>Nœud de vide explicitement défini ; ni affectation matérielle ni imputation de masse nulle.</td>
+</tr>
+<tr>
+<td>Exclusion</td>
+<td>Décision d'exclusion justifiée ; ne retire pas la partie de l'inventaire physique.</td>
+</tr>
+<tr>
+<td>Groupe</td>
+<td>Nœud organisationnel sans affectation matérielle propre.</td>
+</tr>
+</tbody>
+</table>
+<p>Pour étendre la bibliothèque, ajouter ou réutiliser une recette avec des étiquettes ES/EN/FR et associer explicitement le code stable dans <code>CODE_TEXTURES</code>. Les nouveaux codes non associés conservent les hachures génériques de matériau sans texture spécifique ; aucune identité n'est déduite de noms similaires. Les noms commerciaux ou ambigus ne justifient pas d'inventer leur apparence ou composition. Les nouveaux matériaux et masses volumiques sont gérés séparément par les procédures scientifiques.</p>
+<p>Pour régénérer les planches génériques après modification des recettes, avec l'extension de visualisation installée :</p>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">build_texture_gallery</span><span class="p">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">check_docs_languages</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div>
+<p>Le générateur n'interroge ni PostgreSQL ni les fichiers sources. Ne pas publier de captures de la galerie privée ou de bâtiments réels.</p>
+<h2 id="libelles-editoriaux-etendus">Libellés éditoriaux étendus</h2>
+<p>Les noms d’éléments correspondant à des identifiants externes et les noms de niveaux identiques à leur code ne sont pas traduits. L’audit distingue ces cas et les noms vides par <code>not_applicable</code>. Les nœuds conservent les libellés révisés ES/EN comme repli ; les libellés éditoriaux valides sont prioritaires pour l’affichage et le français se replie sur l’espagnol en leur absence.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.sections","navigation.top","content.code.copy","content.tooltips"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9e76c64c.min.js"></script>
+      
+      
+    
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
+</html>

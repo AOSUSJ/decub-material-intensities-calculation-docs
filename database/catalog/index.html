@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/database/catalog/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogo-esquema-implementado&quot;, &quot;catalogproperty_types&quot;, &quot;etiquetas-editoriales-esenfr-0009_localization-0011_french_labels&quot;, &quot;importacion-por-lotes&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/database/catalog/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogproperty_types&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/catalog/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/catalog/" data-decub-anchors="[&quot;__skip&quot;, &quot;catalogclassification_nodes&quot;, &quot;catalogclassification_systems&quot;, &quot;catalogclassification_versions&quot;, &quot;catalogmaterial_aliases&quot;, &quot;catalogmaterial_classifications&quot;, &quot;catalogmaterial_properties&quot;, &quot;catalogmaterials&quot;, &quot;catalogproperty_types&quot;]">
+              Français
             </a>
           </li>
         
@@ -782,10 +790,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etiquetas-editoriales-esen-0009_localization" class="md-nav__link">
+  <a href="#etiquetas-editoriales-esenfr-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Etiquetas editoriales ES/EN (<code>0009_localization</code>)
+        Etiquetas editoriales ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)
       </span>
     </span>
   </a>
@@ -1571,10 +1579,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etiquetas-editoriales-esen-0009_localization" class="md-nav__link">
+  <a href="#etiquetas-editoriales-esenfr-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Etiquetas editoriales ES/EN (<code>0009_localization</code>)
+        Etiquetas editoriales ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)
       </span>
     </span>
   </a>
@@ -2075,7 +2083,7 @@
 <p>El adaptador de referencia agrupa los registros de origen y resuelve claves de referencias, materiales, alias y clasificaciones mediante consultas acotadas a las identidades relevantes. Las clasificaciones se resuelven por niveles: cada padre debe existir antes de crear sus hijos. Para densidades, se consulta la última propiedad del adaptador por material; las propiedades ajenas se mantienen intactas. Los cambios se escriben por lotes sin alterar las reglas de identidad o versionado.</p>
 <p>Los identificadores devueltos por las inserciones se correlacionan con las filas de entrada mediante <code>RETURNING</code> ordenado; no se presupone que sean consecutivos. Se conserva la procedencia de cada relación y la primera ocurrencia de claves repetidas. Se mantienen los controles de integridad y una sola transacción por importación.</p>
 <p>Consulta la <a href="../../imports/catalog/">guía de importación del catálogo</a> para formato, identidad y uso.</p>
-<h2 id="etiquetas-editoriales-esen-0009_localization">Etiquetas editoriales ES/EN (<code>0009_localization</code>)</h2>
+<h2 id="etiquetas-editoriales-esenfr-0009_localization-0011_french_labels">Etiquetas editoriales ES/EN/FR (<code>0009_localization</code>, <code>0011_french_labels</code>)</h2>
 <table>
 <thead>
 <tr>
@@ -2124,7 +2132,7 @@
 <tr>
 <td><code>language</code></td>
 <td>TEXT</td>
-<td><abbr title="Primary Key; clave primaria">PK</abbr> compuesta; <code>es</code> o <code>en</code></td>
+<td><abbr title="Primary Key; clave primaria">PK</abbr> compuesta; <code>es</code>, <code>en</code> o <code>fr</code></td>
 </tr>
 <tr>
 <td><code>source_text</code></td>
@@ -2222,5 +2230,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

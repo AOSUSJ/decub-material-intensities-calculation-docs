@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/database/inventory/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;levels&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;study_areas&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/database/inventory/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;batch-writing-and-traceability&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;categorized-inventory-adapter&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;data-dictionary&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;entity-summary&quot;, &quot;esenfr-editorial-labels-0009_localization-0011_french_labels&quot;, &quot;extended-editorial-labels&quot;, &quot;identity-classification-and-scope&quot;, &quot;import-criteria&quot;, &quot;levels&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;physical-inventory&quot;, &quot;study_areas&quot;, &quot;synthetic-assembly-example&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/inventory/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/inventory/" data-decub-anchors="[&quot;__skip&quot;, &quot;building_classifications&quot;, &quot;building_measurements&quot;, &quot;building_models&quot;, &quot;buildings&quot;, &quot;construction_parts&quot;, &quot;construction_versions&quot;, &quot;constructions&quot;, &quot;element_classifications&quot;, &quot;element_constructions&quot;, &quot;element_identifiers&quot;, &quot;element_measurements&quot;, &quot;element_relationships&quot;, &quot;elements&quot;, &quot;levels&quot;, &quot;opaque_properties&quot;, &quot;part_measurements&quot;, &quot;study_areas&quot;, &quot;urban_blocks&quot;, &quot;window_properties&quot;]">
+              Français
             </a>
           </li>
         
@@ -1008,10 +1016,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esen-editorial-labels-0009_localization" class="md-nav__link">
+  <a href="#esenfr-editorial-labels-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ES/EN editorial labels (<code>0009_localization</code>)
+        ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-editorial-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extended editorial labels
       </span>
     </span>
   </a>
@@ -1969,10 +1988,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esen-editorial-labels-0009_localization" class="md-nav__link">
+  <a href="#esenfr-editorial-labels-0009_localization-0011_french_labels" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        ES/EN editorial labels (<code>0009_localization</code>)
+        ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-editorial-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extended editorial labels
       </span>
     </span>
   </a>
@@ -2011,6 +2041,8 @@
     BUILDING_MODELS ||--o{ LEVELS : contains
     BUILDING_MODELS ||--o{ ELEMENTS : contains
     LEVELS o|--o{ ELEMENTS : location
+    ELEMENTS ||--o{ ELEMENT_LABELS : labels
+    LEVELS ||--o{ LEVEL_LABELS : labels
     ELEMENTS ||--o{ ELEMENT_IDENTIFIERS : identified
     ELEMENTS ||--o{ ELEMENT_MEASUREMENTS : measured
     ELEMENTS ||--o| WINDOW_PROPERTIES : has
@@ -3313,7 +3345,7 @@
 <h3 id="batch-writing-and-traceability">Batch writing and traceability</h3>
 <p>The importer groups source records, construction versions and parts, elements, measurements, subtypes and associations according to their dependencies. Existing assembly keys and latest versions are queried in groups. Entities generating identifiers request <code>RETURNING</code> with explicit parameter-order correlation; correspondence is not inferred from sequence continuity. Dependent relationships are written after retrieving the corresponding identifiers.</p>
 <p>Constraints, triggers and the transactional advisory lock are retained. Unknown data, original names, physical fingerprint and scientific configuration do not change with a different batch size. The entire load is committed together. Simulation still writes no records.</p>
-<h2 id="esen-editorial-labels-0009_localization">ES/EN editorial labels (<code>0009_localization</code>)</h2>
+<h2 id="esenfr-editorial-labels-0009_localization-0011_french_labels">ES/EN/FR editorial labels (<code>0009_localization</code>, <code>0011_french_labels</code>)</h2>
 <table>
 <thead>
 <tr>
@@ -3352,7 +3384,7 @@
 <tr>
 <td><code>language</code></td>
 <td>TEXT</td>
-<td>Composite <abbr title="Primary Key">PK</abbr>; <code>es</code> or <code>en</code></td>
+<td>Composite <abbr title="Primary Key">PK</abbr>; <code>es</code>, <code>en</code> or <code>fr</code></td>
 </tr>
 <tr>
 <td><code>source_text</code></td>
@@ -3382,6 +3414,9 @@
 </tbody>
 </table>
 <p>Each label table uses the same structure. Its composite primary key prevents more than one label per entity and language. The foreign key restricts deletion of the original entity. <code>source_text</code> preserves the translated original; if it no longer matches the entity, presentation queries return NULL and the viewer retains the original. <code>origin</code> records editorial provenance; <code>note</code> can record ambiguity and limitations. These are neither scientific calculation inputs nor material equivalences. The loader does not overwrite differing labels; later revisions must be resolved explicitly.</p>
+<h2 id="extended-editorial-labels">Extended editorial labels</h2>
+<p>Revision <code>0012_extended_labels</code> adds <code>inventory.element_labels</code>, <code>inventory.level_labels</code> and <code>methodology.decomposition_node_labels</code>. The first two reference the entity ID; the third uses the composite key <code>(part_mapping_id, path)</code>. All three support ES/EN/FR, retain original text, provenance, note and creation date, and reject missing references. Scientific revisions and identifiers are unchanged. Downgrade is refused if the new tables contain labels.</p>
+<p>Element names matching external identifiers and level names matching their code are not translated. The audit distinguishes these cases and empty names using <code>not_applicable</code>. Nodes retain reviewed ES/EN labels as fallback; current editorial labels take precedence in presentation, and French falls back to Spanish when absent.</p>
 
 
 
@@ -3450,5 +3485,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

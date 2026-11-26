@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/architecture/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/architecture/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/architecture/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/architecture/" data-decub-anchors="[&quot;__skip&quot;, &quot;architecture&quot;, &quot;processing-and-persistence&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/architecture/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/architecture/" data-decub-anchors="[&quot;__skip&quot;, &quot;architecture&quot;]">
+              Français
             </a>
           </li>
         
@@ -1406,7 +1414,7 @@
     S[(Central PostgreSQL)] --&gt; X[Private query explorer]
     S --&gt; I[ingest / inventory / catalog]
     I --&gt; M[methodology]
-    S --&gt; L[ES/EN labels]
+    S --&gt; L[ES/EN/FR labels]
     L --&gt; M
     M --&gt; H[Hierarchical interpretation]
     H --&gt; X
@@ -1478,7 +1486,7 @@
 <h2 id="processing-and-persistence">Processing and persistence</h2>
 <p>PostgreSQL is the primary source. SQL filters and relates inputs; Python will implement scientific logic. Polars will be the preferred tabular engine and DuckDB an analytical complement (e.g. queries on Parquet or Arrow). Algorithms will not be duplicated without justification, and no engine is assumed to be faster for everything. Interoperability will be checked with actual tests, including decimal precision and nulls.</p>
 <p>Future caching will be selective, with input fingerprints, methodology and code versions, limits and cleanup. DuckDB will use memory and temporary files in <code>data/cache/</code>; its memory limits do not necessarily cover all process consumption. Values in <code>config/defaults/processing.yaml</code> are indicative and not yet applied automatically. Do not replicate PostgreSQL locally. <code>data/raw</code>, <code>data/cache</code>, <code>data/results</code> are private; detailed results may be persisted in the <code>results</code> tables once the services are implemented. Never publish them in Git or Pages.</p>
-<p>The ES/EN editorial label layer resides in separate relational tables with foreign keys to the original entities. Its loader and presentation queries are independent of the scientific engine and mapping fingerprints.</p>
+<p>The ES/EN/FR editorial label layer resides in separate relational tables with foreign keys to the original entities. Its loader and presentation queries are independent of the scientific engine and mapping fingerprints.</p>
 <p>Versioned identification supports multilingual names and qualitative trees independent of physical parts. See <a href="../methodology/mappings/">mappings</a> and <a href="../methodology/decomposition/">decomposition</a>.</p>
 
 
@@ -1548,5 +1556,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

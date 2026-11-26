@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/database/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/database/" data-decub-anchors="[&quot;__skip&quot;, &quot;modelo-relacional&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/database/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/database/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/database/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/database/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1385,13 +1393,13 @@
     PART_MAPPINGS ||--o{ DECOMPOSITION_NODES : "desglosa"
     DECOMPOSITION_NODES o|--o{ DECOMPOSITION_NODES : "padre"
     MATERIAL_ASSIGNMENTS o|--o{ DECOMPOSITION_NODES : "identifica hoja"
-    MATERIALS ||--o{ MATERIAL_LABELS : "ES/EN"
+    MATERIALS ||--o{ MATERIAL_LABELS : "ES/EN/FR"
     PART_MAPPINGS ||--o{ MATERIAL_ASSIGNMENTS : "resuelve"
     MATERIALS ||--o{ MATERIAL_ASSIGNMENTS : "identifica"
     MATERIALS ||--o{ MATERIAL_PROPERTIES : "descrito"
     CALCULATION_RUNS ||--o{ MATERIAL_QUANTITIES : "produce"
     MATERIAL_ASSIGNMENTS o|--o{ MATERIAL_QUANTITIES : "contribuye"</code></pre>
-<p>El <abbr title="Entity Relationship Diagram; diagrama entidad-relación">ERD</abbr> global es conceptual. Las páginas por esquema detallan entidades y campos de las diez revisiones ejecutables (56 tablas, incluidas siete tablas de etiquetas editoriales y una de descomposición). El servicio de sellado de entradas está disponible; los importadores de catálogo y <abbr title="Herramienta Unificada LIDER-CALENER">HULC</abbr> están disponibles; los cálculos y escritores de resultados siguen pendientes.</p>
+<p>El <abbr title="Entity Relationship Diagram; diagrama entidad-relación">ERD</abbr> global es conceptual. Las páginas por esquema detallan entidades y campos de las doce revisiones ejecutables (59 tablas, incluidas diez tablas de etiquetas editoriales y una de descomposición). El servicio de sellado de entradas está disponible; los importadores de catálogo y <abbr title="Herramienta Unificada LIDER-CALENER">HULC</abbr> están disponibles; los cálculos y escritores de resultados siguen pendientes.</p>
 
 
 
@@ -1460,5 +1468,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

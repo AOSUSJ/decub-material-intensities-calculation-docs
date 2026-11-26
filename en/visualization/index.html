@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/visualization/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/visualization/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/visualization/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/visualization/" data-decub-anchors="[&quot;__skip&quot;, &quot;architectural-viewer&quot;, &quot;assembly-schematics-and-windows&quot;, &quot;building-browser-and-visualizations&quot;, &quot;building-diagnostics&quot;, &quot;component-breakdown&quot;, &quot;decub-private-explorer&quot;, &quot;extended-editorial-labels&quot;, &quot;installation-and-execution&quot;, &quot;metals-and-glass&quot;, &quot;minerals-and-ceramic-products&quot;, &quot;multilingual-labels&quot;, &quot;navigation&quot;, &quot;polymers-textiles-and-membranes&quot;, &quot;representation-states&quot;, &quot;reviewed-identifications&quot;, &quot;texture-gallery-and-graphical-conventions&quot;, &quot;wood-and-insulation&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/visualization/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/visualization/" data-decub-anchors="[&quot;__skip&quot;, &quot;component-breakdown&quot;, &quot;navigation&quot;]">
+              Français
             </a>
           </li>
         
@@ -1416,6 +1424,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extended-editorial-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extended editorial labels
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1725,6 +1744,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extended-editorial-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extended editorial labels
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1805,6 +1835,10 @@
 <tr>
 <td>Quality</td>
 <td>Missing scalar density, unmatched opaque elements and part measurements without values</td>
+</tr>
+<tr>
+<td>Language coverage</td>
+<td>Label coverage by entity and language</td>
 </tr>
 </tbody>
 </table>
@@ -1928,9 +1962,10 @@
 <p>The viewer mapping version selector is explicit and defaults to no selection. With a reviewed version, opaque cards show catalog names for supported single-material identifications and catalog-identity textures; remaining parts are neutral. Textures remain representative and do not certify physical properties. Windows retain their normalized diagram without assigning frame material from appearance.</p>
 <p>The material inventory displays per-part states and justifications and distinct identification counts, not quantities. Diagnostics distinguish identified, pending, excluded, missing-decision and unsupported-assignment parts. Related elements are distinct per state and non-retired association; counts must not be summed across states. Measured assemblies without elements may have zero related elements. Cards display pending and excluded parts in the visible part list. The 22 physical inventory diagnostic rules remain independent. See the <a href="../methodology/mappings/">review procedure</a>.</p>
 <h2 id="multilingual-labels">Multilingual labels</h2>
-<p>The technical explorer includes label tables and displays <code>label_es</code> and <code>label_en</code> beside the original name for supported entities; literal search includes both translations. The architectural viewer offers a language selector for material and assembly labels (Spanish interface). If a translation is missing or stale, the original name is retained. <strong>Français / original</strong> shows the original material names (mostly French in the reference catalog); assemblies, decomposition nodes and justifications remain in Spanish. This is not a full interface translation and does not add French labels to PostgreSQL. Identified material textures are resolved by stable code; grouping and mappings retain their original identity: translation does not alter results or change the material. Bibliographic titles and source descriptions remain available for traceability. Translated data are loaded through the CLI, not the viewer.</p>
+<p>The sidebar <strong>Idioma / Language / Langue</strong> selector controls the entire explorer for the session (ES by default, EN and FR). Navigation, controls, diagnostics, headers and charts are localized through <code>visualization/i18n.py</code> and <code>i18n_messages.py</code>. Entities use current PostgreSQL editorial labels, falling back to the original when absent. Codes, identifiers, justifications and original values are not rewritten. Domain values are translated by context for presentation; source categories without documented correspondence and uninterpreted orientation codes remain codes. Decimal formatting uses commas in ES/FR and points in EN, without rounding Decimal values in tables. Navigation labels are not scientific criteria. Selector options are explicitly decoded from visible text to their internal identity. Changing language keeps the active section and preserves each list selection if it remains available; if it disappears, the first available option is selected. Identical labels are disambiguated using their identifier. Navigation and filter selections may persist during the session.</p>
+<p>The <strong>Language coverage</strong> section shows applicable totals, current, missing, stale, not-applicable and reviewed-original labels by entity and language. If there is no denominator, the percentage is null, not 0 or 100%. It uses the existing read-only audit within a repeatable snapshot; it does not export or modify data. Coverage does not imply specialist linguistic validation, translation of original texts or scientific coverage.</p>
 <h2 id="component-breakdown">Component breakdown</h2>
-<p>Select a reviewed mapping version. In opaque cards, open <strong>Desglose</strong> (breakdown) for a composite part or <strong>Detalle</strong> (detail) for an individual identification. The material inventory allows selecting an assembly and part, including those without linked elements. Window cards display explicitly linked assemblies, with the number of elements in each link. Joinery assemblies with a breakdown but no individual link are displayed separately, without attributing them to windows. Identifications and labels follow the selected version and language.</p>
+<p>Select a reviewed mapping version. In opaque cards, open <strong>Breakdown</strong> for a composite part or <strong>Detail</strong> for an individual identification. The material inventory allows selecting an assembly and part, including those without linked elements. Window cards display explicitly linked assemblies, with the number of elements in each link. Joinery assemblies with a breakdown but no individual link are displayed separately, without attributing them to windows. Identifications and labels follow the selected version and language.</p>
 <p>Details reuse drawing templates for reinforced and fibre-reinforced concrete, ribbed slabs, brick masonry, thermally broken profiles, boards and membranes. Products without a template have a symbolic component representation; individual identifications display a texture sample. Tree paths connect drawing markers and the key. A template is chosen from source descriptions and node labels <strong>for graphical purposes only</strong>; material textures use reviewed identities. Unresolved components and unconfirmed geometries are neutral. The graphical key includes up to twelve nodes; the textual tree retains all components and justifications. No topping is added to the ribbed slab schematic.</p>
 <table>
 <thead>
@@ -1964,7 +1999,7 @@
 </table>
 <p>The synthetic dimension is for illustration only and is not a normative standard value. Unknown quantities are not imputed, and drawing parameters are not stored in PostgreSQL. Steel density (mass per volume of steel) does not determine reinforcement content (mass of steel per volume of the composite) or geometric distribution. Future quantification must provide justified dimensions and fractions for each subcomponent, distinguishing effective density from drawing parameters. Current details do not calculate masses or certify product configuration.</p>
 <h2 id="texture-gallery-and-graphical-conventions">Texture gallery and graphical conventions</h2>
-<p>In the private explorer, open <strong>Galería de texturas</strong> (texture gallery) to inspect catalog materials in pages of 24 records. Search by original name, code or current translation and select Spanish, English or <strong>Français / original</strong> labels. In the latter mode material names retain their source wording even when it is not French, while graphical conventions and states are labeled in French. The table displays the code and status of each identity. The gallery does not edit data.</p>
+<p>In <strong>Texture gallery</strong>, browse pages of 24 records and search by code, original or current translation. The gallery uses the global selector. Codes, status and identity-bound textures are shown; absent or stale labels fall back to the original. The gallery is read-only.</p>
 <p>The <code>visualization/material_textures.py</code> module centralizes immutable vector hatch/color recipes and explicit bindings by stable catalog code. The library reuses the reference adapter’s code-generation function; changing a translation, language or PostgreSQL numeric identifier does not change the texture. Proportional sections, details and keys reuse the same recipes. Before selecting a review, lexical illustration remains provisional and does not identify materials.</p>
 <p>The following sheets show the generic graphical vocabulary, not a list of materials present in a building or an export of the private catalog. Patterns are symbolic: graphical density, dots, circles, lines and colors do not encode porosity, fractions, geometry, physical density or actual color. Construction templates provide shape differences (for example, blocks versus a concrete matrix) without changing material identity.</p>
 <h3 id="minerals-and-ceramic-products">Minerals and ceramic products</h3>
@@ -2013,6 +2048,8 @@
 <span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">check_docs_languages</span><span class="p">.</span><span class="n">py</span>
 </code></pre></div>
 <p>The generator does not query PostgreSQL or source files. Do not publish screenshots of the private gallery or real buildings.</p>
+<h2 id="extended-editorial-labels">Extended editorial labels</h2>
+<p>Element names matching external identifiers and level names matching their code are not translated. The audit distinguishes these cases and empty names using <code>not_applicable</code>. Nodes retain reviewed ES/EN labels as fallback; current editorial labels take precedence in presentation, and French falls back to Spanish when absent.</p>
 
 
 
@@ -2081,5 +2118,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

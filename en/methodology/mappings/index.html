@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/methodology/mappings/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/methodology/mappings/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;, &quot;material-mappings&quot;, &quot;profiles-and-mappings&quot;, &quot;single-material-mapping-review&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/methodology/mappings/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/methodology/mappings/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1468,7 +1476,7 @@
 </tr>
 </tbody>
 </table>
-<p>The <code>material_code</code> field also accepts the full original name, a registered alias or a current ES/EN label from <code>catalog.material_labels</code>. Exact codes take precedence; other inputs are compared ignoring case, accents and whitespace while retaining punctuation and word order. Zero or multiple matches reject the review; there is no partial matching or automatic selection. Editorial labels do not change the template fingerprint or original suggestions. When names are used, simulation returns <code>resolved_names</code> with part identifiers and resolved codes. Check that list and, to fix the selection unambiguously before applying, replace names with codes. Application resolves inputs again with current labels locked and records the submitted name and resolved code in the version notes.</p>
+<p>The <code>material_code</code> field also accepts the full original name, a registered alias or a current ES/EN/FR label from <code>catalog.material_labels</code>. Exact codes take precedence; other inputs are compared ignoring case, accents and whitespace while retaining punctuation and word order. Zero or multiple matches reject the review; there is no partial matching or automatic selection. Editorial labels do not change the template fingerprint or original suggestions. When names are used, simulation returns <code>resolved_names</code> with part identifiers and resolved codes. Check that list and, to fix the selection unambiguously before applying, replace names with codes. Application resolves inputs again with current labels locked and records the submitted name and resolved code in the version notes.</p>
 <p>Suggestions are normalized name/alias matches and bilingual search terms; even a unique candidate requires review. They are neither equivalences nor probabilities. Reviewers must leave composite parts pending when single-material identification cannot be justified. Parent parts and retired assemblies cannot receive single-material assignments in this procedure. No proportions are inferred: fraction fields remain null. Exclusions do not represent zero mass. Cavities, composite joinery and multi-component assignments require subsequent methodology.</p>
 <div class="highlight"><pre><span></span><code><span class="n">decub</span> <span class="n">mapping</span> <span class="n">review</span> <span class="p">-</span><span class="o">-file</span> <span class="n">data</span><span class="p">/</span><span class="n">mapping</span><span class="p">/</span><span class="n">review</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-dry-run</span>
 <span class="n">decub</span> <span class="n">mapping</span> <span class="n">review</span> <span class="p">-</span><span class="o">-file</span> <span class="n">data</span><span class="p">/</span><span class="n">mapping</span><span class="p">/</span><span class="n">review</span><span class="p">.</span><span class="n">json</span> <span class="p">-</span><span class="n">-apply</span>
@@ -1544,5 +1552,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

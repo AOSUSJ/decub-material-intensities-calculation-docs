@@ -26,6 +26,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -171,14 +173,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/development/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/development/" data-decub-anchors="[&quot;__skip&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/development/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/development/" data-decub-anchors="[&quot;__skip&quot;, &quot;development-and-contribution&quot;, &quot;explorer-tests&quot;, &quot;import-performance-validation&quot;, &quot;postgresql-integration&quot;, &quot;trilingual-documentation&quot;, &quot;versioning-and-generated-artifacts&quot;, &quot;web-publication&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/development/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/development/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1310,6 +1318,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versioning-and-generated-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versioning and generated artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web-publication" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1360,10 +1379,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bilingual-documentation" class="md-nav__link">
+  <a href="#trilingual-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Bilingual documentation
+        Trilingual documentation
       </span>
     </span>
   </a>
@@ -1419,6 +1438,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versioning-and-generated-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versioning and generated artifacts
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web-publication" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -1469,10 +1499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bilingual-documentation" class="md-nav__link">
+  <a href="#trilingual-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Bilingual documentation
+        Trilingual documentation
       </span>
     </span>
   </a>
@@ -1506,7 +1536,10 @@ ruff<span class="w"> </span>check<span class="w"> </span>.
 python<span class="w"> </span>tools/check_public_tree.py
 python<span class="w"> </span>tools/build_docs.py
 </code></pre></div>
-<p>Do not edit applied migrations; create a new revision, review it and test it against isolated PostgreSQL. Do not enable autogeneration for schemas of other applications. Documentation publication uses only <code>docs/</code>, <code>docs-en/</code> and public resources.</p>
+<p>Do not edit applied migrations; create a new revision, review it and test it against isolated PostgreSQL. Do not enable autogeneration for schemas of other applications. Documentation publication uses only <code>docs/es/</code>, <code>docs/en/</code>, <code>docs/fr/</code> and public resources.</p>
+<h2 id="versioning-and-generated-artifacts">Versioning and generated artifacts</h2>
+<p>The program follows <code>MAJOR.MINOR.PATCH</code> (0.x while the API and methodology evolve). Increment MINOR for functional milestones and PATCH for fixes to a published version; reserve 1.0.0 for a first stable, scientifically validated version. The single source is <code>src/decub/__init__.py</code>; setuptools derives package metadata from it. Update README and CHANGELOG in all three languages when changing the version and reinstall the editable package (<code>python -m pip install -e ".[dev,docs,visualization]"</code>). Check <code>decub --version</code>. Do not create retrospective tags for unpublished versions.</p>
+<p><code>build/</code> contains temporary Zensical work (including the single-language destinations <code>standalone-es</code>, <code>standalone-en</code> and <code>standalone-fr</code>) and may contain setuptools artifacts; <code>dist/</code> contains generated packages and <code>site/</code> the compiled website. All three directories are excluded from Git. They can be regenerated; first stop any build or preview using them.</p>
 <h2 id="web-publication">Web publication</h2>
 <p>The main repository may remain private. The sibling public repository <code>decub-material-intensities-calculation-docs</code> (same organization) contains exclusively the compiled website. Do not edit it manually: its <code>main</code> branch is replaced by static files on each publication.</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1520,7 +1553,7 @@ python<span class="w"> </span>tools/build_docs.py
 <li>Create a fine-grained access token with access only to the public repository and Contents: Read and write permission. Store it as Actions secret <code>DOCS_PUBLISH_TOKEN</code> in the main repository. Do not store it in files or share it. The organization may require approval.</li>
 <li>Review public content and run the Documentation workflow from <code>main</code>. It also runs when changes are integrated into <code>main</code>.</li>
 </ol>
-<p>The workflow builds with the organization's public URL, validates file types (including exact path exceptions for Zensical's <code>assets/javascripts/LICENSE</code> and its English counterpart) and basic credential patterns, and publishes the static artifact through a separate job. The publishing secret is used only in that job. The main repository history is not copied. Publication requires institutional authorization; automated checks do not replace content review. The local site retains its usual address.</p>
+<p>The workflow builds with the organization's public URL, validates file types (including exact path exceptions for Zensical's <code>assets/javascripts/LICENSE</code> and its English and French counterparts) and basic credential patterns, and publishes the static artifact through a separate job. The publishing secret is used only in that job. The main repository history is not copied. Publication requires institutional authorization; automated checks do not replace content review. The local site retains its usual address.</p>
 <p><strong>Privacy:</strong> do not add actual sources, derived data, geometries, credentials or results to the repository. <code>.gitignore</code> does not remove already tracked files; review <code>git status</code> and the diff before each commit. Examples and tests must be synthetic. The distribution license requires confirmation from the responsible parties.</p>
 <p>The Git index check detects restricted paths and some credential patterns; it does not replace content review or detect all potentially sensitive data. Run it after staging changes for commit.</p>
 <h2 id="postgresql-integration">PostgreSQL integration</h2>
@@ -1530,14 +1563,15 @@ python<span class="w"> </span>tools/build_docs.py
 <p>Integration tests compare equivalent synthetic imports with batch sizes 1 and 10 on the same isolated database, using a savepoint to undo the first import. They count SQL executions observed by SQLAlchemy/DBAPI; no machine-dependent time threshold is imposed. They also check correspondence between source records and IDs, absence of duplication and rollback following an integrity violation in a later batch. Time improvements over a remote connection must be measured separately.</p>
 <h2 id="explorer-tests">Explorer tests</h2>
 <p>CI installs the <code>visualization</code> extra together with <code>dev</code> and <code>docs</code>. Offline tests check bounded queries, parameters and relationships, and a Streamlit interface test simulates missing configuration. PostgreSQL integration checks actual queries and rejection of writes in a read-only transaction. The application runs locally; it is not part of the static documentation artifact. Synthetic tests also check strip order and proportions, frame fractions, unknown values and model scoping; integration tests check that alternative areas do not duplicate counts or get summed.</p>
-<h2 id="bilingual-documentation">Bilingual documentation</h2>
-<p>Spanish sources are in <code>docs/</code>, English sources in <code>docs-en/</code>, with matching relative paths. The <code>zensical.toml</code> and <code>zensical.en.toml</code> configurations maintain equivalent navigation and the main repository link. Spanish is the default; English is published under <code>/en/</code>. The native header selector links to the selected language's home page. The main repository is private: the link does not grant access permissions. Both configurations share <code>project.extra.scope</code> (the Spanish base URL, replaced when building for publication), so theme preferences are independent of language.</p>
-<p>Update both versions in the same change, including dictionaries, diagrams, abbreviations, examples and navigation. Technical names, SQL contracts and commands remain identical. Structural parity checks do not certify translation semantic equivalence on their own; review content before publication.</p>
+<h2 id="trilingual-documentation">Trilingual documentation</h2>
+<p>The repository README and CHANGELOG remain at the root in Spanish, with translations in <code>docs/en/</code> and <code>docs/fr/</code>. Their initial links allow switching between all three versions. Zensical explicitly excludes these repository documents from the web build; <code>index.md</code> remains the homepage.</p>
+<p>Spanish sources are in <code>docs/es/</code>, English sources in <code>docs/en/</code> and French sources in <code>docs/fr/</code>, with matching relative paths. The <code>docs/zensical.es.toml</code>, <code>docs/zensical.en.toml</code> and <code>docs/zensical.fr.toml</code> configurations maintain equivalent navigation and the main repository link. Spanish is the default; English is published under <code>/en/</code> and French under <code>/fr/</code>. In the combined build, the native header selector uses explicit deployment-root paths to link to the equivalent page in the selected language. A script reinforces the click destination and retains the anchor if its identifier exists on both pages; otherwise, it opens the equivalent page without an anchor. The link also works without JavaScript. The build checks each destination in the final HTML. To recheck the existing site, run <code>python tools/build_docs.py --check-links</code> (with the same <code>--site-url</code> used for the build, if specified). The single-language editing server does not include this processing. The main repository is private: the link does not grant access permissions. All three configurations share <code>project.extra.scope</code> (the Spanish base URL, replaced when building for publication), so theme preferences are independent of language. The public selector does not change the private explorer or CLI language.</p>
+<p>Update all three versions in the same change, including dictionaries, diagrams, abbreviations, examples and navigation. Technical names, SQL contracts and commands remain identical. Structural parity checks do not certify translation semantic equivalence on their own; review content before publication.</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/check_docs_languages.py
 python<span class="w"> </span>tools/build_docs.py
 python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>site
 </code></pre></div>
-<p>Strict builds of both versions generate <code>site/</code> only after validating each language's artifacts and combining them. For a public URL, use <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (replace with the authorized URL). The combined preview allows testing the selector and links with the local server. <code>zensical serve</code> remains useful for editing the Spanish version but does not serve the combined build of both languages. CI and publication use the same builder; the publishing job receives only the validated static site.</p>
+<p>Strict builds of all three versions generate <code>site/</code> only after validating each language's artifacts and combining them. For a public URL, use <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (replace with the authorized URL). The combined preview allows testing the selector and links with the local server. Permanent configurations remain in <code>docs/</code>; the builder creates and removes a temporary configuration at the repository root, with relative source and output paths inside that root, as required by Zensical. Do not run Zensical directly with the configurations in <code>docs/</code>. To edit a single edition, use <code>python tools/build_docs.py --serve-language es</code> (or <code>en</code> or <code>fr</code>); this mode does not serve the combined build of all three languages. CI and publication use the same builder; the publishing job receives only the validated static site. Each configuration declares <code>edit_uri</code> using <code>/</code> separators and its edition path on <code>main</code>, preventing Zensical from deriving an edit URL from a native Windows path.</p>
 <p>Mapping tests use synthetic data, verify that proposals do not assign materials, reject stale reviews and inconsistent decisions, and check the scope of linked or measured parts. PostgreSQL integration checks simulation, writing and reading a new version and rejection of repeated versions. Tests also cover multilingual names, ambiguity, stale labels and persistence of the resolved code.</p>
 <p>Editorial labels have a composite primary key (entity and language); tests insert synthetic records without requiring a surrogate <code>id</code>.</p>
 
@@ -1608,5 +1642,5 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

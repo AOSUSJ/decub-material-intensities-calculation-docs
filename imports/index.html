@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/imports/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/imports/" data-decub-anchors="[&quot;__skip&quot;, &quot;auditoria-de-localizacion&quot;, &quot;etiquetas-editoriales-ampliadas&quot;, &quot;importacion-de-datos&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/imports/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/imports/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/imports/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/imports/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -412,6 +420,23 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Descripción general
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="././" class="md-nav__link md-nav__link--active">
         
   
@@ -427,6 +452,48 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#auditoria-de-localizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auditoría de localización
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1301,6 +1368,11 @@
                       
                     
                     
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -1312,6 +1384,36 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#auditoria-de-localizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auditoría de localización
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1363,6 +1465,12 @@
     D --&gt; F[Correspondencias futuras]
     E --&gt; F</code></pre>
 <p>Los ejemplos son sintéticos. Las reglas de persistencia y diccionarios se describen en <a href="../database/">base de datos</a>.</p>
+<h2 id="auditoria-de-localizacion">Auditoría de localización</h2>
+<p><code>decub labels audit</code> inventaría las tablas y columnas textuales de los esquemas de dominio desplegados y resume etiquetas vigentes, ausentes y obsoletas por idioma. <code>decub labels export --file data/localization/audit.json</code> añade identidades, textos originales, etiquetas vigentes y valores distintos de campos candidatos seleccionados. <code>--language fr --missing-only</code> filtra las entradas editoriales a las que falta una etiqueta francesa vigente; no filtra los candidatos ni los totales. El informe no es un documento de carga: los conflictos y etiquetas obsoletas requieren revisión. Los nombres de elementos, niveles y otras denominaciones pueden ser privados; revisar antes de compartir. No se exportan mediciones numéricas, notas científicas, credenciales ni rutas de fuentes. Transacción de solo lectura y snapshot consistente; no sobrescribe archivos. La auditoría de columnas no implica que todas sean traducibles.</p>
+<h2 id="etiquetas-editoriales-ampliadas">Etiquetas editoriales ampliadas</h2>
+<p>Para cargar un nodo, utilizar <code>entity: methodology.decomposition_nodes</code>, <code>part_mapping_id</code> (entero), <code>path</code> (texto), <code>source_text</code> (etiqueta española revisada) y <code>labels</code> (idiomas explícitos). Para elementos y niveles utilizar <code>entity: inventory.elements</code> o <code>inventory.levels</code>, <code>id</code> (entero), <code>source_text</code> y <code>labels</code>. Usar identidades obtenidas de la misma base de datos; no reutilizar IDs entre instalaciones. El formato 1, la procedencia, el dry-run y el rechazo de conflictos se mantienen.</p>
+<p>Los nombres de elementos que coinciden con identificadores externos y los nombres de niveles iguales a su código no se traducen. La auditoría distingue estos casos y los nombres vacíos mediante <code>not_applicable</code>. Los nodos conservan las etiquetas revisadas ES/EN como retorno; las traducciones editoriales vigentes tienen prioridad en la presentación y el francés retorna al español si falta.</p>
+<p>La auditoría incluye los valores distintos de <code>orientation</code> y de la clave autorizada <code>metadata.source_category</code>, no el JSON completo. <code>reviewed_original</code> distingue los originales revisados ES/EN contabilizados como vigentes de las etiquetas editoriales persistidas.</p>
 
 
 
@@ -1431,5 +1539,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>

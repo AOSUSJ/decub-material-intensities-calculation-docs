@@ -28,6 +28,8 @@
         
           <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en">
         
+          <link rel="alternate" href="https://aosusj.github.io/decub-material-intensities-calculation-docs/fr/" hreflang="fr">
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -173,14 +175,20 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/" hreflang="es" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/visualization/" hreflang="es" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/visualization/" data-decub-anchors="[&quot;__skip&quot;, &quot;desglose-de-componentes&quot;, &quot;diagnostico-del-edificio&quot;, &quot;esquemas-constructivos-y-ventanas&quot;, &quot;estados-de-representacion&quot;, &quot;etiquetas-editoriales-ampliadas&quot;, &quot;etiquetas-multilingues&quot;, &quot;explorador-privado-decub&quot;, &quot;galeria-de-texturas-y-convenciones-graficas&quot;, &quot;identificaciones-revisadas&quot;, &quot;instalacion-y-ejecucion&quot;, &quot;madera-y-aislamientos&quot;, &quot;metales-y-vidrios&quot;, &quot;minerales-y-productos-ceramicos&quot;, &quot;navegacion&quot;, &quot;navegador-de-edificios-y-visualizaciones&quot;, &quot;polimeros-textiles-y-membranas&quot;, &quot;visor-constructivo-arquitectonico&quot;]">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="https://aosusj.github.io/decub-material-intensities-calculation-docs/en/" hreflang="en" class="md-select__link">
+            <a href="/decub-material-intensities-calculation-docs/en/visualization/" hreflang="en" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/en/visualization/" data-decub-anchors="[&quot;__skip&quot;]">
               English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/decub-material-intensities-calculation-docs/fr/visualization/" hreflang="fr" class="md-select__link" data-decub-target="/decub-material-intensities-calculation-docs/fr/visualization/" data-decub-anchors="[&quot;__skip&quot;]">
+              Français
             </a>
           </li>
         
@@ -1416,6 +1424,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1725,6 +1744,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#etiquetas-editoriales-ampliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Etiquetas editoriales ampliadas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1805,6 +1835,10 @@
 <tr>
 <td>Calidad</td>
 <td>Densidad escalar ausente, opacos sin asociación y mediciones de parte sin valor</td>
+</tr>
+<tr>
+<td>Cobertura lingüística</td>
+<td>Cobertura de etiquetas por entidad e idioma</td>
 </tr>
 </tbody>
 </table>
@@ -1928,7 +1962,8 @@
 <p>El selector de versiones de correspondencias del visor es explícito y por defecto no selecciona ninguna. Con una versión revisada, las tarjetas de opacos muestran nombres del catálogo para las identificaciones individuales admitidas y texturas por identidad del catálogo; las demás partes quedan neutras, con una trama distinta para exclusiones justificadas. La textura sigue siendo representativa y no certifica propiedades físicas. Las ventanas mantienen el esquema normalizado, sin asignar material al marco por su aspecto.</p>
 <p>El inventario de materiales muestra estados y justificaciones por parte y recuentos de identificaciones distintas, no cantidades. En el diagnóstico se distinguen partes identificadas, pendientes, excluidas, sin decisión y asignaciones no utilizables por este visor. Los elementos relacionados son distintos por estado y asociación no retirada, no deben sumarse entre estados. Las composiciones medidas sin elementos pueden tener cero relacionados. Las tarjetas muestran pendientes y exclusiones de la lista de partes visible. Las 22 reglas de diagnóstico físico son independientes. Véase el <a href="../methodology/mappings/">procedimiento de revisión</a>.</p>
 <h2 id="etiquetas-multilingues">Etiquetas multilingües</h2>
-<p>El explorador técnico incluye las tablas de etiquetas y muestra <code>label_es</code> y <code>label_en</code> junto al nombre original en las entidades compatibles; la búsqueda literal incluye ambas traducciones. El visor constructivo ofrece un selector de idioma para etiquetas de materiales y composiciones (interfaz en español). Si falta una traducción o está desactualizada, se conserva el nombre original. El modo <strong>Français / original</strong> muestra los nombres originales de los materiales (mayoritariamente franceses en el catálogo de referencia); las composiciones, los nodos del desglose y las justificaciones permanecen en español. No es una traducción completa de la interfaz ni añade etiquetas francesas a PostgreSQL. Las texturas de materiales identificados se resuelven por código estable; las agrupaciones y correspondencias conservan su identidad original: una traducción no altera los resultados ni cambia el material. Los títulos bibliográficos y las descripciones de origen se mantienen disponibles para trazabilidad. Los datos traducidos se cargan por CLI, no desde el visor.</p>
+<p>El selector <strong>Idioma / Language / Langue</strong> de la barra lateral controla todo el explorador en la sesión (ES por defecto, EN y FR). Los textos de navegación, controles, diagnósticos, cabeceras y gráficos se localizan mediante <code>visualization/i18n.py</code> e <code>i18n_messages.py</code>. Las entidades utilizan las etiquetas editoriales vigentes de PostgreSQL; si faltan, se conserva el original. Los códigos, identificadores, justificaciones y valores originales no se reescriben. Los valores de dominio se traducen por contexto en presentación; las categorías de origen sin correspondencia documentada y los códigos de orientación no interpretados permanecen como códigos. Los formatos decimales usan coma en ES/FR y punto en EN, sin redondear las tablas de valores Decimal. Las etiquetas de navegación no se usan como criterios científicos. Las opciones de los selectores se convierten explícitamente desde el texto visible a su identidad interna. Al cambiar de idioma se mantiene el apartado activo y se conserva cada selección de lista si sigue disponible; si desaparece, se selecciona la primera opción disponible. Las denominaciones coincidentes se distinguen mediante su identificador. Las selecciones de navegación y de filtros pueden mantenerse durante la sesión.</p>
+<p>La sección <strong>Cobertura lingüística</strong> presenta por entidad e idioma el total aplicable, etiquetas vigentes, ausentes, obsoletas, no aplicables y originales revisadas. Si no hay denominador, el porcentaje es nulo, no 0 ni 100 %. Utiliza la auditoría de solo lectura existente dentro de una instantánea repetible; no exporta ni modifica datos. La cobertura no implica validación lingüística especializada, ni traducción de textos originales, ni cobertura científica.</p>
 <h2 id="desglose-de-componentes">Desglose de componentes</h2>
 <p>Selecciona una versión de correspondencias revisada. En los cerramientos, abre <strong>Desglose</strong> para una parte compuesta o <strong>Detalle</strong> para una identificación individual. El inventario de materiales permite seleccionar composición y parte, también cuando no hay elementos vinculados. En ventanas se muestran las composiciones explícitamente vinculadas, con el recuento de elementos de cada vínculo. Las composiciones de carpintería con desglose sin vínculo individual se muestran aparte, sin atribuirlas a las ventanas. La identificación y las etiquetas siguen la versión y el idioma seleccionados.</p>
 <p>Los detalles reutilizan plantillas de dibujo para hormigón armado y reforzado con fibras, forjados nervados, fábricas de ladrillo, perfiles con rotura térmica, placas y membranas. Los productos sin plantilla disponen de una representación simbólica de componentes; las identificaciones individuales muestran una muestra de textura. Las rutas del árbol enlazan con las marcas del dibujo y la leyenda. Una plantilla se elige por descripción y etiquetas de nodos, <strong>solo con finalidad gráfica</strong>; las texturas de material provienen de identidades revisadas. Los componentes pendientes y geometrías no acreditadas se representan de forma neutra. La leyenda gráfica incluye hasta doce nodos; el árbol textual conserva todos los componentes y justificaciones. No se añade una capa de compresión al esquema del forjado.</p>
@@ -1964,7 +1999,7 @@
 </table>
 <p>La dimensión sintética es exclusivamente gráfica y no constituye un valor estándar normativo. Las cantidades desconocidas no se imputan, ni se guardan parámetros de los dibujos en PostgreSQL. La densidad del acero (masa por volumen de acero) no determina la cuantía de armadura (masa de acero por volumen del compuesto) ni su distribución geométrica. La futura cuantificación deberá proporcionar las dimensiones y fracciones justificadas de cada subcomponente, diferenciando densidad efectiva y parámetros de dibujo. Los detalles actuales no calculan masas ni certifican la configuración del producto.</p>
 <h2 id="galeria-de-texturas-y-convenciones-graficas">Galería de texturas y convenciones gráficas</h2>
-<p>En el explorador privado, abre <strong>Galería de texturas</strong> para consultar los materiales del catálogo en páginas de 24 registros. Puedes buscar por nombre original, código o traducción vigente y seleccionar etiquetas en español, inglés o <strong>Français / original</strong>. En este último modo los nombres materiales se conservan tal como llegaron de la fuente, incluso si no son franceses, y las convenciones y estados gráficos se presentan en francés. La tabla muestra el código y estado de cada identidad. No se editan datos desde la galería.</p>
+<p>En <strong>Galería de texturas</strong>, consulta páginas de 24 registros y busca por código, original o traducción vigente. La galería utiliza el selector global. Se muestran código, estado y textura por identidad; en ausencia de etiqueta vigente se conserva el original. No se editan datos desde la galería.</p>
 <p>El módulo <code>visualization/material_textures.py</code> centraliza recetas inmutables de color y trama vectorial y vinculaciones explícitas por código estable del catálogo. La biblioteca reutiliza la función de generación de códigos del adaptador de referencia; cambiar una traducción, el idioma o el identificador numérico de PostgreSQL no cambia la textura. Las secciones proporcionales, los detalles y las leyendas reutilizan las mismas recetas. Antes de elegir una revisión, la ilustración léxica sigue siendo provisional y no identifica materiales.</p>
 <p>Las siguientes láminas muestran el vocabulario gráfico genérico, no un listado de materiales presentes en un edificio ni una exportación del catálogo privado. Los patrones son simbólicos: su densidad gráfica, puntos, círculos, líneas y colores no indican porosidad, fracciones, geometría, densidad física ni color real. Las plantillas constructivas aportan diferencias de forma (por ejemplo, bovedillas frente a matriz de hormigón) sin cambiar la identidad material.</p>
 <h3 id="minerales-y-productos-ceramicos">Minerales y productos cerámicos</h3>
@@ -2013,6 +2048,8 @@
 <span class="n">python</span> <span class="n">tools</span><span class="p">/</span><span class="n">check_docs_languages</span><span class="p">.</span><span class="n">py</span>
 </code></pre></div>
 <p>El generador no consulta PostgreSQL ni archivos de origen. No publicar capturas de la galería privada ni de edificios reales.</p>
+<h2 id="etiquetas-editoriales-ampliadas">Etiquetas editoriales ampliadas</h2>
+<p>Los nombres de elementos que coinciden con identificadores externos y los nombres de niveles iguales a su código no se traducen. La auditoría distingue estos casos y los nombres vacíos mediante <code>not_applicable</code>. Los nodos conservan las etiquetas revisadas ES/EN como retorno; las traducciones editoriales vigentes tienen prioridad en la presentación y el francés retorna al español si falta.</p>
 
 
 
@@ -2081,5 +2118,5 @@
       
       
     
-  </body>
+  <script src="/decub-material-intensities-calculation-docs/assets/decub-language-links.js" defer></script></body>
 </html>
