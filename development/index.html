@@ -30,7 +30,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/branding/decub-favicon.png">
       <meta name="generator" content="zensical-0.1.3">
     
     
@@ -107,8 +107,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="./.." title="DECUB · Inventario de materiales" class="md-header__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/branding/decub-logo.png" alt="DECUB · Inventario de materiales">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -250,8 +249,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="DECUB · Inventario de materiales" class="md-nav__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/branding/decub-logo.png" alt="DECUB · Inventario de materiales">
 
     </a>
     DECUB · Inventario de materiales
@@ -1575,6 +1573,7 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
 <p>La compilación estricta de las tres versiones genera <code>site/</code> solo tras validar los artefactos de cada idioma y combinarlos. Para una URL pública, usar <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (sustituir por la URL autorizada). La previsualización conjunta permite probar el selector y los enlaces con el servidor local. Las configuraciones permanentes permanecen en <code>docs/</code>; el compilador crea y elimina una configuración temporal en la raíz del repositorio, con rutas relativas de fuentes y salida dentro de esa raíz, como exige Zensical. No ejecutar Zensical directamente con las configuraciones de <code>docs/</code>. Para editar una sola edición, utilizar <code>python tools/build_docs.py --serve-language es</code> (o <code>en</code> o <code>fr</code>); este modo no sirve la compilación conjunta de los tres idiomas. CI y publicación utilizan el mismo compilador; el trabajo de publicación solo recibe el sitio estático validado. Cada configuración declara <code>edit_uri</code> con separadores <code>/</code> y la ruta de su edición en <code>main</code>, para evitar que Zensical derive una URL de edición a partir de una ruta nativa de Windows.</p>
 <p>Las pruebas de correspondencias usan datos sintéticos, verifican que las propuestas no asignan materiales, rechazan revisiones obsoletas y decisiones incoherentes, y comprueban el ámbito de partes vinculadas o medidas. La integración PostgreSQL comprueba la simulación, escritura y lectura de una nueva versión y el rechazo de versiones repetidas. Se prueban además nombres multilingües, ambigüedad, etiquetas desactualizadas y persistencia del código resuelto.</p>
 <p>Las etiquetas editoriales tienen clave primaria compuesta (entidad e idioma); las pruebas insertan sus registros sintéticos sin exigir un identificador artificial <code>id</code>.</p>
+<p>Los recursos de identidad visual se mantienen en <code>src/decub/visualization/assets/</code>. Las tres ediciones documentales incluyen copias idénticas en <code>assets/branding/</code> para compilarse de forma independiente. Si cambia el logotipo, actualizar todas las copias y el favicon; las pruebas verifican su igualdad. El símbolo ASCII de la CLI es una representación esquemática independiente.</p>
 
 
 

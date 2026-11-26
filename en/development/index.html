@@ -30,7 +30,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/branding/decub-favicon.png">
       <meta name="generator" content="zensical-0.1.3">
     
     
@@ -107,8 +107,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="./.." title="DECUB · Material inventory" class="md-header__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/branding/decub-logo.png" alt="DECUB · Material inventory">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -250,8 +249,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="./.." title="DECUB · Material inventory" class="md-nav__button md-logo" aria-label="DECUB · Material inventory" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../assets/branding/decub-logo.png" alt="DECUB · Material inventory">
 
     </a>
     DECUB · Material inventory
@@ -1575,6 +1573,7 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
 <p>Strict builds of all three versions generate <code>site/</code> only after validating each language's artifacts and combining them. For a public URL, use <code>python tools/build_docs.py --site-url https://example.org/docs/</code> (replace with the authorized URL). The combined preview allows testing the selector and links with the local server. Permanent configurations remain in <code>docs/</code>; the builder creates and removes a temporary configuration at the repository root, with relative source and output paths inside that root, as required by Zensical. Do not run Zensical directly with the configurations in <code>docs/</code>. To edit a single edition, use <code>python tools/build_docs.py --serve-language es</code> (or <code>en</code> or <code>fr</code>); this mode does not serve the combined build of all three languages. CI and publication use the same builder; the publishing job receives only the validated static site. Each configuration declares <code>edit_uri</code> using <code>/</code> separators and its edition path on <code>main</code>, preventing Zensical from deriving an edit URL from a native Windows path.</p>
 <p>Mapping tests use synthetic data, verify that proposals do not assign materials, reject stale reviews and inconsistent decisions, and check the scope of linked or measured parts. PostgreSQL integration checks simulation, writing and reading a new version and rejection of repeated versions. Tests also cover multilingual names, ambiguity, stale labels and persistence of the resolved code.</p>
 <p>Editorial labels have a composite primary key (entity and language); tests insert synthetic records without requiring a surrogate <code>id</code>.</p>
+<p>Visual identity assets are maintained in <code>src/decub/visualization/assets/</code>. The three documentation editions include identical copies in <code>assets/branding/</code> so they can build independently. If the logo changes, update all copies and the favicon; tests verify their equality. The CLI ASCII symbol is a separate schematic representation.</p>
 
 
 

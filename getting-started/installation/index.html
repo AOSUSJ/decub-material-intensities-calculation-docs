@@ -32,7 +32,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/branding/decub-favicon.png">
       <meta name="generator" content="zensical-0.1.3">
     
     
@@ -109,8 +109,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../.." title="DECUB · Inventario de materiales" class="md-header__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../../assets/branding/decub-logo.png" alt="DECUB · Inventario de materiales">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -252,8 +251,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="DECUB · Inventario de materiales" class="md-nav__button md-logo" aria-label="DECUB · Inventario de materiales" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  <img src="../../assets/branding/decub-logo.png" alt="DECUB · Inventario de materiales">
 
     </a>
     DECUB · Inventario de materiales
@@ -1570,6 +1568,7 @@
 <span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-e</span> <span class="s2">".[dev,docs]"</span>
 </code></pre></div>
 <p>Linux/macOS: <code>source .venv/bin/activate</code>. Ejecutar desde la raíz del repositorio.</p>
+<p>La ayuda general <code>decub --help</code> (o <code>decub -h</code>) muestra el nombre completo del proyecto y una símbolo ASCII. Las ayudas de subcomandos y las salidas de datos conservan su formato. No requiere acceso a PostgreSQL. La ayuda muestra <code>DECUB — Decarbonizing Urban Blocks</code> (guion normal si la codificación de salida no admite la raya).</p>
 <h2 id="conexion">Conexión</h2>
 <p>Copiar <code>.env.example</code> a <code>.env</code> y configurar <code>DECUB_DATABASE_URL</code> con el controlador <code>postgresql+psycopg</code>. Usar las opciones de TLS indicadas por el administrador; codificar caracteres reservados de usuario y contraseña. No incluir secretos en argumentos de terminal, YAML, documentación o commits. El rol de migración necesita permiso de creación de esquemas y tablas en la base autorizada. Usar un rol de acceso limitado para operaciones ordinarias cuando estén disponibles.</p>
 <h2 id="gestion-de-revisiones">Gestión de revisiones</h2>
@@ -1601,6 +1600,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pytest
 <h2 id="exportar-informes-markdown-a-pdf">Exportar informes Markdown a PDF</h2>
 <p>Opcionalmente, abrir la raíz del repositorio en Visual Studio Code e instalar la extensión <a href="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf">Markdown PDF</a> (<code>yzane.markdown-pdf</code>). La configuración compartida <code>.vscode/settings.json</code> utiliza <code>.vscode/markdown-pdf.css</code> para informes A4, tablas paginables, figuras y numeración de páginas. La exportación manual se ejecuta con <code>Markdown PDF: Export (pdf)</code> desde la paleta de comandos con el Markdown activo. El PDF se guarda junto al Markdown, incluso en subdirectorios; conservar las imágenes relativas junto al original. Abrir el repositorio como carpeta raíz, no solamente la carpeta del informe. Si existen preferencias locales de VS Code, conservarlas al integrar estos ajustes.</p>
 <p>Para un salto de página explícito se puede usar <code>&lt;div class="page"&gt;&lt;/div&gt;</code> en el Markdown. Las tablas mantienen las palabras completas siempre que sea posible; las de hasta cuatro filas de datos intentan mantenerse juntas, mientras que las largas pueden continuar con su cabecera repetida. Se intenta evitar una última fila aislada y se ajustan los espacios sin reducir el tamaño de letra. La paginación depende del motor de impresión: revisar visualmente las páginas, especialmente tablas anchas, figuras y la última página, antes de distribuir. Guardar los informes y sus PDF con datos reales dentro de <code>data/</code>, fuera de Git y de la web pública. El estilo no altera los datos ni la compilación Zensical.</p>
+<p>El logotipo y el favicon se incluyen localmente; la ayuda general muestra una representación ASCII del símbolo y no requiere conexión.</p>
 
 
 
